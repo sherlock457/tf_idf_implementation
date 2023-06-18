@@ -3,18 +3,72 @@
   <head>
     <title>Search Page</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e6f0ff;
+      }
+      .form{
+      margin: 20px auto;
+      width: 400px;
+      font-size: 30px;
+      }
+      a {
+      color: #337ab7; /* Default link color */
+      text-decoration: none; /* Remove underline by default */
+      }
+      a:hover {
+      text-decoration: underline; /* Add underline on hover */
+      }
+      a:visited {
+      color: #800080; /* Change link color for visited links */
+      }
+      .result{
+        position: absolute;
+        left: 30%;
+
+      }
+      .section{
+        flex-direction: row;
+        line-height: 25px;
+      }
+      input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      }   
+    input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+    input[type="submit"]:hover {
+    background-color: #555;
+    }
+
+
+    </style>
   </head>
   <body>
     <div class="form">
       <form method="POST">
-        {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
+        {{ form.hidden_tag() }}{{ form.search.label }} {{ form.search() }} {{
         form.submit() }}
       </form>
     </div>
-    <div>
+    <div class="result">
       {% for result in results %}
+      <div class="section">
       <a href="{{ result['Question Link'] }}">{{ result['Question Link'] }}</a>
-      <p>Score: {{ result['Score'] }}</p>
+      <!-- <p>Score: {{ result['Score'] }}</p> -->
+      </div>
       {% endfor %}
     </div>
   </body>
