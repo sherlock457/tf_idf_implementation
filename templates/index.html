@@ -2,68 +2,20 @@
 <html>
   <head>
     <title>Search Page</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      body{
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #e6f0ff;
-      }
-      .form{
-      margin: 20px auto;
-      width: 400px;
-      font-size: 30px;
-      }
-      a {
-      color: #337ab7; /* Default link color */
-      text-decoration: none; /* Remove underline by default */
-      }
-      a:hover {
-      text-decoration: underline; /* Add underline on hover */
-      }
-      a:visited {
-      color: #800080; /* Change link color for visited links */
-      }
-      .result{
-        position: absolute;
-        left: 30%;
-
-      }
-      .section{
-        flex-direction: row;
-        line-height: 25px;
-      }
-      input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      }   
-    input[type="submit"] {
-    padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    }
-    input[type="submit"]:hover {
-    background-color: #555;
-    }
-
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
+    <h1>LEETCODE QUESTION FINDER</h1>
     <div class="form">
       <form method="POST">
-        {{ form.hidden_tag() }}{{ form.search.label }} {{ form.search() }} {{
-        form.submit() }}
+        {{ form.hidden_tag() }} 
+        {{ form.search() }} 
+        <input type="image" src="/static/search-icon.png" alt="Search" class="icon">
+        {{ form.submit() }}
       </form>
     </div>
     <div class="result">
+      <h2>Your Search Results Are</h2>
       {% for result in results %}
       <div class="section">
       <a href="{{ result['Question Link'] }}">{{ result['Question Link'] }}</a>

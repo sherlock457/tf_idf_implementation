@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 app=Flask(__name__)
-
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 def load_vocab():
     vocab = {}
@@ -125,7 +125,7 @@ def calc_docs_sorted_order(q_terms):
 app.config['SECRET_KEY']='your-secret-key'
 
 class SearchForm(FlaskForm):
-    search = StringField('Enter your search term')
+    search = StringField('Enter your search term :')
     submit = SubmitField('Search')
 @app.route("/<query>")
 def return_links(query):
