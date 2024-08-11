@@ -1,13 +1,15 @@
-There is an m x n grid with a ball. The ball is initially at the position [startRow, startColumn]. You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply at most maxMove moves to the ball.
-Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 109 + 7.
+You are given a 2D array of integers envelopes where envelopes[i] = [wi, hi] represents the width and the height of an envelope.
+One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope's width and height.
+Return the maximum number of envelopes you can Russian doll (i.e., put one inside the other).
+Note: You cannot rotate an envelope.
   Example 1:
-Input: m = 2, n = 2, maxMove = 2, startRow = 0, startColumn = 0
-Output: 6
+Input: envelopes = [[5,4],[6,4],[6,7],[2,3]]
+Output: 3
+Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4] => [6,7]).
 Example 2:
-Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1
-Output: 12
+Input: envelopes = [[1,1],[1,1],[1,1]]
+Output: 1
   Constraints:
-1 <= m, n <= 50
-0 <= maxMove <= 50
-0 <= startRow < m
-0 <= startColumn < n
+1 <= envelopes.length <= 105
+envelopes[i].length == 2
+1 <= wi, hi <= 105

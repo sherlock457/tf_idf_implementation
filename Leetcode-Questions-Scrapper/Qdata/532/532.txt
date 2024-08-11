@@ -1,21 +1,15 @@
-You are given a 2D matrix of size m x n, consisting of non-negative integers. You are also given an integer k.
-The value of coordinate (a, b) of the matrix is the XOR of all matrix[i][j] where 0 <= i <= a < m and 0 <= j <= b < n (0-indexed).
-Find the kth largest value (1-indexed) of all the coordinates of matrix.
+Alice and Bob continue their games with piles of stones.  There are a number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].  The objective of the game is to end with the most stones. 
+Alice and Bob take turns, with Alice starting first.  Initially, M = 1.
+On each player's turn, that player can take all the stones in the first X remaining piles, where 1 <= X <= 2M.  Then, we set M = max(M, X).
+The game continues until all the stones have been taken.
+Assuming Alice and Bob play optimally, return the maximum number of stones Alice can get.
   Example 1:
-Input: matrix = [[5,2],[1,6]], k = 1
-Output: 7
-Explanation: The value of coordinate (0,1) is 5 XOR 2 = 7, which is the largest value.
+Input: piles = [2,7,9,4,4]
+Output: 10
+Explanation:  If Alice takes one pile at the beginning, Bob takes two piles, then Alice takes 2 piles again. Alice can get 2 + 4 + 4 = 10 piles in total. If Alice takes two piles at the beginning, then Bob can take all three piles left. In this case, Alice get 2 + 7 = 9 piles in total. So we return 10 since it's larger. 
 Example 2:
-Input: matrix = [[5,2],[1,6]], k = 2
-Output: 5
-Explanation: The value of coordinate (0,0) is 5 = 5, which is the 2nd largest value.
-Example 3:
-Input: matrix = [[5,2],[1,6]], k = 3
-Output: 4
-Explanation: The value of coordinate (1,0) is 5 XOR 1 = 4, which is the 3rd largest value.
+Input: piles = [1,2,3,4,5,100]
+Output: 104
   Constraints:
-m == matrix.length
-n == matrix[i].length
-1 <= m, n <= 1000
-0 <= matrix[i][j] <= 106
-1 <= k <= m * n
+1 <= piles.length <= 100
+1 <= piles[i] <= 104

@@ -1,18 +1,30 @@
-You are given two positive integers startPos and endPos. Initially, you are standing at position startPos on an infinite number line. With one step, you can move either one position to the left, or one position to the right.
-Given a positive integer k, return the number of different ways to reach the position endPos starting from startPos, such that you perform exactly k steps. Since the answer may be very large, return it modulo 109 + 7.
-Two ways are considered different if the order of the steps made is not exactly the same.
-Note that the number line includes negative integers.
+You are given a 0-indexed string s that you must perform k replacement operations on. The replacement operations are given as three 0-indexed parallel arrays, indices, sources, and targets, all of length k.
+To complete the ith replacement operation:
+Check if the substring sources[i] occurs at index indices[i] in the original string s.
+If it does not occur, do nothing.
+Otherwise if it does occur, replace that substring with targets[i].
+For example, if s = "abcd", indices[i] = 0, sources[i] = "ab", and targets[i] = "eee", then the result of this replacement will be "eeecd".
+All replacement operations must occur simultaneously, meaning the replacement operations should not affect the indexing of each other. The testcases will be generated such that the replacements will not overlap.
+For example, a testcase with s = "abc", indices = [0, 1], and sources = ["ab","bc"] will not be generated because the "ab" and "bc" replacements overlap.
+Return the resulting string after performing all replacement operations on s.
+A substring is a contiguous sequence of characters in a string.
   Example 1:
-Input: startPos = 1, endPos = 2, k = 3
-Output: 3
-Explanation: We can reach position 2 from 1 in exactly 3 steps in three ways:
-- 1 -> 2 -> 3 -> 2.
-- 1 -> 2 -> 1 -> 2.
-- 1 -> 0 -> 1 -> 2.
-It can be proven that no other way is possible, so we return 3.
+Input: s = "abcd", indices = [0, 2], sources = ["a", "cd"], targets = ["eee", "ffff"]
+Output: "eeebffff"
+Explanation:
+"a" occurs at index 0 in s, so we replace it with "eee".
+"cd" occurs at index 2 in s, so we replace it with "ffff".
 Example 2:
-Input: startPos = 2, endPos = 5, k = 10
-Output: 0
-Explanation: It is impossible to reach position 5 from position 2 in exactly 10 steps.
+Input: s = "abcd", indices = [0, 2], sources = ["ab","ec"], targets = ["eee","ffff"]
+Output: "eeecd"
+Explanation:
+"ab" occurs at index 0 in s, so we replace it with "eee".
+"ec" does not occur at index 2 in s, so we do nothing.
   Constraints:
-1 <= startPos, endPos, k <= 1000
+1 <= s.length <= 1000
+k == indices.length == sources.length == targets.length
+1 <= k <= 100
+0 <= indexes[i] < s.length
+1 <= sources[i].length, targets[i].length <= 50
+s consists of only lowercase English letters.
+sources[i] and targets[i] consist of only lowercase English letters.

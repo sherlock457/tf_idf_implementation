@@ -1,17 +1,20 @@
-Given two numbers arr1 and arr2 in base -2, return the result of adding them together.
-Each number is given in array format:  as an array of 0s and 1s, from most significant bit to least significant bit.  For example, arr = [1,1,0,1] represents the number (-2)^3 + (-2)^2 + (-2)^0 = -3.  A number arr in array, format is also guaranteed to have no leading zeros: either arr == [0] or arr[0] == 1.
-Return the result of adding arr1 and arr2 in the same format: as an array of 0s and 1s with no leading zeros.
+You may recall that an array arr is a mountain array if and only if:
+arr.length >= 3
+There exists some index i (0-indexed) with 0 < i < arr.length - 1 such that:
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+Given an integer array arr, return the length of the longest subarray, which is a mountain. Return 0 if there is no mountain subarray.
   Example 1:
-Input: arr1 = [1,1,1,1,1], arr2 = [1,0,1]
-Output: [1,0,0,0,0]
-Explanation: arr1 represents 11, arr2 represents 5, the output represents 16.
+Input: arr = [2,1,4,7,3,2,5]
+Output: 5
+Explanation: The largest mountain is [1,4,7,3,2] which has length 5.
 Example 2:
-Input: arr1 = [0], arr2 = [0]
-Output: [0]
-Example 3:
-Input: arr1 = [0], arr2 = [1]
-Output: [1]
+Input: arr = [2,2,2]
+Output: 0
+Explanation: There is no mountain.
   Constraints:
-1 <= arr1.length, arr2.length <= 1000
-arr1[i] and arr2[i] are 0 or 1
-arr1 and arr2 have no leading zeros
+1 <= arr.length <= 104
+0 <= arr[i] <= 104
+  Follow up:
+Can you solve it using only one pass?
+Can you solve it in O(1) space?

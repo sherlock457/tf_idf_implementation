@@ -1,18 +1,20 @@
-You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==yi" or "xi!=yi".Here, xi and yi are lowercase letters (not necessarily different) that represent one-letter variable names.
-Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+Return true if there is a cycle in the linked list. Otherwise, return false.
   Example 1:
-Input: equations = ["a==b","b!=a"]
-Output: false
-Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not the second.
-There is no way to assign the variables to satisfy both equations.
-Example 2:
-Input: equations = ["b==a","a==b"]
+Input: head = [3,2,0,-4], pos = 1
 Output: true
-Explanation: We could assign a = 1 and b = 1 to satisfy both equations.
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+Example 2:
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+Example 3:
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
   Constraints:
-1 <= equations.length <= 500
-equations[i].length == 4
-equations[i][0] is a lowercase letter.
-equations[i][1] is either '=' or '!'.
-equations[i][2] is '='.
-equations[i][3] is a lowercase letter.
+The number of the nodes in the list is in the range [0, 104].
+-105 <= Node.val <= 105
+pos is -1 or a valid index in the linked-list.
+  Follow up: Can you solve it using O(1) (i.e. constant) memory?

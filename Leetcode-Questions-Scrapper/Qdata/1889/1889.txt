@@ -1,13 +1,20 @@
-You are given an integer array nums consisting of n elements, and an integer k.
-Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.
+Given the radius and the position of the center of a circle, implement the function randPoint which generates a uniform random point inside the circle.
+Implement the Solution class:
+Solution(double radius, double x_center, double y_center) initializes the object with the radius of the circle radius and the position of the center (x_center, y_center).
+randPoint() returns a random point inside the circle. A point on the circumference of the circle is considered to be in the circle. The answer is returned as an array [x, y].
   Example 1:
-Input: nums = [1,12,-5,-6,50,3], k = 4
-Output: 12.75000
-Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
-Example 2:
-Input: nums = [5], k = 1
-Output: 5.00000
+Input
+["Solution", "randPoint", "randPoint", "randPoint"]
+[[1.0, 0.0, 0.0], [], [], []]
+Output
+[null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]
+
+Explanation
+Solution solution = new Solution(1.0, 0.0, 0.0);
+solution.randPoint(); // return [-0.02493, -0.38077]
+solution.randPoint(); // return [0.82314, 0.38945]
+solution.randPoint(); // return [0.36572, 0.17248]
   Constraints:
-n == nums.length
-1 <= k <= n <= 105
--104 <= nums[i] <= 104
+0 < radius <= 108
+-107 <= x_center, y_center <= 107
+At most 3 * 104 calls will be made to randPoint.

@@ -1,12 +1,18 @@
-You are given an integer num. You can swap two digits at most once to get the maximum valued number.
-Return the maximum valued number you can get.
+Given a string s containing only three types of characters: '(', ')' and '*', return true if s is valid.
+The following rules define a valid string:
+Any left parenthesis '(' must have a corresponding right parenthesis ')'.
+Any right parenthesis ')' must have a corresponding left parenthesis '('.
+Left parenthesis '(' must go before the corresponding right parenthesis ')'.
+'*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or an empty string "".
   Example 1:
-Input: num = 2736
-Output: 7236
-Explanation: Swap the number 2 and the number 7.
+Input: s = "()"
+Output: true
 Example 2:
-Input: num = 9973
-Output: 9973
-Explanation: No swap.
+Input: s = "(*)"
+Output: true
+Example 3:
+Input: s = "(*))"
+Output: true
   Constraints:
-0 <= num <= 108
+1 <= s.length <= 100
+s[i] is '(', ')' or '*'.

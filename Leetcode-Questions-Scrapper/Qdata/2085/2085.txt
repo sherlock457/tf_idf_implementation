@@ -1,22 +1,12 @@
-A split of an integer array is good if:
-The array is split into three non-empty contiguous subarrays - named left, mid, right respectively from left to right.
-The sum of the elements in left is less than or equal to the sum of the elements in mid, and the sum of the elements in mid is less than or equal to the sum of the elements in right.
-Given nums, an array of non-negative integers, return the number of good ways to split nums. As the number may be too large, return it modulo 109 + 7.
+Given a binary tree, find its minimum depth.
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+Note: A leaf is a node with no children.
   Example 1:
-Input: nums = [1,1,1]
-Output: 1
-Explanation: The only good way to split nums is [1] [1] [1].
+Input: root = [3,9,20,null,null,15,7]
+Output: 2
 Example 2:
-Input: nums = [1,2,2,2,5,0]
-Output: 3
-Explanation: There are three good ways of splitting nums:
-[1] [2] [2,2,5,0]
-[1] [2,2] [2,5,0]
-[1,2] [2,2] [5,0]
-Example 3:
-Input: nums = [3,2,1]
-Output: 0
-Explanation: There is no good way to split nums.
+Input: root = [2,null,3,null,4,null,5,null,6]
+Output: 5
   Constraints:
-3 <= nums.length <= 105
-0 <= nums[i] <= 104
+The number of nodes in the tree is in the range [0, 105].
+-1000 <= Node.val <= 1000

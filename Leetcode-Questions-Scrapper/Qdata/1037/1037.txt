@@ -1,32 +1,37 @@
-You are given a positive integer k. You are also given:
-a 2D integer array rowConditions of size n where rowConditions[i] = [abovei, belowi], and
-a 2D integer array colConditions of size m where colConditions[i] = [lefti, righti].
-The two arrays contain integers from 1 to k.
-You have to build a k x k matrix that contains each of the numbers from 1 to k exactly once. The remaining cells should have the value 0.
-The matrix should also satisfy the following conditions:
-The number abovei should appear in a row that is strictly above the row at which the number belowi appears for all i from 0 to n - 1.
-The number lefti should appear in a column that is strictly left of the column at which the number righti appears for all i from 0 to m - 1.
-Return any matrix that satisfies the conditions. If no answer exists, return an empty matrix.
+You are given a 0-indexed m x n binary matrix grid.
+A 0-indexed m x n difference matrix diff is created with the following procedure:
+Let the number of ones in the ith row be onesRowi.
+Let the number of ones in the jth column be onesColj.
+Let the number of zeros in the ith row be zerosRowi.
+Let the number of zeros in the jth column be zerosColj.
+diff[i][j] = onesRowi + onesColj - zerosRowi - zerosColj
+Return the difference matrix diff.
   Example 1:
-Input: k = 3, rowConditions = [[1,2],[3,2]], colConditions = [[2,1],[3,2]]
-Output: [[3,0,0],[0,0,1],[0,2,0]]
-Explanation: The diagram above shows a valid example of a matrix that satisfies all the conditions.
-The row conditions are the following:
-- Number 1 is in row 1, and number 2 is in row 2, so 1 is above 2 in the matrix.
-- Number 3 is in row 0, and number 2 is in row 2, so 3 is above 2 in the matrix.
-The column conditions are the following:
-- Number 2 is in column 1, and number 1 is in column 2, so 2 is left of 1 in the matrix.
-- Number 3 is in column 0, and number 2 is in column 1, so 3 is left of 2 in the matrix.
-Note that there may be multiple correct answers.
+Input: grid = [[0,1,1],[1,0,1],[0,0,1]]
+Output: [[0,0,4],[0,0,4],[-2,-2,2]]
+Explanation:
+- diff[0][0] = onesRow0 + onesCol0 - zerosRow0 - zerosCol0 = 2 + 1 - 1 - 2 = 0 
+- diff[0][1] = onesRow0 + onesCol1 - zerosRow0 - zerosCol1 = 2 + 1 - 1 - 2 = 0 
+- diff[0][2] = onesRow0 + onesCol2 - zerosRow0 - zerosCol2 = 2 + 3 - 1 - 0 = 4 
+- diff[1][0] = onesRow1 + onesCol0 - zerosRow1 - zerosCol0 = 2 + 1 - 1 - 2 = 0 
+- diff[1][1] = onesRow1 + onesCol1 - zerosRow1 - zerosCol1 = 2 + 1 - 1 - 2 = 0 
+- diff[1][2] = onesRow1 + onesCol2 - zerosRow1 - zerosCol2 = 2 + 3 - 1 - 0 = 4 
+- diff[2][0] = onesRow2 + onesCol0 - zerosRow2 - zerosCol0 = 1 + 1 - 2 - 2 = -2
+- diff[2][1] = onesRow2 + onesCol1 - zerosRow2 - zerosCol1 = 1 + 1 - 2 - 2 = -2
+- diff[2][2] = onesRow2 + onesCol2 - zerosRow2 - zerosCol2 = 1 + 3 - 2 - 0 = 2
 Example 2:
-Input: k = 3, rowConditions = [[1,2],[2,3],[3,1],[2,3]], colConditions = [[2,1]]
-Output: []
-Explanation: From the first two conditions, 3 has to be below 1 but the third conditions needs 3 to be above 1 to be satisfied.
-No matrix can satisfy all the conditions, so we return the empty matrix.
+Input: grid = [[1,1,1],[1,1,1]]
+Output: [[5,5,5],[5,5,5]]
+Explanation:
+- diff[0][0] = onesRow0 + onesCol0 - zerosRow0 - zerosCol0 = 3 + 2 - 0 - 0 = 5
+- diff[0][1] = onesRow0 + onesCol1 - zerosRow0 - zerosCol1 = 3 + 2 - 0 - 0 = 5
+- diff[0][2] = onesRow0 + onesCol2 - zerosRow0 - zerosCol2 = 3 + 2 - 0 - 0 = 5
+- diff[1][0] = onesRow1 + onesCol0 - zerosRow1 - zerosCol0 = 3 + 2 - 0 - 0 = 5
+- diff[1][1] = onesRow1 + onesCol1 - zerosRow1 - zerosCol1 = 3 + 2 - 0 - 0 = 5
+- diff[1][2] = onesRow1 + onesCol2 - zerosRow1 - zerosCol2 = 3 + 2 - 0 - 0 = 5
   Constraints:
-2 <= k <= 400
-1 <= rowConditions.length, colConditions.length <= 104
-rowConditions[i].length == colConditions[i].length == 2
-1 <= abovei, belowi, lefti, righti <= k
-abovei != belowi
-lefti != righti
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 105
+1 <= m * n <= 105
+grid[i][j] is either 0 or 1.

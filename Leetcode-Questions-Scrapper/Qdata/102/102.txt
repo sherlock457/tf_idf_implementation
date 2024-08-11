@@ -1,17 +1,12 @@
-Given the array houses where houses[i] is the location of the ith house along a street and an integer k, allocate k mailboxes in the street.
-Return the minimum total distance between each house and its nearest mailbox.
-The test cases are generated so that the answer fits in a 32-bit integer.
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
   Example 1:
-Input: houses = [1,4,8,10,20], k = 3
-Output: 5
-Explanation: Allocate mailboxes in position 3, 9 and 20.
-Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + |9-8| + |10-9| + |20-20| = 5 
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
 Example 2:
-Input: houses = [2,3,5,12,18], k = 2
-Output: 9
-Explanation: Allocate mailboxes in position 3 and 14.
-Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + |5-3| + |12-14| + |18-14| = 9.
+Input: root = []
+Output: []
   Constraints:
-1 <= k <= houses.length <= 100
-1 <= houses[i] <= 104
-All the integers of houses are unique.
+The number of nodes in the tree is in the range [0, 104].
+-1000 <= Node.val <= 1000

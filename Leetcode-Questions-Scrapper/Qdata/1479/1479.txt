@@ -1,16 +1,10 @@
-Given an array of integers arr, return true if we can partition the array into three non-empty parts with equal sums.
-Formally, we can partition the array if we can find indexes i + 1 < j with (arr[0] + arr[1] + ... + arr[i] == arr[i + 1] + arr[i + 2] + ... + arr[j - 1] == arr[j] + arr[j + 1] + ... + arr[arr.length - 1])
+Given the root of a binary search tree, rearrange the tree in in-order so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.
   Example 1:
-Input: arr = [0,2,1,-6,6,-7,9,1,2,0,1]
-Output: true
-Explanation: 0 + 2 + 1 = -6 + 6 - 7 + 9 + 1 = 2 + 0 + 1
+Input: root = [5,3,6,2,4,null,8,1,null,null,null,7,9]
+Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
 Example 2:
-Input: arr = [0,2,1,-6,6,7,9,-1,2,0,1]
-Output: false
-Example 3:
-Input: arr = [3,3,6,5,-2,2,5,1,-9,4]
-Output: true
-Explanation: 3 + 3 = 6 = 5 - 2 + 2 + 5 + 1 - 9 + 4
+Input: root = [5,1,7]
+Output: [1,null,5,null,7]
   Constraints:
-3 <= arr.length <= 5 * 104
--104 <= arr[i] <= 104
+The number of nodes in the given tree will be in the range [1, 100].
+0 <= Node.val <= 1000

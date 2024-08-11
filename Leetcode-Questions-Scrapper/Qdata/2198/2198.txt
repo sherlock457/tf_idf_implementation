@@ -1,24 +1,24 @@
-There are n cities numbered from 1 to n. You are given an array edges of size n-1, where edges[i] = [ui, vi] represents a bidirectional edge between cities ui and vi. There exists a unique path between each pair of cities. In other words, the cities form a tree.
-A subtree is a subset of cities where every city is reachable from every other city in the subset, where the path between each pair passes through only the cities from the subset. Two subtrees are different if there is a city in one subtree that is not present in the other.
-For each d from 1 to n-1, find the number of subtrees in which the maximum distance between any two cities in the subtree is equal to d.
-Return an array of size n-1 where the dth element (1-indexed) is the number of subtrees in which the maximum distance between any two cities is equal to d.
-Notice that the distance between the two cities is the number of edges in the path between them.
+You are given a 0-indexed string pattern of length n consisting of the characters 'I' meaning increasing and 'D' meaning decreasing.
+A 0-indexed string num of length n + 1 is created using the following conditions:
+num consists of the digits '1' to '9', where each digit is used at most once.
+If pattern[i] == 'I', then num[i] < num[i + 1].
+If pattern[i] == 'D', then num[i] > num[i + 1].
+Return the lexicographically smallest possible string num that meets the conditions.
   Example 1:
-Input: n = 4, edges = [[1,2],[2,3],[2,4]]
-Output: [3,4,0]
+Input: pattern = "IIIDIDDD"
+Output: "123549876"
 Explanation:
-The subtrees with subsets {1,2}, {2,3} and {2,4} have a max distance of 1.
-The subtrees with subsets {1,2,3}, {1,2,4}, {2,3,4} and {1,2,3,4} have a max distance of 2.
-No subtree has two nodes where the max distance between them is 3.
+At indices 0, 1, 2, and 4 we must have that num[i] < num[i+1].
+At indices 3, 5, 6, and 7 we must have that num[i] > num[i+1].
+Some possible values of num are "245639871", "135749862", and "123849765".
+It can be proven that "123549876" is the smallest possible num that meets the conditions.
+Note that "123414321" is not possible because the digit '1' is used more than once.
 Example 2:
-Input: n = 2, edges = [[1,2]]
-Output: [1]
-Example 3:
-Input: n = 3, edges = [[1,2],[2,3]]
-Output: [2,1]
+Input: pattern = "DDD"
+Output: "4321"
+Explanation:
+Some possible values of num are "9876", "7321", and "8742".
+It can be proven that "4321" is the smallest possible num that meets the conditions.
   Constraints:
-2 <= n <= 15
-edges.length == n-1
-edges[i].length == 2
-1 <= ui, vi <= n
-All pairs (ui, vi) are distinct.
+1 <= pattern.length <= 8
+pattern consists of only the letters 'I' and 'D'.

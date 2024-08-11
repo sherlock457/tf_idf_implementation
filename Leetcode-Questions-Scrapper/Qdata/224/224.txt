@@ -1,20 +1,19 @@
-Given an m x n matrix of distinct numbers, return all lucky numbers in the matrix in any order.
-A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.
+You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target.
+We will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.
   Example 1:
-Input: matrix = [[3,7,8],[9,11,13],[15,16,17]]
-Output: [15]
-Explanation: 15 is the only lucky number since it is the minimum in its row and the maximum in its column.
+Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
+Output: 2
 Example 2:
-Input: matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
-Output: [12]
-Explanation: 12 is the only lucky number since it is the minimum in its row and the maximum in its column.
+Input: times = [[1,2,1]], n = 2, k = 1
+Output: 1
 Example 3:
-Input: matrix = [[7,8],[1,2]]
-Output: [7]
-Explanation: 7 is the only lucky number since it is the minimum in its row and the maximum in its column.
+Input: times = [[1,2,1]], n = 2, k = 2
+Output: -1
   Constraints:
-m == mat.length
-n == mat[i].length
-1 <= n, m <= 50
-1 <= matrix[i][j] <= 105.
-All elements in the matrix are distinct.
+1 <= k <= n <= 100
+1 <= times.length <= 6000
+times[i].length == 3
+1 <= ui, vi <= n
+ui != vi
+0 <= wi <= 100
+All the pairs (ui, vi) are unique. (i.e., no multiple edges.)

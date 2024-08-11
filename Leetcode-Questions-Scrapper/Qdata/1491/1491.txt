@@ -1,18 +1,19 @@
-Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
-An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+You are given an m x n integer array grid. There is a robot initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
+An obstacle and space are marked as 1 or 0 respectively in grid. A path that the robot takes cannot include any square that is an obstacle.
+Return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+The testcases are generated so that the answer will be less than or equal to 2 * 109.
   Example 1:
-Input: s = "cbaebabacd", p = "abc"
-Output: [0,6]
-Explanation:
-The substring with start index = 0 is "cba", which is an anagram of "abc".
-The substring with start index = 6 is "bac", which is an anagram of "abc".
+Input: obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+Output: 2
+Explanation: There is one obstacle in the middle of the 3x3 grid above.
+There are two ways to reach the bottom-right corner:
+1. Right -> Right -> Down -> Down
+2. Down -> Down -> Right -> Right
 Example 2:
-Input: s = "abab", p = "ab"
-Output: [0,1,2]
-Explanation:
-The substring with start index = 0 is "ab", which is an anagram of "ab".
-The substring with start index = 1 is "ba", which is an anagram of "ab".
-The substring with start index = 2 is "ab", which is an anagram of "ab".
+Input: obstacleGrid = [[0,1],[0,0]]
+Output: 1
   Constraints:
-1 <= s.length, p.length <= 3 * 104
-s and p consist of lowercase English letters.
+m == obstacleGrid.length
+n == obstacleGrid[i].length
+1 <= m, n <= 100
+obstacleGrid[i][j] is 0 or 1.

@@ -1,16 +1,15 @@
-We run a preorder depth-first search (DFS) on the root of a binary tree.
-At each node in this traversal, we output D dashes (where D is the depth of this node), then we output the value of this node.  If the depth of a node is D, the depth of its immediate child is D + 1.  The depth of the root node is 0.
-If a node has only one child, that child is guaranteed to be the left child.
-Given the output traversal of this traversal, recover the tree and return its root.
+Given an m x n binary matrix mat, return the number of special positions in mat.
+A position (i, j) is called special if mat[i][j] == 1 and all other elements in row i and column j are 0 (rows and columns are 0-indexed).
   Example 1:
-Input: traversal = "1-2--3--4-5--6--7"
-Output: [1,2,5,3,4,6,7]
+Input: mat = [[1,0,0],[0,0,1],[1,0,0]]
+Output: 1
+Explanation: (1, 2) is a special position because mat[1][2] == 1 and all other elements in row 1 and column 2 are 0.
 Example 2:
-Input: traversal = "1-2--3---4-5--6---7"
-Output: [1,2,5,3,null,6,null,4,null,7]
-Example 3:
-Input: traversal = "1-401--349---90--88"
-Output: [1,401,null,349,88,90]
+Input: mat = [[1,0,0],[0,1,0],[0,0,1]]
+Output: 3
+Explanation: (0, 0), (1, 1) and (2, 2) are special positions.
   Constraints:
-The number of nodes in the original tree is in the range [1, 1000].
-1 <= Node.val <= 109
+m == mat.length
+n == mat[i].length
+1 <= m, n <= 100
+mat[i][j] is either 0 or 1.

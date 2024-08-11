@@ -1,18 +1,29 @@
-You are given the array nums consisting of n positive integers. You computed the sum of all non-empty continuous subarrays from the array and then sorted them in non-decreasing order, creating a new array of n * (n + 1) / 2 numbers.
-Return the sum of the numbers from index left to index right (indexed from 1), inclusive, in the new array. Since the answer can be a huge number return it modulo 109 + 7.
+You want to build n new buildings in a city. The new buildings will be built in a line and are labeled from 1 to n.
+However, there are city restrictions on the heights of the new buildings:
+The height of each building must be a non-negative integer.
+The height of the first building must be 0.
+The height difference between any two adjacent buildings cannot exceed 1.
+Additionally, there are city restrictions on the maximum height of specific buildings. These restrictions are given as a 2D integer array restrictions where restrictions[i] = [idi, maxHeighti] indicates that building idi must have a height less than or equal to maxHeighti.
+It is guaranteed that each building will appear at most once in restrictions, and building 1 will not be in restrictions.
+Return the maximum possible height of the tallest building.
   Example 1:
-Input: nums = [1,2,3,4], n = 4, left = 1, right = 5
-Output: 13 
-Explanation: All subarray sums are 1, 3, 6, 10, 2, 5, 9, 3, 7, 4. After sorting them in non-decreasing order we have the new array [1, 2, 3, 3, 4, 5, 6, 7, 9, 10]. The sum of the numbers from index le = 1 to ri = 5 is 1 + 2 + 3 + 3 + 4 = 13. 
+Input: n = 5, restrictions = [[2,1],[4,1]]
+Output: 2
+Explanation: The green area in the image indicates the maximum allowed height for each building.
+We can build the buildings with heights [0,1,2,1,2], and the tallest building has a height of 2.
 Example 2:
-Input: nums = [1,2,3,4], n = 4, left = 3, right = 4
-Output: 6
-Explanation: The given array is the same as example 1. We have the new array [1, 2, 3, 3, 4, 5, 6, 7, 9, 10]. The sum of the numbers from index le = 3 to ri = 4 is 3 + 3 = 6.
+Input: n = 6, restrictions = []
+Output: 5
+Explanation: The green area in the image indicates the maximum allowed height for each building.
+We can build the buildings with heights [0,1,2,3,4,5], and the tallest building has a height of 5.
 Example 3:
-Input: nums = [1,2,3,4], n = 4, left = 1, right = 10
-Output: 50
+Input: n = 10, restrictions = [[5,3],[2,5],[7,4],[10,3]]
+Output: 5
+Explanation: The green area in the image indicates the maximum allowed height for each building.
+We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest building has a height of 5.
   Constraints:
-n == nums.length
-1 <= nums.length <= 1000
-1 <= nums[i] <= 100
-1 <= left <= right <= n * (n + 1) / 2
+2 <= n <= 109
+0 <= restrictions.length <= min(n - 1, 105)
+2 <= idi <= n
+idi is unique.
+0 <= maxHeighti <= 109

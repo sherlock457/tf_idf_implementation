@@ -1,13 +1,14 @@
-Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values. (i.e., from left to right, level by level from leaf to root).
+Given an array arr of 4 digits, find the latest 24-hour time that can be made using each digit exactly once.
+24-hour times are formatted as "HH:MM", where HH is between 00 and 23, and MM is between 00 and 59. The earliest 24-hour time is 00:00, and the latest is 23:59.
+Return the latest 24-hour time in "HH:MM" format. If no valid time can be made, return an empty string.
   Example 1:
-Input: root = [3,9,20,null,null,15,7]
-Output: [[15,7],[9,20],[3]]
+Input: arr = [1,2,3,4]
+Output: "23:41"
+Explanation: The valid 24-hour times are "12:34", "12:43", "13:24", "13:42", "14:23", "14:32", "21:34", "21:43", "23:14", and "23:41". Of these times, "23:41" is the latest.
 Example 2:
-Input: root = [1]
-Output: [[1]]
-Example 3:
-Input: root = []
-Output: []
+Input: arr = [5,5,5,5]
+Output: ""
+Explanation: There are no valid 24-hour times as "55:55" is not valid.
   Constraints:
-The number of nodes in the tree is in the range [0, 2000].
--1000 <= Node.val <= 1000
+arr.length == 4
+0 <= arr[i] <= 9

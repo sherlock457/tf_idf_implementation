@@ -1,18 +1,15 @@
-You are given an n x n binary matrix grid where 1 represents land and 0 represents water.
-An island is a 4-directionally connected group of 1's not connected to any other 1's. There are exactly two islands in grid.
-You may change 0's to 1's to connect the two islands to form one island.
-Return the smallest number of 0's you must flip to connect the two islands.
+Given a string s and an array of strings words, return the number of words[i] that is a subsequence of s.
+A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.
+For example, "ace" is a subsequence of "abcde".
   Example 1:
-Input: grid = [[0,1],[1,0]]
-Output: 1
+Input: s = "abcde", words = ["a","bb","acd","ace"]
+Output: 3
+Explanation: There are three strings in words that are a subsequence of s: "a", "acd", "ace".
 Example 2:
-Input: grid = [[0,1,0],[0,0,0],[0,0,1]]
+Input: s = "dsahjpjauf", words = ["ahjpjau","ja","ahbwzgqnuk","tnmlanowax"]
 Output: 2
-Example 3:
-Input: grid = [[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
-Output: 1
   Constraints:
-n == grid.length == grid[i].length
-2 <= n <= 100
-grid[i][j] is either 0 or 1.
-There are exactly two islands in grid.
+1 <= s.length <= 5 * 104
+1 <= words.length <= 5000
+1 <= words[i].length <= 50
+s and words[i] consist of only lowercase English letters.

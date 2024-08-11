@@ -1,17 +1,16 @@
-Given an integer array nums, return true if there exists a triple of indices (i, j, k) such that i < j < k and nums[i] < nums[j] < nums[k]. If no such indices exists, return false.
+Given an integer array nums, find a
+subarray
+that has the largest product, and return the product.
+The test cases are generated so that the answer will fit in a 32-bit integer.
   Example 1:
-Input: nums = [1,2,3,4,5]
-Output: true
-Explanation: Any triplet where i < j < k is valid.
+Input: nums = [2,3,-2,4]
+Output: 6
+Explanation: [2,3] has the largest product 6.
 Example 2:
-Input: nums = [5,4,3,2,1]
-Output: false
-Explanation: No triplet exists.
-Example 3:
-Input: nums = [2,1,5,0,4,6]
-Output: true
-Explanation: The triplet (3, 4, 5) is valid because nums[3] == 0 < nums[4] == 4 < nums[5] == 6.
+Input: nums = [-2,0,-1]
+Output: 0
+Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
   Constraints:
-1 <= nums.length <= 5 * 105
--231 <= nums[i] <= 231 - 1
-  Follow up: Could you implement a solution that runs in O(n) time complexity and O(1) space complexity?
+1 <= nums.length <= 2 * 104
+-10 <= nums[i] <= 10
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.

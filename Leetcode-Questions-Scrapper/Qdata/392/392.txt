@@ -1,29 +1,17 @@
-Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
-A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node.
-If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. Assume all nodes in the linked list are 0-indexed.
-Implement the MyLinkedList class:
-MyLinkedList() Initializes the MyLinkedList object.
-int get(int index) Get the value of the indexth node in the linked list. If the index is invalid, return -1.
-void addAtHead(int val) Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
-void addAtTail(int val) Append a node of value val as the last element of the linked list.
-void addAtIndex(int index, int val) Add a node of value val before the indexth node in the linked list. If index equals the length of the linked list, the node will be appended to the end of the linked list. If index is greater than the length, the node will not be inserted.
-void deleteAtIndex(int index) Delete the indexth node in the linked list, if the index is valid.
+You are given an integer array nums and an integer k. You can partition the array into at most k non-empty adjacent subarrays. The score of a partition is the sum of the averages of each subarray.
+Note that the partition must use every integer in nums, and that the score is not necessarily an integer.
+Return the maximum score you can achieve of all the possible partitions. Answers within 10-6 of the actual answer will be accepted.
   Example 1:
-Input
-["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
-[[], [1], [3], [1, 2], [1], [1], [1]]
-Output
-[null, null, null, null, 2, null, 3]
-
-Explanation
-MyLinkedList myLinkedList = new MyLinkedList();
-myLinkedList.addAtHead(1);
-myLinkedList.addAtTail(3);
-myLinkedList.addAtIndex(1, 2);    // linked list becomes 1->2->3
-myLinkedList.get(1);              // return 2
-myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
-myLinkedList.get(1);              // return 3
+Input: nums = [9,1,2,3,9], k = 3
+Output: 20.00000
+Explanation: 
+The best choice is to partition nums into [9], [1, 2, 3], [9]. The answer is 9 + (1 + 2 + 3) / 3 + 9 = 20.
+We could have also partitioned nums into [9, 1], [2], [3, 9], for example.
+That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
+Example 2:
+Input: nums = [1,2,3,4,5,6,7], k = 4
+Output: 20.50000
   Constraints:
-0 <= index, val <= 1000
-Please do not use the built-in LinkedList library.
-At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and deleteAtIndex.
+1 <= nums.length <= 100
+1 <= nums[i] <= 104
+1 <= k <= nums.length

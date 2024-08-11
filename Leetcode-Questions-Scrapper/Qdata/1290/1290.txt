@@ -1,26 +1,30 @@
-You are given two 2D integer arrays nums1 and nums2.
-nums1[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali.
-nums2[i] = [idi, vali] indicate that the number with the id idi has a value equal to vali.
-Each array contains unique ids and is sorted in ascending order by id.
-Merge the two arrays into one array that is sorted in ascending order by id, respecting the following conditions:
-Only ids that appear in at least one of the two arrays should be included in the resulting array.
-Each id should be included only once and its value should be the sum of the values of this id in the two arrays. If the id does not exist in one of the two arrays then its value in that array is considered to be 0.
-Return the resulting array. The returned array must be sorted in ascending order by id.
+You are given an array pairs, where pairs[i] = [xi, yi], and:
+There are no duplicates.
+xi < yi
+Let ways be the number of rooted trees that satisfy the following conditions:
+The tree consists of nodes whose values appeared in pairs.
+A pair [xi, yi] exists in pairs if and only if xi is an ancestor of yi or yi is an ancestor of xi.
+Note: the tree does not have to be a binary tree.
+Two ways are considered to be different if there is at least one node that has different parents in both ways.
+Return:
+0 if ways == 0
+1 if ways == 1
+2 if ways > 1
+A rooted tree is a tree that has a single root node, and all edges are oriented to be outgoing from the root.
+An ancestor of a node is any node on the path from the root to that node (excluding the node itself). The root has no ancestors.
   Example 1:
-Input: nums1 = [[1,2],[2,3],[4,5]], nums2 = [[1,4],[3,2],[4,1]]
-Output: [[1,6],[2,3],[3,2],[4,6]]
-Explanation: The resulting array contains the following:
-- id = 1, the value of this id is 2 + 4 = 6.
-- id = 2, the value of this id is 3.
-- id = 3, the value of this id is 2.
-- id = 4, the value of this id is 5 + 1 = 6.
+Input: pairs = [[1,2],[2,3]]
+Output: 1
+Explanation: There is exactly one valid rooted tree, which is shown in the above figure.
 Example 2:
-Input: nums1 = [[2,4],[3,6],[5,5]], nums2 = [[1,3],[4,3]]
-Output: [[1,3],[2,4],[3,6],[4,3],[5,5]]
-Explanation: There are no common ids, so we just include each id with its value in the resulting list.
+Input: pairs = [[1,2],[2,3],[1,3]]
+Output: 2
+Explanation: There are multiple valid rooted trees. Three of them are shown in the above figures.
+Example 3:
+Input: pairs = [[1,2],[2,3],[2,4],[1,5]]
+Output: 0
+Explanation: There are no valid rooted trees.
   Constraints:
-1 <= nums1.length, nums2.length <= 200
-nums1[i].length == nums2[j].length == 2
-1 <= idi, vali <= 1000
-Both arrays contain unique ids.
-Both arrays are in strictly ascending order by id.
+1 <= pairs.length <= 105
+1 <= xi < yi <= 500
+The elements in pairs are unique.

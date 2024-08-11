@@ -1,15 +1,16 @@
-You are given an integer array nums. In one move, you can pick an index i where 0 <= i < nums.length and increment nums[i] by 1.
-Return the minimum number of moves to make every value in nums unique.
-The test cases are generated so that the answer fits in a 32-bit integer.
+You are given an array points representing integer coordinates of some points on a 2D-plane, where points[i] = [xi, yi].
+The cost of connecting two points [xi, yi] and [xj, yj] is the manhattan distance between them: |xi - xj| + |yi - yj|, where |val| denotes the absolute value of val.
+Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.
   Example 1:
-Input: nums = [1,2,2]
-Output: 1
-Explanation: After 1 move, the array could be [1, 2, 3].
+Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
+Output: 20
+Explanation: 
+We can connect the points as shown above to get the minimum cost of 20.
+Notice that there is a unique path between every pair of points.
 Example 2:
-Input: nums = [3,2,1,2,1,7]
-Output: 6
-Explanation: After 6 moves, the array could be [3, 4, 1, 2, 5, 7].
-It can be shown with 5 or less moves that it is impossible for the array to have all unique values.
+Input: points = [[3,12],[-2,5],[-4,1]]
+Output: 18
   Constraints:
-1 <= nums.length <= 105
-0 <= nums[i] <= 105
+1 <= points.length <= 1000
+-106 <= xi, yi <= 106
+All pairs (xi, yi) are distinct.

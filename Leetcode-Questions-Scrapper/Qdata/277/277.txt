@@ -1,59 +1,15 @@
-SQL Schema
-Table: Tree
-+-------------+------+
-| Column Name | Type |
-+-------------+------+
-| id          | int  |
-| p_id        | int  |
-+-------------+------+
-id is the primary key column for this table.
-Each row of this table contains information about the id of a node and the id of its parent node in a tree.
-The given structure is always a valid tree.
-  Each node in the tree can be one of three types:
-"Leaf": if the node is a leaf node.
-"Root": if the node is the root of the tree.
-"Inner": If the node is neither a leaf node nor a root node.
-Write an SQL query to report the type of each node in the tree.
-Return the result table in any order.
-The query result format is in the following example.
+You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.
+For example, given num = 2932, you have the following digits: two 2's, one 9 and one 3. Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
+Return the minimum possible sum of new1 and new2.
   Example 1:
-Input: 
-Tree table:
-+----+------+
-| id | p_id |
-+----+------+
-| 1  | null |
-| 2  | 1    |
-| 3  | 1    |
-| 4  | 2    |
-| 5  | 2    |
-+----+------+
-Output: 
-+----+-------+
-| id | type  |
-+----+-------+
-| 1  | Root  |
-| 2  | Inner |
-| 3  | Leaf  |
-| 4  | Leaf  |
-| 5  | Leaf  |
-+----+-------+
-Explanation: 
-Node 1 is the root node because its parent node is null and it has child nodes 2 and 3.
-Node 2 is an inner node because it has parent node 1 and child node 4 and 5.
-Nodes 3, 4, and 5 are leaf nodes because they have parent nodes and they do not have child nodes.
+Input: num = 2932
+Output: 52
+Explanation: Some possible pairs [new1, new2] are [29, 23], [223, 9], etc.
+The minimum sum can be obtained by the pair [29, 23]: 29 + 23 = 52.
 Example 2:
-Input: 
-Tree table:
-+----+------+
-| id | p_id |
-+----+------+
-| 1  | null |
-+----+------+
-Output: 
-+----+-------+
-| id | type  |
-+----+-------+
-| 1  | Root  |
-+----+-------+
-Explanation: If there is only one node on the tree, you only need to output its root attributes.
+Input: num = 4009
+Output: 13
+Explanation: Some possible pairs [new1, new2] are [0, 49], [490, 0], etc. 
+The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
+  Constraints:
+1000 <= num <= 9999

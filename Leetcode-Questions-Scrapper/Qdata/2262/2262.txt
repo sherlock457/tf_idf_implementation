@@ -1,23 +1,23 @@
-Given the following details of a matrix with n columns and 2 rows :
-The matrix is a binary matrix, which means each element in the matrix can be 0 or 1.
-The sum of elements of the 0-th(upper) row is given as upper.
-The sum of elements of the 1-st(lower) row is given as lower.
-The sum of elements in the i-th column(0-indexed) is colsum[i], where colsum is given as an integer array with length n.
-Your task is to reconstruct the matrix with upper, lower and colsum.
-Return it as a 2-D integer array.
-If there are more than one valid solution, any of them will be accepted.
-If no valid solution exists, return an empty 2-D array.
+You are given the strings key and message, which represent a cipher key and a secret message, respectively. The steps to decode message are as follows:
+Use the first appearance of all 26 lowercase English letters in key as the order of the substitution table.
+Align the substitution table with the regular English alphabet.
+Each letter in message is then substituted using the table.
+Spaces ' ' are transformed to themselves.
+For example, given key = "happy boy" (actual key would have at least one instance of each letter in the alphabet), we have the partial substitution table of ('h' -> 'a', 'a' -> 'b', 'p' -> 'c', 'y' -> 'd', 'b' -> 'e', 'o' -> 'f').
+Return the decoded message.
   Example 1:
-Input: upper = 2, lower = 1, colsum = [1,1,1]
-Output: [[1,1,0],[0,0,1]]
-Explanation: [[1,0,1],[0,1,0]], and [[0,1,1],[1,0,0]] are also correct answers.
+Input: key = "the quick brown fox jumps over the lazy dog", message = "vkbs bs t suepuv"
+Output: "this is a secret"
+Explanation: The diagram above shows the substitution table.
+It is obtained by taking the first appearance of each letter in "the quick brown fox jumps over the lazy dog".
 Example 2:
-Input: upper = 2, lower = 3, colsum = [2,2,1,1]
-Output: []
-Example 3:
-Input: upper = 5, lower = 5, colsum = [2,1,2,0,1,0,1,2,0,1]
-Output: [[1,1,1,0,1,0,0,1,0,0],[1,0,1,0,0,0,1,1,0,1]]
+Input: key = "eljuxhpwnyrdgtqkviszcfmabo", message = "zwx hnfx lqantp mnoeius ycgk vcnjrdb"
+Output: "the five boxing wizards jump quickly"
+Explanation: The diagram above shows the substitution table.
+It is obtained by taking the first appearance of each letter in "eljuxhpwnyrdgtqkviszcfmabo".
   Constraints:
-1 <= colsum.length <= 10^5
-0 <= upper, lower <= colsum.length
-0 <= colsum[i] <= 2
+26 <= key.length <= 2000
+key consists of lowercase English letters and ' '.
+key contains every letter in the English alphabet ('a' to 'z') at least once.
+1 <= message.length <= 2000
+message consists of lowercase English letters and ' '.

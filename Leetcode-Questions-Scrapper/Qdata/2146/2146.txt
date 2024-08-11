@@ -1,22 +1,13 @@
-You are given two strings s and t consisting of only lowercase English letters.
-Return the minimum number of characters that need to be appended to the end of s so that t becomes a subsequence of s.
-A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
+Given an array of integers nums, sort the array in ascending order and return it.
+You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
   Example 1:
-Input: s = "coaching", t = "coding"
-Output: 4
-Explanation: Append the characters "ding" to the end of s so that s = "coachingding".
-Now, t is a subsequence of s ("coachingding").
-It can be shown that appending any 3 characters to the end of s will never make t a subsequence.
+Input: nums = [5,2,3,1]
+Output: [1,2,3,5]
+Explanation: After sorting the array, the positions of some numbers are not changed (for example, 2 and 3), while the positions of other numbers are changed (for example, 1 and 5).
 Example 2:
-Input: s = "abcde", t = "a"
-Output: 0
-Explanation: t is already a subsequence of s ("abcde").
-Example 3:
-Input: s = "z", t = "abcde"
-Output: 5
-Explanation: Append the characters "abcde" to the end of s so that s = "zabcde".
-Now, t is a subsequence of s ("zabcde").
-It can be shown that appending any 4 characters to the end of s will never make t a subsequence.
+Input: nums = [5,1,1,2,0,0]
+Output: [0,0,1,1,2,5]
+Explanation: Note that the values of nums are not necessairly unique.
   Constraints:
-1 <= s.length, t.length <= 105
-s and t consist only of lowercase English letters.
+1 <= nums.length <= 5 * 104
+-5 * 104 <= nums[i] <= 5 * 104

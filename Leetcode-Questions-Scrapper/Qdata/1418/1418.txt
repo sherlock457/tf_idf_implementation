@@ -1,17 +1,18 @@
-You are given an integer array arr. Sort the integers in the array in ascending order by the number of 1's in their binary representation and in case of two or more integers have the same number of 1's you have to sort them in ascending order.
-Return the array after sorting it.
+Given four integers sx, sy, tx, and ty, return true if it is possible to convert the point (sx, sy) to the point (tx, ty) through some operations, or false otherwise.
+The allowed operation on some point (x, y) is to convert it to either (x, x + y) or (x + y, y).
   Example 1:
-Input: arr = [0,1,2,3,4,5,6,7,8]
-Output: [0,1,2,4,8,3,5,6,7]
-Explantion: [0] is the only integer with 0 bits.
-[1,2,4,8] all have 1 bit.
-[3,5,6] have 2 bits.
-[7] has 3 bits.
-The sorted array by bits is [0,1,2,4,8,3,5,6,7]
+Input: sx = 1, sy = 1, tx = 3, ty = 5
+Output: true
+Explanation:
+One series of moves that transforms the starting point to the target is:
+(1, 1) -> (1, 2)
+(1, 2) -> (3, 2)
+(3, 2) -> (3, 5)
 Example 2:
-Input: arr = [1024,512,256,128,64,32,16,8,4,2,1]
-Output: [1,2,4,8,16,32,64,128,256,512,1024]
-Explantion: All integers have 1 bit in the binary representation, you should just sort them in ascending order.
+Input: sx = 1, sy = 1, tx = 2, ty = 2
+Output: false
+Example 3:
+Input: sx = 1, sy = 1, tx = 1, ty = 1
+Output: true
   Constraints:
-1 <= arr.length <= 500
-0 <= arr[i] <= 104
+1 <= sx, sy, tx, ty <= 109

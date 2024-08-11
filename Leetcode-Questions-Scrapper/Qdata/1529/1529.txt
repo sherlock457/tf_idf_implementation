@@ -1,15 +1,20 @@
-You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.
-For example, given num = 2932, you have the following digits: two 2's, one 9 and one 3. Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
-Return the minimum possible sum of new1 and new2.
+Given an array of positive integers arr, find a pattern of length m that is repeated k or more times.
+A pattern is a subarray (consecutive sub-sequence) that consists of one or more values, repeated multiple times consecutively without overlapping. A pattern is defined by its length and the number of repetitions.
+Return true if there exists a pattern of length m that is repeated k or more times, otherwise return false.
   Example 1:
-Input: num = 2932
-Output: 52
-Explanation: Some possible pairs [new1, new2] are [29, 23], [223, 9], etc.
-The minimum sum can be obtained by the pair [29, 23]: 29 + 23 = 52.
+Input: arr = [1,2,4,4,4,4], m = 1, k = 3
+Output: true
+Explanation: The pattern (4) of length 1 is repeated 4 consecutive times. Notice that pattern can be repeated k or more times but not less.
 Example 2:
-Input: num = 4009
-Output: 13
-Explanation: Some possible pairs [new1, new2] are [0, 49], [490, 0], etc. 
-The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
+Input: arr = [1,2,1,2,1,1,1,3], m = 2, k = 2
+Output: true
+Explanation: The pattern (1,2) of length 2 is repeated 2 consecutive times. Another valid pattern (2,1) is also repeated 2 times.
+Example 3:
+Input: arr = [1,2,1,2,1,3], m = 2, k = 3
+Output: false
+Explanation: The pattern (1,2) is of length 2 but is repeated only 2 times. There is no pattern of length 2 that is repeated 3 or more times.
   Constraints:
-1000 <= num <= 9999
+2 <= arr.length <= 100
+1 <= arr[i] <= 100
+1 <= m <= 100
+2 <= k <= 100

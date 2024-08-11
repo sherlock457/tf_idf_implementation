@@ -1,22 +1,20 @@
-Given a parentheses string s containing only the characters '(' and ')'. A parentheses string is balanced if:
-Any left parenthesis '(' must have a corresponding two consecutive right parenthesis '))'.
-Left parenthesis '(' must go before the corresponding two consecutive right parenthesis '))'.
-In other words, we treat '(' as an opening parenthesis and '))' as a closing parenthesis.
-For example, "())", "())(())))" and "(())())))" are balanced, ")()", "()))" and "(()))" are not balanced.
-You can insert the characters '(' and ')' at any position of the string to balance it if needed.
-Return the minimum number of insertions needed to make s balanced.
+You are given an integer array nums. A subsequence of nums is called a square streak if:
+The length of the subsequence is at least 2, and
+after sorting the subsequence, each element (except the first element) is the square of the previous number.
+Return the length of the longest square streak in nums, or return -1 if there is no square streak.
+A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
   Example 1:
-Input: s = "(()))"
-Output: 1
-Explanation: The second '(' has two matching '))', but the first '(' has only ')' matching. We need to add one more ')' at the end of the string to be "(())))" which is balanced.
-Example 2:
-Input: s = "())"
-Output: 0
-Explanation: The string is already balanced.
-Example 3:
-Input: s = "))())("
+Input: nums = [4,3,6,16,8,2]
 Output: 3
-Explanation: Add '(' to match the first '))', Add '))' to match the last '('.
+Explanation: Choose the subsequence [4,16,2]. After sorting it, it becomes [2,4,16].
+- 4 = 2 * 2.
+- 16 = 4 * 4.
+Therefore, [4,16,2] is a square streak.
+It can be shown that every subsequence of length 4 is not a square streak.
+Example 2:
+Input: nums = [2,3,5,6,7]
+Output: -1
+Explanation: There is no square streak in nums so return -1.
   Constraints:
-1 <= s.length <= 105
-s consists of '(' and ')' only.
+2 <= nums.length <= 105
+2 <= nums[i] <= 105

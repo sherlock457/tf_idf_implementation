@@ -1,15 +1,15 @@
-Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.
+Given the coordinates of four points in 2D space p1, p2, p3 and p4, return true if the four points construct a square.
+The coordinate of a point pi is represented as [xi, yi]. The input is not given in any order.
+A valid square has four equal sides with positive length and four equal angles (90-degree angles).
   Example 1:
-Input: n = 5
+Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
 Output: true
-Explanation: The binary representation of 5 is: 101
 Example 2:
-Input: n = 7
+Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,12]
 Output: false
-Explanation: The binary representation of 7 is: 111.
 Example 3:
-Input: n = 11
-Output: false
-Explanation: The binary representation of 11 is: 1011.
+Input: p1 = [1,0], p2 = [-1,0], p3 = [0,1], p4 = [0,-1]
+Output: true
   Constraints:
-1 <= n <= 231 - 1
+p1.length == p2.length == p3.length == p4.length == 2
+-104 <= xi, yi <= 104

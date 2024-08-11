@@ -1,22 +1,22 @@
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
-Notice that the solution set must not contain duplicate triplets.
+You are given a positive integer n, you can do the following operation any number of times:
+Add or subtract a power of 2 from n.
+Return the minimum number of operations to make n equal to 0.
+A number x is power of 2 if x == 2i where i >= 0.
   Example 1:
-Input: nums = [-1,0,1,2,-1,-4]
-Output: [[-1,-1,2],[-1,0,1]]
-Explanation: 
-nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
-nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
-nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
-The distinct triplets are [-1,0,1] and [-1,-1,2].
-Notice that the order of the output and the order of the triplets does not matter.
+Input: n = 39
+Output: 3
+Explanation: We can do the following operations:
+- Add 20 = 1 to n, so now n = 40.
+- Subtract 23 = 8 from n, so now n = 32.
+- Subtract 25 = 32 from n, so now n = 0.
+It can be shown that 3 is the minimum number of operations we need to make n equal to 0.
 Example 2:
-Input: nums = [0,1,1]
-Output: []
-Explanation: The only possible triplet does not sum up to 0.
-Example 3:
-Input: nums = [0,0,0]
-Output: [[0,0,0]]
-Explanation: The only possible triplet sums up to 0.
+Input: n = 54
+Output: 3
+Explanation: We can do the following operations:
+- Add 21 = 2 to n, so now n = 56.
+- Add 23 = 8 to n, so now n = 64.
+- Subtract 26 = 64 from n, so now n = 0.
+So the minimum number of operations is 3.
   Constraints:
-3 <= nums.length <= 3000
--105 <= nums[i] <= 105
+1 <= n <= 105

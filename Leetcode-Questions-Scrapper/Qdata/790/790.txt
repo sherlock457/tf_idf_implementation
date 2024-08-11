@@ -1,28 +1,14 @@
-You have n bags numbered from 0 to n - 1. You are given two 0-indexed integer arrays capacity and rocks. The ith bag can hold a maximum of capacity[i] rocks and currently contains rocks[i] rocks. You are also given an integer additionalRocks, the number of additional rocks you can place in any of the bags.
-Return the maximum number of bags that could have full capacity after placing the additional rocks in some bags.
+Given a string s containing only lowercase English letters and the '?' character, convert all the '?' characters into lowercase letters such that the final string does not contain any consecutive repeating characters. You cannot modify the non '?' characters.
+It is guaranteed that there are no consecutive repeating characters in the given string except for '?'.
+Return the final string after all the conversions (possibly zero) have been made. If there is more than one solution, return any of them. It can be shown that an answer is always possible with the given constraints.
   Example 1:
-Input: capacity = [2,3,4,5], rocks = [1,2,4,4], additionalRocks = 2
-Output: 3
-Explanation:
-Place 1 rock in bag 0 and 1 rock in bag 1.
-The number of rocks in each bag are now [2,3,4,4].
-Bags 0, 1, and 2 have full capacity.
-There are 3 bags at full capacity, so we return 3.
-It can be shown that it is not possible to have more than 3 bags at full capacity.
-Note that there may be other ways of placing the rocks that result in an answer of 3.
+Input: s = "?zs"
+Output: "azs"
+Explanation: There are 25 solutions for this problem. From "azs" to "yzs", all are valid. Only "z" is an invalid modification as the string will consist of consecutive repeating characters in "zzs".
 Example 2:
-Input: capacity = [10,2,2], rocks = [2,2,0], additionalRocks = 100
-Output: 3
-Explanation:
-Place 8 rocks in bag 0 and 2 rocks in bag 2.
-The number of rocks in each bag are now [10,2,2].
-Bags 0, 1, and 2 have full capacity.
-There are 3 bags at full capacity, so we return 3.
-It can be shown that it is not possible to have more than 3 bags at full capacity.
-Note that we did not use all of the additional rocks.
+Input: s = "ubv?w"
+Output: "ubvaw"
+Explanation: There are 24 solutions for this problem. Only "v" and "w" are invalid modifications as the strings will consist of consecutive repeating characters in "ubvvw" and "ubvww".
   Constraints:
-n == capacity.length == rocks.length
-1 <= n <= 5 * 104
-1 <= capacity[i] <= 109
-0 <= rocks[i] <= capacity[i]
-1 <= additionalRocks <= 109
+1 <= s.length <= 100
+s consist of lowercase English letters and '?'.

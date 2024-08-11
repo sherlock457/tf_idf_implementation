@@ -1,24 +1,24 @@
-You are given a 0-indexed string pattern of length n consisting of the characters 'I' meaning increasing and 'D' meaning decreasing.
-A 0-indexed string num of length n + 1 is created using the following conditions:
-num consists of the digits '1' to '9', where each digit is used at most once.
-If pattern[i] == 'I', then num[i] < num[i + 1].
-If pattern[i] == 'D', then num[i] > num[i + 1].
-Return the lexicographically smallest possible string num that meets the conditions.
+Alice is texting Bob using her phone. The mapping of digits to letters is shown in the figure below.
+In order to add a letter, Alice has to press the key of the corresponding digit i times, where i is the position of the letter in the key.
+For example, to add the letter 's', Alice has to press '7' four times. Similarly, to add the letter 'k', Alice has to press '5' twice.
+Note that the digits '0' and '1' do not map to any letters, so Alice does not use them.
+However, due to an error in transmission, Bob did not receive Alice's text message but received a string of pressed keys instead.
+For example, when Alice sent the message "bob", Bob received the string "2266622".
+Given a string pressedKeys representing the string received by Bob, return the total number of possible text messages Alice could have sent.
+Since the answer may be very large, return it modulo 109 + 7.
   Example 1:
-Input: pattern = "IIIDIDDD"
-Output: "123549876"
+Input: pressedKeys = "22233"
+Output: 8
 Explanation:
-At indices 0, 1, 2, and 4 we must have that num[i] < num[i+1].
-At indices 3, 5, 6, and 7 we must have that num[i] > num[i+1].
-Some possible values of num are "245639871", "135749862", and "123849765".
-It can be proven that "123549876" is the smallest possible num that meets the conditions.
-Note that "123414321" is not possible because the digit '1' is used more than once.
+The possible text messages Alice could have sent are:
+"aaadd", "abdd", "badd", "cdd", "aaae", "abe", "bae", and "ce".
+Since there are 8 possible messages, we return 8.
 Example 2:
-Input: pattern = "DDD"
-Output: "4321"
+Input: pressedKeys = "222222222222222222222222222222222222"
+Output: 82876089
 Explanation:
-Some possible values of num are "9876", "7321", and "8742".
-It can be proven that "4321" is the smallest possible num that meets the conditions.
+There are 2082876103 possible text messages Alice could have sent.
+Since we need to return the answer modulo 109 + 7, we return 2082876103 % (109 + 7) = 82876089.
   Constraints:
-1 <= pattern.length <= 8
-pattern consists of only the letters 'I' and 'D'.
+1 <= pressedKeys.length <= 105
+pressedKeys only consists of digits from '2' - '9'.

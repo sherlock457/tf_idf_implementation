@@ -29,6 +29,7 @@ body{
     background-color: white;
     border-radius: 7px;
     padding: 10px;
+    margin-top: 20px;
 
   }
   .section{
@@ -80,4 +81,8 @@ h2{
 .icon{
   height: 30px;
   width: 30px;
+}
+.search-container {
+  border: 1px solid #000;
+  align-items: center;
 }

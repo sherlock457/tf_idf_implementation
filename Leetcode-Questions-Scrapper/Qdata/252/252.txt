@@ -1,13 +1,15 @@
-Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+An alphabetical continuous string is a string consisting of consecutive letters in the alphabet. In other words, it is any substring of the string "abcdefghijklmnopqrstuvwxyz".
+For example, "abc" is an alphabetical continuous string, while "acb" and "za" are not.
+Given a string s consisting of lowercase letters only, return the length of the longest alphabetical continuous substring.
   Example 1:
-Input: nums = [1,1,1,2,2,3], k = 2
-Output: [1,2]
+Input: s = "abacaba"
+Output: 2
+Explanation: There are 4 distinct continuous substrings: "a", "b", "c" and "ab".
+"ab" is the longest continuous substring.
 Example 2:
-Input: nums = [1], k = 1
-Output: [1]
+Input: s = "abcde"
+Output: 5
+Explanation: "abcde" is the longest continuous substring.
   Constraints:
-1 <= nums.length <= 105
--104 <= nums[i] <= 104
-k is in the range [1, the number of unique elements in the array].
-It is guaranteed that the answer is unique.
-  Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+1 <= s.length <= 105
+s consists of only English lowercase letters.

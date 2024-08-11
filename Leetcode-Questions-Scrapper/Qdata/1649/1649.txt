@@ -1,16 +1,13 @@
-Given an array of integers nums, half of the integers in nums are odd, and the other half are even.
-Sort the array so that whenever nums[i] is odd, i is odd, and whenever nums[i] is even, i is even.
-Return any answer array that satisfies this condition.
+There is an m x n grid with a ball. The ball is initially at the position [startRow, startColumn]. You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the grid crossing the grid boundary). You can apply at most maxMove moves to the ball.
+Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the ball out of the grid boundary. Since the answer can be very large, return it modulo 109 + 7.
   Example 1:
-Input: nums = [4,2,5,7]
-Output: [4,5,2,7]
-Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
+Input: m = 2, n = 2, maxMove = 2, startRow = 0, startColumn = 0
+Output: 6
 Example 2:
-Input: nums = [2,3]
-Output: [2,3]
+Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1
+Output: 12
   Constraints:
-2 <= nums.length <= 2 * 104
-nums.length is even.
-Half of the integers in nums are even.
-0 <= nums[i] <= 1000
-  Follow Up: Could you solve it in-place?
+1 <= m, n <= 50
+0 <= maxMove <= 50
+0 <= startRow < m
+0 <= startColumn < n

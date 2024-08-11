@@ -1,25 +1,20 @@
-You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the ith customer has in the jth bank. Return the wealth that the richest customer has.
-A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
+A string is represented by an array if the array elements concatenated in order forms the string.
   Example 1:
-Input: accounts = [[1,2,3],[3,2,1]]
-Output: 6
+Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+Output: true
 Explanation:
-1st customer has wealth = 1 + 2 + 3 = 6
-2nd customer has wealth = 3 + 2 + 1 = 6
-Both customers are considered the richest with a wealth of 6 each, so return 6.
+word1 represents string "ab" + "c" -> "abc"
+word2 represents string "a" + "bc" -> "abc"
+The strings are the same, so return true.
 Example 2:
-Input: accounts = [[1,5],[7,3],[3,5]]
-Output: 10
-Explanation: 
-1st customer has wealth = 6
-2nd customer has wealth = 10 
-3rd customer has wealth = 8
-The 2nd customer is the richest with a wealth of 10.
+Input: word1 = ["a", "cb"], word2 = ["ab", "c"]
+Output: false
 Example 3:
-Input: accounts = [[2,8,7],[7,1,3],[1,9,5]]
-Output: 17
+Input: word1  = ["abc", "d", "defg"], word2 = ["abcddefg"]
+Output: true
   Constraints:
-m == accounts.length
-n == accounts[i].length
-1 <= m, n <= 50
-1 <= accounts[i][j] <= 100
+1 <= word1.length, word2.length <= 103
+1 <= word1[i].length, word2[i].length <= 103
+1 <= sum(word1[i].length), sum(word2[i].length) <= 103
+word1[i] and word2[i] consist of lowercase letters.

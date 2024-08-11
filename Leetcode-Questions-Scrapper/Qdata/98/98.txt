@@ -1,25 +1,28 @@
-The power of an integer x is defined as the number of steps needed to transform x into 1 using the following steps:
-if x is even then x = x / 2
-if x is odd then x = 3 * x + 1
-For example, the power of x = 3 is 7 because 3 needs 7 steps to become 1 (3 --> 10 --> 5 --> 16 --> 8 --> 4 --> 2 --> 1).
-Given three integers lo, hi and k. The task is to sort all integers in the interval [lo, hi] by the power value in ascending order, if two or more integers have the same power value sort them by ascending order.
-Return the kth integer in the range [lo, hi] sorted by the power value.
-Notice that for any integer x (lo <= x <= hi) it is guaranteed that x will transform into 1 using these steps and that the power of x is will fit in a 32-bit signed integer.
+There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i].
+You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from the ith station to its next (i + 1)th station. You begin the journey with an empty tank at one of the gas stations.
+Given two integer arrays gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1. If there exists a solution, it is guaranteed to be unique
   Example 1:
-Input: lo = 12, hi = 15, k = 2
-Output: 13
-Explanation: The power of 12 is 9 (12 --> 6 --> 3 --> 10 --> 5 --> 16 --> 8 --> 4 --> 2 --> 1)
-The power of 13 is 9
-The power of 14 is 17
-The power of 15 is 17
-The interval sorted by the power value [12,13,14,15]. For k = 2 answer is the second element which is 13.
-Notice that 12 and 13 have the same power value and we sorted them in ascending order. Same for 14 and 15.
+Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+Output: 3
+Explanation:
+Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank = 0 + 4 = 4
+Travel to station 4. Your tank = 4 - 1 + 5 = 8
+Travel to station 0. Your tank = 8 - 2 + 1 = 7
+Travel to station 1. Your tank = 7 - 3 + 2 = 6
+Travel to station 2. Your tank = 6 - 4 + 3 = 5
+Travel to station 3. The cost is 5. Your gas is just enough to travel back to station 3.
+Therefore, return 3 as the starting index.
 Example 2:
-Input: lo = 7, hi = 11, k = 4
-Output: 7
-Explanation: The power array corresponding to the interval [7, 8, 9, 10, 11] is [16, 3, 19, 6, 14].
-The interval sorted by power is [8, 10, 11, 7, 9].
-The fourth number in the sorted array is 7.
+Input: gas = [2,3,4], cost = [3,4,3]
+Output: -1
+Explanation:
+You can't start at station 0 or 1, as there is not enough gas to travel to the next station.
+Let's start at station 2 and fill up with 4 unit of gas. Your tank = 0 + 4 = 4
+Travel to station 0. Your tank = 4 - 3 + 2 = 3
+Travel to station 1. Your tank = 3 - 3 + 3 = 3
+You cannot travel back to station 2, as it requires 4 unit of gas but you only have 3.
+Therefore, you can't travel around the circuit once no matter where you start.
   Constraints:
-1 <= lo <= hi <= 1000
-1 <= k <= hi - lo + 1
+n == gas.length == cost.length
+1 <= n <= 105
+0 <= gas[i], cost[i] <= 104

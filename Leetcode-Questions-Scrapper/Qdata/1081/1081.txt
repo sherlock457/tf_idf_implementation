@@ -1,30 +1,26 @@
-Given an array of functions [f1, f2, f3, ..., fn], return a new function fn that is the function composition of the array of functions.
-The function composition of [f(x), g(x), h(x)] is fn(x) = f(g(h(x))).
-The function composition of an empty list of functions is the identity function f(x) = x.
-You may assume each function in the array accepts one integer as input and returns one integer as output.
+A parentheses string is a non-empty string consisting only of '(' and ')'. It is valid if any of the following conditions is true:
+It is ().
+It can be written as AB (A concatenated with B), where A and B are valid parentheses strings.
+It can be written as (A), where A is a valid parentheses string.
+You are given an m x n matrix of parentheses grid. A valid parentheses string path in the grid is a path satisfying all of the following conditions:
+The path starts from the upper left cell (0, 0).
+The path ends at the bottom-right cell (m - 1, n - 1).
+The path only ever moves down or right.
+The resulting parentheses string formed by the path is valid.
+Return true if there exists a valid parentheses string path in the grid. Otherwise, return false.
   Example 1:
-Input: functions = [x => x + 1, x => x * x, x => 2 * x], x = 4
-Output: 65
-Explanation:
-Evaluating from right to left ...
-Starting with x = 4.
-2 * (4) = 8
-(8) * (8) = 64
-(64) + 1 = 65
+Input: grid = [["(","(","("],[")","(",")"],["(","(",")"],["(","(",")"]]
+Output: true
+Explanation: The above diagram shows two possible paths that form valid parentheses strings.
+The first path shown results in the valid parentheses string "()(())".
+The second path shown results in the valid parentheses string "((()))".
+Note that there may be other valid parentheses string paths.
 Example 2:
-Input: functions = [x => 10 * x, x => 10 * x, x => 10 * x], x = 1
-Output: 1000
-Explanation:
-Evaluating from right to left ...
-10 * (1) = 10
-10 * (10) = 100
-10 * (100) = 1000
-Example 3:
-Input: functions = [], x = 42
-Output: 42
-Explanation:
-The composition of zero functions is the identity function
+Input: grid = [[")",")"],["(","("]]
+Output: false
+Explanation: The two possible paths form the parentheses strings "))(" and ")((". Since neither of them are valid parentheses strings, we return false.
   Constraints:
--1000 <= x <= 1000
-0 <= functions.length <= 1000
-all functions accept and return a single integer
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 100
+grid[i][j] is either '(' or ')'.

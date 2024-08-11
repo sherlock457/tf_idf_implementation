@@ -1,12 +1,17 @@
-Given an integer n, return the least number of perfect square numbers that sum to n.
-A perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, 1, 4, 9, and 16 are perfect squares while 3 and 11 are not.
+Given an integer n, return true if it is a power of three. Otherwise, return false.
+An integer n is a power of three, if there exists an integer x such that n == 3x.
   Example 1:
-Input: n = 12
-Output: 3
-Explanation: 12 = 4 + 4 + 4.
+Input: n = 27
+Output: true
+Explanation: 27 = 33
 Example 2:
-Input: n = 13
-Output: 2
-Explanation: 13 = 4 + 9.
+Input: n = 0
+Output: false
+Explanation: There is no x where 3x = 0.
+Example 3:
+Input: n = -1
+Output: false
+Explanation: There is no x where 3x = (-1).
   Constraints:
-1 <= n <= 104
+-231 <= n <= 231 - 1
+  Follow up: Could you solve it without loops/recursion?

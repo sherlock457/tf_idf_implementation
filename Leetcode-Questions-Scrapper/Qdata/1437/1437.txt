@@ -1,21 +1,24 @@
-Given an integer n, your task is to count how many strings of length n can be formed under the following rules:
-Each character is a lower case vowel ('a', 'e', 'i', 'o', 'u')
-Each vowel 'a' may only be followed by an 'e'.
-Each vowel 'e' may only be followed by an 'a' or an 'i'.
-Each vowel 'i' may not be followed by another 'i'.
-Each vowel 'o' may only be followed by an 'i' or a 'u'.
-Each vowel 'u' may only be followed by an 'a'.
-Since the answer may be too large, return it modulo 10^9 + 7.
+You are given a 0-indexed array of unique strings words.
+A palindrome pair is a pair of integers (i, j) such that:
+0 <= i, j < words.length,
+i != j, and
+words[i] + words[j] (the concatenation of the two strings) is a
+palindrome
+.
+Return an array of all the palindrome pairs of words.
   Example 1:
-Input: n = 1
-Output: 5
-Explanation: All possible strings are: "a", "e", "i" , "o" and "u".
+Input: words = ["abcd","dcba","lls","s","sssll"]
+Output: [[0,1],[1,0],[3,2],[2,4]]
+Explanation: The palindromes are ["abcddcba","dcbaabcd","slls","llssssll"]
 Example 2:
-Input: n = 2
-Output: 10
-Explanation: All possible strings are: "ae", "ea", "ei", "ia", "ie", "io", "iu", "oi", "ou" and "ua".
-Example 3: 
-Input: n = 5
-Output: 68
+Input: words = ["bat","tab","cat"]
+Output: [[0,1],[1,0]]
+Explanation: The palindromes are ["battab","tabbat"]
+Example 3:
+Input: words = ["a",""]
+Output: [[0,1],[1,0]]
+Explanation: The palindromes are ["a","a"]
   Constraints:
-1 <= n <= 2 * 10^4
+1 <= words.length <= 5000
+0 <= words[i].length <= 300
+words[i] consists of lowercase English letters.

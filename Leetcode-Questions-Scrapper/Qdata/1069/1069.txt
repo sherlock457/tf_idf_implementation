@@ -1,26 +1,23 @@
-You are currently designing a dynamic array. You are given a 0-indexed integer array nums, where nums[i] is the number of elements that will be in the array at time i. In addition, you are given an integer k, the maximum number of times you can resize the array (to any size).
-The size of the array at time t, sizet, must be at least nums[t] because there needs to be enough space in the array to hold all the elements. The space wasted at time t is defined as sizet - nums[t], and the total space wasted is the sum of the space wasted across every time t where 0 <= t < nums.length.
-Return the minimum total space wasted if you can resize the array at most k times.
-Note: The array can have any size at the start and does not count towards the number of resizing operations.
+Along a long library corridor, there is a line of seats and decorative plants. You are given a 0-indexed string corridor of length n consisting of letters 'S' and 'P' where each 'S' represents a seat and each 'P' represents a plant.
+One room divider has already been installed to the left of index 0, and another to the right of index n - 1. Additional room dividers can be installed. For each position between indices i - 1 and i (1 <= i <= n - 1), at most one divider can be installed.
+Divide the corridor into non-overlapping sections, where each section has exactly two seats with any number of plants. There may be multiple ways to perform the division. Two ways are different if there is a position with a room divider installed in the first way but not in the second way.
+Return the number of ways to divide the corridor. Since the answer may be very large, return it modulo 109 + 7. If there is no way, return 0.
   Example 1:
-Input: nums = [10,20], k = 0
-Output: 10
-Explanation: size = [20,20].
-We can set the initial size to be 20.
-The total wasted space is (20 - 10) + (20 - 20) = 10.
+Input: corridor = "SSPPSPS"
+Output: 3
+Explanation: There are 3 different ways to divide the corridor.
+The black bars in the above image indicate the two room dividers already installed.
+Note that in each of the ways, each section has exactly two seats.
 Example 2:
-Input: nums = [10,20,30], k = 1
-Output: 10
-Explanation: size = [20,20,30].
-We can set the initial size to be 20 and resize to 30 at time 2. 
-The total wasted space is (20 - 10) + (20 - 20) + (30 - 30) = 10.
+Input: corridor = "PPSPSP"
+Output: 1
+Explanation: There is only 1 way to divide the corridor, by not installing any additional dividers.
+Installing any would create some section that does not have exactly two seats.
 Example 3:
-Input: nums = [10,20,15,30,20], k = 2
-Output: 15
-Explanation: size = [10,20,20,30,30].
-We can set the initial size to 10, resize to 20 at time 1, and resize to 30 at time 3.
-The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 20) = 15.
+Input: corridor = "S"
+Output: 0
+Explanation: There is no way to divide the corridor because there will always be a section that does not have exactly two seats.
   Constraints:
-1 <= nums.length <= 200
-1 <= nums[i] <= 106
-0 <= k <= nums.length - 1
+n == corridor.length
+1 <= n <= 105
+corridor[i] is either 'S' or 'P'.

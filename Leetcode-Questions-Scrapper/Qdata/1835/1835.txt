@@ -1,16 +1,25 @@
-We define str = [s, n] as the string str which consists of the string s concatenated n times.
-For example, str == ["abc", 3] =="abcabcabc".
-We define that string s1 can be obtained from string s2 if we can remove some characters from s2 such that it becomes s1.
-For example, s1 = "abc" can be obtained from s2 = "abdbec" based on our definition by removing the bolded underlined characters.
-You are given two strings s1 and s2 and two integers n1 and n2. You have the two strings str1 = [s1, n1] and str2 = [s2, n2].
-Return the maximum integer m such that str = [str2, m] can be obtained from str1.
+You are given a 0-indexed integer array nums. In one operation, you may do the following:
+Choose two integers in nums that are equal.
+Remove both integers from nums, forming a pair.
+The operation is done on nums as many times as possible.
+Return a 0-indexed integer array answer of size 2 where answer[0] is the number of pairs that are formed and answer[1] is the number of leftover integers in nums after doing the operation as many times as possible.
   Example 1:
-Input: s1 = "acb", n1 = 4, s2 = "ab", n2 = 2
-Output: 2
+Input: nums = [1,3,2,1,3,2,2]
+Output: [3,1]
+Explanation:
+Form a pair with nums[0] and nums[3] and remove them from nums. Now, nums = [3,2,3,2,2].
+Form a pair with nums[0] and nums[2] and remove them from nums. Now, nums = [2,2,2].
+Form a pair with nums[0] and nums[1] and remove them from nums. Now, nums = [2].
+No more pairs can be formed. A total of 3 pairs have been formed, and there is 1 number leftover in nums.
 Example 2:
-Input: s1 = "acb", n1 = 1, s2 = "acb", n2 = 1
-Output: 1
+Input: nums = [1,1]
+Output: [1,0]
+Explanation: Form a pair with nums[0] and nums[1] and remove them from nums. Now, nums = [].
+No more pairs can be formed. A total of 1 pair has been formed, and there are 0 numbers leftover in nums.
+Example 3:
+Input: nums = [0]
+Output: [0,1]
+Explanation: No pairs can be formed, and there is 1 number leftover in nums.
   Constraints:
-1 <= s1.length, s2.length <= 100
-s1 and s2 consist of lowercase English letters.
-1 <= n1, n2 <= 106
+1 <= nums.length <= 100
+0 <= nums[i] <= 100

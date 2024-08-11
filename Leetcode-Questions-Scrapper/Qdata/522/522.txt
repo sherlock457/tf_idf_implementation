@@ -1,21 +1,15 @@
-You are given a 0-indexed string hamsters where hamsters[i] is either:
-'H' indicating that there is a hamster at index i, or
-'.' indicating that index i is empty.
-You will add some number of food buckets at the empty indices in order to feed the hamsters. A hamster can be fed if there is at least one food bucket to its left or to its right. More formally, a hamster at index i can be fed if you place a food bucket at index i - 1 and/or at index i + 1.
-Return the minimum number of food buckets you should place at empty indices to feed all the hamsters or -1 if it is impossible to feed all of them.
+Write a program to solve a Sudoku puzzle by filling the empty cells.
+A sudoku solution must satisfy all of the following rules:
+Each of the digits 1-9 must occur exactly once in each row.
+Each of the digits 1-9 must occur exactly once in each column.
+Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+The '.' character indicates empty cells.
   Example 1:
-Input: hamsters = "H..H"
-Output: 2
-Explanation: We place two food buckets at indices 1 and 2.
-It can be shown that if we place only one food bucket, one of the hamsters will not be fed.
-Example 2:
-Input: hamsters = ".H.H."
-Output: 1
-Explanation: We place one food bucket at index 2.
-Example 3:
-Input: hamsters = ".HHH."
-Output: -1
-Explanation: If we place a food bucket at every empty index as shown, the hamster at index 2 will not be able to eat.
+Input: board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+Output: [["5","3","4","6","7","8","9","1","2"],["6","7","2","1","9","5","3","4","8"],["1","9","8","3","4","2","5","6","7"],["8","5","9","7","6","1","4","2","3"],["4","2","6","8","5","3","7","9","1"],["7","1","3","9","2","4","8","5","6"],["9","6","1","5","3","7","2","8","4"],["2","8","7","4","1","9","6","3","5"],["3","4","5","2","8","6","1","7","9"]]
+Explanation: The input board is shown above and the only valid solution is shown below:
   Constraints:
-1 <= hamsters.length <= 105
-hamsters[i] is either'H' or '.'.
+board.length == 9
+board[i].length == 9
+board[i][j] is a digit or '.'.
+It is guaranteed that the input board has only one solution.

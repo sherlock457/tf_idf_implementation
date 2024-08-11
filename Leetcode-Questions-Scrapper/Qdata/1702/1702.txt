@@ -1,11 +1,25 @@
-Given a text file file.txt that contains a list of phone numbers (one per line), write a one-liner bash script to print all valid phone numbers.
-You may assume that a valid phone number must appear in one of the following two formats: (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit)
-You may also assume each line in the text file must not contain leading or trailing white spaces.
-Example:
-Assume that file.txt has the following content:
-987-123-4567
-123 456 7890
-(123) 456-7890
-Your script should output the following valid phone numbers:
-987-123-4567
-(123) 456-7890
+You are given a 0-indexed array of string words and two integers left and right.
+A string is called a vowel string if it starts with a vowel character and ends with a vowel character where vowel characters are 'a', 'e', 'i', 'o', and 'u'.
+Return the number of vowel strings words[i] where i belongs to the inclusive range [left, right].
+  Example 1:
+Input: words = ["are","amy","u"], left = 0, right = 2
+Output: 2
+Explanation: 
+- "are" is a vowel string because it starts with 'a' and ends with 'e'.
+- "amy" is not a vowel string because it does not end with a vowel.
+- "u" is a vowel string because it starts with 'u' and ends with 'u'.
+The number of vowel strings in the mentioned range is 2.
+Example 2:
+Input: words = ["hey","aeo","mu","ooo","artro"], left = 1, right = 4
+Output: 3
+Explanation: 
+- "aeo" is a vowel string because it starts with 'a' and ends with 'o'.
+- "mu" is not a vowel string because it does not start with a vowel.
+- "ooo" is a vowel string because it starts with 'o' and ends with 'o'.
+- "artro" is a vowel string because it starts with 'a' and ends with 'o'.
+The number of vowel strings in the mentioned range is 3.
+  Constraints:
+1 <= words.length <= 1000
+1 <= words[i].length <= 10
+words[i] consists of only lowercase English letters.
+0 <= left <= right < words.length

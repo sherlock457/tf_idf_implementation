@@ -1,29 +1,21 @@
-Given four integers length, width, height, and mass, representing the dimensions and mass of a box, respectively, return a string representing the category of the box.
-The box is "Bulky" if:
-Any of the dimensions of the box is greater or equal to 104.
-Or, the volume of the box is greater or equal to 109.
-If the mass of the box is greater or equal to 100, it is "Heavy".
-If the box is both "Bulky" and "Heavy", then its category is "Both".
-If the box is neither "Bulky" nor "Heavy", then its category is "Neither".
-If the box is "Bulky" but not "Heavy", then its category is "Bulky".
-If the box is "Heavy" but not "Bulky", then its category is "Heavy".
-Note that the volume of the box is the product of its length, width and height.
+You have observations of n + m 6-sided dice rolls with each face numbered from 1 to 6. n of the observations went missing, and you only have the observations of m rolls. Fortunately, you have also calculated the average value of the n + m rolls.
+You are given an integer array rolls of length m where rolls[i] is the value of the ith observation. You are also given the two integers mean and n.
+Return an array of length n containing the missing observations such that the average value of the n + m rolls is exactly mean. If there are multiple valid answers, return any of them. If no such array exists, return an empty array.
+The average value of a set of k numbers is the sum of the numbers divided by k.
+Note that mean is an integer, so the sum of the n + m rolls should be divisible by n + m.
   Example 1:
-Input: length = 1000, width = 35, height = 700, mass = 300
-Output: "Heavy"
-Explanation: 
-None of the dimensions of the box is greater or equal to 104. 
-Its volume = 24500000 <= 109. So it cannot be categorized as "Bulky".
-However mass >= 100, so the box is "Heavy".
-Since the box is not "Bulky" but "Heavy", we return "Heavy".
+Input: rolls = [3,2,4,3], mean = 4, n = 2
+Output: [6,6]
+Explanation: The mean of all n + m rolls is (3 + 2 + 4 + 3 + 6 + 6) / 6 = 4.
 Example 2:
-Input: length = 200, width = 50, height = 800, mass = 50
-Output: "Neither"
-Explanation: 
-None of the dimensions of the box is greater or equal to 104.
-Its volume = 8 * 106 <= 109. So it cannot be categorized as "Bulky".
-Its mass is also less than 100, so it cannot be categorized as "Heavy" either. 
-Since its neither of the two above categories, we return "Neither".
+Input: rolls = [1,5,6], mean = 3, n = 4
+Output: [2,3,2,2]
+Explanation: The mean of all n + m rolls is (1 + 5 + 6 + 2 + 3 + 2 + 2) / 7 = 3.
+Example 3:
+Input: rolls = [1,2,3,4], mean = 6, n = 4
+Output: []
+Explanation: It is impossible for the mean to be 6 no matter what the 4 missing rolls are.
   Constraints:
-1 <= length, width, height <= 105
-1 <= mass <= 103
+m == rolls.length
+1 <= n, m <= 105
+1 <= rolls[i], mean <= 6

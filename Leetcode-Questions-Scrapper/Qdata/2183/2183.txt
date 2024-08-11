@@ -1,20 +1,20 @@
-You are given an integer array arr of length n that represents a permutation of the integers in the range [0, n - 1].
-We split arr into some number of chunks (i.e., partitions), and individually sort each chunk. After concatenating them, the result should equal the sorted array.
-Return the largest number of chunks we can make to sort the array.
+Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*' where:
+'?' Matches any single character.
+'*' Matches any sequence of characters (including the empty sequence).
+The matching should cover the entire input string (not partial).
   Example 1:
-Input: arr = [4,3,2,1,0]
-Output: 1
-Explanation:
-Splitting into two or more chunks will not return the required result.
-For example, splitting into [4, 3], [2, 1, 0] will result in [3, 4, 0, 1, 2], which isn't sorted.
+Input: s = "aa", p = "a"
+Output: false
+Explanation: "a" does not match the entire string "aa".
 Example 2:
-Input: arr = [1,0,2,3,4]
-Output: 4
-Explanation:
-We can split into two chunks, such as [1, 0], [2, 3, 4].
-However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks possible.
+Input: s = "aa", p = "*"
+Output: true
+Explanation: '*' matches any sequence.
+Example 3:
+Input: s = "cb", p = "?a"
+Output: false
+Explanation: '?' matches 'c', but the second letter is 'a', which does not match 'b'.
   Constraints:
-n == arr.length
-1 <= n <= 10
-0 <= arr[i] < n
-All the elements of arr are unique.
+0 <= s.length, p.length <= 2000
+s contains only lowercase English letters.
+p contains only lowercase English letters, '?' or '*'.

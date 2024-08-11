@@ -1,18 +1,16 @@
-You are given a string s consisting of the characters 'a', 'b', and 'c' and a non-negative integer k. Each minute, you may take either the leftmost character of s, or the rightmost character of s.
-Return the minimum number of minutes needed for you to take at least k of each character, or return -1 if it is not possible to take k of each character.
+Alice and Bob take turns playing a game, with Alice starting first.
+Initially, there is a number n on the chalkboard. On each player's turn, that player makes a move consisting of:
+Choosing any x with 0 < x < n and n % x == 0.
+Replacing the number n on the chalkboard with n - x.
+Also, if a player cannot make a move, they lose the game.
+Return true if and only if Alice wins the game, assuming both players play optimally.
   Example 1:
-Input: s = "aabaaaacaabc", k = 2
-Output: 8
-Explanation: 
-Take three characters from the left of s. You now have two 'a' characters, and one 'b' character.
-Take five characters from the right of s. You now have four 'a' characters, two 'b' characters, and two 'c' characters.
-A total of 3 + 5 = 8 minutes is needed.
-It can be proven that 8 is the minimum number of minutes needed.
+Input: n = 2
+Output: true
+Explanation: Alice chooses 1, and Bob has no more moves.
 Example 2:
-Input: s = "a", k = 1
-Output: -1
-Explanation: It is not possible to take one 'b' or 'c' so return -1.
+Input: n = 3
+Output: false
+Explanation: Alice chooses 1, Bob chooses 1, and Alice has no more moves.
   Constraints:
-1 <= s.length <= 105
-s consists of only the letters 'a', 'b', and 'c'.
-0 <= k <= s.length
+1 <= n <= 1000

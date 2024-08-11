@@ -1,17 +1,26 @@
-Given the root of a binary tree, find the maximum value v for which there exist different nodes a and b where v = |a.val - b.val| and a is an ancestor of b.
-A node a is an ancestor of b if either: any child of a is equal to b or any child of a is an ancestor of b.
+You are given an integer array gifts denoting the number of gifts in various piles. Every second, you do the following:
+Choose the pile with the maximum number of gifts.
+If there is more than one pile with the maximum number of gifts, choose any.
+Leave behind the floor of the square root of the number of gifts in the pile. Take the rest of the gifts.
+Return the number of gifts remaining after k seconds.
   Example 1:
-Input: root = [8,3,10,1,6,null,14,null,null,4,7,13]
-Output: 7
-Explanation: We have various ancestor-node differences, some of which are given below :
-|8 - 3| = 5
-|3 - 7| = 4
-|8 - 1| = 7
-|10 - 13| = 3
-Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.
+Input: gifts = [25,64,9,4,100], k = 4
+Output: 29
+Explanation: 
+The gifts are taken in the following way:
+- In the first second, the last pile is chosen and 10 gifts are left behind.
+- Then the second pile is chosen and 8 gifts are left behind.
+- After that the first pile is chosen and 5 gifts are left behind.
+- Finally, the last pile is chosen again and 3 gifts are left behind.
+The final remaining gifts are [5,8,9,4,3], so the total number of gifts remaining is 29.
 Example 2:
-Input: root = [1,null,2,null,0,3]
-Output: 3
+Input: gifts = [1,1,1,1], k = 4
+Output: 4
+Explanation: 
+In this case, regardless which pile you choose, you have to leave behind 1 gift in each pile. 
+That is, you can't take any pile with you. 
+So, the total gifts remaining are 4.
   Constraints:
-The number of nodes in the tree is in the range [2, 5000].
-0 <= Node.val <= 105
+1 <= gifts.length <= 103
+1 <= gifts[i] <= 109
+1 <= k <= 103

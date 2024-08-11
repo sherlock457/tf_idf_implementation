@@ -1,25 +1,18 @@
-You are given an integer array ranks representing the ranks of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank r can repair n cars in r * n2 minutes.
-You are also given an integer cars representing the total number of cars waiting in the garage to be repaired.
-Return the minimum time taken to repair all the cars.
-Note: All the mechanics can repair the cars simultaneously.
+Given an array nums of positive integers. Your task is to select some subset of nums, multiply each element by an integer and add all these numbers. The array is said to be good if you can obtain a sum of 1 from the array by any possible subset and multiplicand.
+Return True if the array is good otherwise return False.
   Example 1:
-Input: ranks = [4,2,3,1], cars = 10
-Output: 16
-Explanation: 
-- The first mechanic will repair two cars. The time required is 4 * 2 * 2 = 16 minutes.
-- The second mechanic will repair two cars. The time required is 2 * 2 * 2 = 8 minutes.
-- The third mechanic will repair two cars. The time required is 3 * 2 * 2 = 12 minutes.
-- The fourth mechanic will repair four cars. The time required is 1 * 4 * 4 = 16 minutes.
-It can be proved that the cars cannot be repaired in less than 16 minutes.
+Input: nums = [12,5,7,23]
+Output: true
+Explanation: Pick numbers 5 and 7.
+5*3 + 7*(-2) = 1
 Example 2:
-Input: ranks = [5,1,8], cars = 6
-Output: 16
-Explanation: 
-- The first mechanic will repair one car. The time required is 5 * 1 * 1 = 5 minutes.
-- The second mechanic will repair four cars. The time required is 1 * 4 * 4 = 16 minutes.
-- The third mechanic will repair one car. The time required is 8 * 1 * 1 = 8 minutes.
-It can be proved that the cars cannot be repaired in less than 16 minutes.
+Input: nums = [29,6,10]
+Output: true
+Explanation: Pick numbers 29, 6 and 10.
+29*1 + 6*(-3) + 10*(-1) = 1
+Example 3:
+Input: nums = [3,6]
+Output: false
   Constraints:
-1 <= ranks.length <= 105
-1 <= ranks[i] <= 100
-1 <= cars <= 106
+1 <= nums.length <= 10^5
+1 <= nums[i] <= 10^9

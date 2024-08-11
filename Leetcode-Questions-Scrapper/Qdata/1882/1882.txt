@@ -1,33 +1,23 @@
-You are given an integer array nums and an integer k.
-Split the array into some number of non-empty subarrays. The cost of a split is the sum of the importance value of each subarray in the split.
-Let trimmed(subarray) be the version of the subarray where all numbers which appear only once are removed.
-For example, trimmed([3,1,2,4,3,4]) = [3,4,3,4].
-The importance value of a subarray is k + trimmed(subarray).length.
-For example, if a subarray is [1,2,3,3,3,4,4], then trimmed([1,2,3,3,3,4,4]) = [3,3,3,4,4].The importance value of this subarray will be k + 5.
-Return the minimum possible cost of a split of nums.
-A subarray is a contiguous non-empty sequence of elements within an array.
+You are given a binary string s. In one second, all occurrences of "01" are simultaneously replaced with "10". This process repeats until no occurrences of "01" exist.
+Return the number of seconds needed to complete this process.
   Example 1:
-Input: nums = [1,2,1,2,1,3,3], k = 2
-Output: 8
-Explanation: We split nums to have two subarrays: [1,2], [1,2,1,3,3].
-The importance value of [1,2] is 2 + (0) = 2.
-The importance value of [1,2,1,3,3] is 2 + (2 + 2) = 6.
-The cost of the split is 2 + 6 = 8. It can be shown that this is the minimum possible cost among all the possible splits.
+Input: s = "0110101"
+Output: 4
+Explanation: 
+After one second, s becomes "1011010".
+After another second, s becomes "1101100".
+After the third second, s becomes "1110100".
+After the fourth second, s becomes "1111000".
+No occurrence of "01" exists any longer, and the process needed 4 seconds to complete,
+so we return 4.
 Example 2:
-Input: nums = [1,2,1,2,1], k = 2
-Output: 6
-Explanation: We split nums to have two subarrays: [1,2], [1,2,1].
-The importance value of [1,2] is 2 + (0) = 2.
-The importance value of [1,2,1] is 2 + (2) = 4.
-The cost of the split is 2 + 4 = 6. It can be shown that this is the minimum possible cost among all the possible splits.
-Example 3:
-Input: nums = [1,2,1,2,1], k = 5
-Output: 10
-Explanation: We split nums to have one subarray: [1,2,1,2,1].
-The importance value of [1,2,1,2,1] is 5 + (3 + 2) = 10.
-The cost of the split is 10. It can be shown that this is the minimum possible cost among all the possible splits.
+Input: s = "11100"
+Output: 0
+Explanation:
+No occurrence of "01" exists in s, and the processes needed 0 seconds to complete,
+so we return 0.
   Constraints:
-1 <= nums.length <= 1000
-0 <= nums[i] < nums.length
-1 <= k <= 109
- 
+1 <= s.length <= 1000
+s[i] is either '0' or '1'.
+  Follow up:
+Can you solve this problem in O(n) time complexity?

@@ -1,20 +1,15 @@
-You are given an integer array nums consisting of 2 * n integers.
-You need to divide nums into n pairs such that:
-Each element belongs to exactly one pair.
-The elements present in a pair are equal.
-Return true if nums can be divided into n pairs, otherwise return false.
+Given a binary string s, return the number of non-empty substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.
+Substrings that occur multiple times are counted the number of times they occur.
   Example 1:
-Input: nums = [3,2,3,2,2,2]
-Output: true
-Explanation: 
-There are 6 elements in nums, so they should be divided into 6 / 2 = 3 pairs.
-If nums is divided into the pairs (2, 2), (3, 3), and (2, 2), it will satisfy all the conditions.
+Input: s = "00110011"
+Output: 6
+Explanation: There are 6 substrings that have equal number of consecutive 1's and 0's: "0011", "01", "1100", "10", "0011", and "01".
+Notice that some of these substrings repeat and are counted the number of times they occur.
+Also, "00110011" is not a valid substring because all the 0's (and 1's) are not grouped together.
 Example 2:
-Input: nums = [1,2,3,4]
-Output: false
-Explanation: 
-There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy every condition.
+Input: s = "10101"
+Output: 4
+Explanation: There are 4 substrings: "10", "01", "10", "01" that have equal number of consecutive 1's and 0's.
   Constraints:
-nums.length == 2 * n
-1 <= n <= 500
-1 <= nums[i] <= 500
+1 <= s.length <= 105
+s[i] is either '0' or '1'.

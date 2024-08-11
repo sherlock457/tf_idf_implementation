@@ -1,20 +1,20 @@
-A square matrix is said to be an X-Matrix if both of the following conditions hold:
-All the elements in the diagonals of the matrix are non-zero.
-All other elements are 0.
-Given a 2D integer array grid of size n x n representing a square matrix, return true if grid is an X-Matrix. Otherwise, return false.
+Given a string s of '(' , ')' and lowercase English characters.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+Formally, a parentheses string is valid if and only if:
+It is the empty string, contains only lowercase characters, or
+It can be written as AB (A concatenated with B), where A and B are valid strings, or
+It can be written as (A), where A is a valid string.
   Example 1:
-Input: grid = [[2,0,0,1],[0,3,1,0],[0,5,2,0],[4,0,0,2]]
-Output: true
-Explanation: Refer to the diagram above. 
-An X-Matrix should have the green elements (diagonals) be non-zero and the red elements be 0.
-Thus, grid is an X-Matrix.
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
 Example 2:
-Input: grid = [[5,7,0],[0,3,1],[0,5,0]]
-Output: false
-Explanation: Refer to the diagram above.
-An X-Matrix should have the green elements (diagonals) be non-zero and the red elements be 0.
-Thus, grid is not an X-Matrix.
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
+Example 3:
+Input: s = "))(("
+Output: ""
+Explanation: An empty string is also valid.
   Constraints:
-n == grid.length == grid[i].length
-3 <= n <= 100
-0 <= grid[i][j] <= 105
+1 <= s.length <= 105
+s[i] is either'(' , ')', or lowercase English letter.

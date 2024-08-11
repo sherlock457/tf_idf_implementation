@@ -1,40 +1,21 @@
-Due to a bug, there are many duplicate folders in a file system. You are given a 2D array paths, where paths[i] is an array representing an absolute path to the ith folder in the file system.
-For example, ["one", "two", "three"] represents the path "/one/two/three".
-Two folders (not necessarily on the same level) are identical if they contain the same non-empty set of identical subfolders and underlying subfolder structure. The folders do not need to be at the root level to be identical. If two or more folders are identical, then mark the folders as well as all their subfolders.
-For example, folders "/a" and "/b" in the file structure below are identical. They (as well as their subfolders) should all be marked:
-/a
-/a/x
-/a/x/y
-/a/z
-/b
-/b/x
-/b/x/y
-/b/z
-However, if the file structure also included the path "/b/w", then the folders "/a" and "/b" would not be identical. Note that "/a/x" and "/b/x" would still be considered identical even with the added folder.
-Once all the identical folders and their subfolders have been marked, the file system will delete all of them. The file system only runs the deletion once, so any folders that become identical after the initial deletion are not deleted.
-Return the 2D array ans containing the paths of the remaining folders after deleting all the marked folders. The paths may be returned in any order.
+You are given an integer num. You will apply the following steps exactly two times:
+Pick a digit x (0 <= x <= 9).
+Pick another digit y (0 <= y <= 9). The digit y can be equal to x.
+Replace all the occurrences of x in the decimal representation of num by y.
+The new integer cannot have any leading zeros, also the new integer cannot be 0.
+Let a and b be the results of applying the operations to num the first and second times, respectively.
+Return the max difference between a and b.
   Example 1:
-Input: paths = [["a"],["c"],["d"],["a","b"],["c","b"],["d","a"]]
-Output: [["d"],["d","a"]]
-Explanation: The file structure is as shown.
-Folders "/a" and "/c" (and their subfolders) are marked for deletion because they both contain an empty
-folder named "b".
+Input: num = 555
+Output: 888
+Explanation: The first time pick x = 5 and y = 9 and store the new integer in a.
+The second time pick x = 5 and y = 1 and store the new integer in b.
+We have now a = 999 and b = 111 and max difference = 888
 Example 2:
-Input: paths = [["a"],["c"],["a","b"],["c","b"],["a","b","x"],["a","b","x","y"],["w"],["w","y"]]
-Output: [["c"],["c","b"],["a"],["a","b"]]
-Explanation: The file structure is as shown. 
-Folders "/a/b/x" and "/w" (and their subfolders) are marked for deletion because they both contain an empty folder named "y".
-Note that folders "/a" and "/c" are identical after the deletion, but they are not deleted because they were not marked beforehand.
-Example 3:
-Input: paths = [["a","b"],["c","d"],["c"],["a"]]
-Output: [["c"],["c","d"],["a"],["a","b"]]
-Explanation: All folders are unique in the file system.
-Note that the returned array can be in a different order as the order does not matter.
+Input: num = 9
+Output: 8
+Explanation: The first time pick x = 9 and y = 9 and store the new integer in a.
+The second time pick x = 9 and y = 1 and store the new integer in b.
+We have now a = 9 and b = 1 and max difference = 8
   Constraints:
-1 <= paths.length <= 2 * 104
-1 <= paths[i].length <= 500
-1 <= paths[i][j].length <= 10
-1 <= sum(paths[i][j].length) <= 2 * 105
-path[i][j] consists of lowercase English letters.
-No two paths lead to the same folder.
-For any folder not at the root level, its parent folder will also be in the input.
+1 <= num <= 108

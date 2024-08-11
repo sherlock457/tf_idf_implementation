@@ -1,28 +1,20 @@
-The k-beauty of an integer num is defined as the number of substrings of num when it is read as a string that meet the following conditions:
-It has a length of k.
-It is a divisor of num.
-Given integers num and k, return the k-beauty of num.
-Note:
-Leading zeros are allowed.
-0 is not a divisor of any value.
-A substring is a contiguous sequence of characters in a string.
+You are given a 0-indexed array nums of distinct integers. You want to rearrange the elements in the array such that every element in the rearranged array is not equal to the average of its neighbors.
+More formally, the rearranged array should have the property such that for every i in the range 1 <= i < nums.length - 1, (nums[i-1] + nums[i+1]) / 2 is not equal to nums[i].
+Return any rearrangement of nums that meets the requirements.
   Example 1:
-Input: num = 240, k = 2
-Output: 2
-Explanation: The following are the substrings of num of length k:
-- "24" from "240": 24 is a divisor of 240.
-- "40" from "240": 40 is a divisor of 240.
-Therefore, the k-beauty is 2.
+Input: nums = [1,2,3,4,5]
+Output: [1,2,4,5,3]
+Explanation:
+When i=1, nums[i] = 2, and the average of its neighbors is (1+4) / 2 = 2.5.
+When i=2, nums[i] = 4, and the average of its neighbors is (2+5) / 2 = 3.5.
+When i=3, nums[i] = 5, and the average of its neighbors is (4+3) / 2 = 3.5.
 Example 2:
-Input: num = 430043, k = 2
-Output: 2
-Explanation: The following are the substrings of num of length k:
-- "43" from "430043": 43 is a divisor of 430043.
-- "30" from "430043": 30 is not a divisor of 430043.
-- "00" from "430043": 0 is not a divisor of 430043.
-- "04" from "430043": 4 is not a divisor of 430043.
-- "43" from "430043": 43 is a divisor of 430043.
-Therefore, the k-beauty is 2.
+Input: nums = [6,2,0,9,7]
+Output: [9,7,6,2,0]
+Explanation:
+When i=1, nums[i] = 7, and the average of its neighbors is (9+6) / 2 = 7.5.
+When i=2, nums[i] = 6, and the average of its neighbors is (7+2) / 2 = 4.5.
+When i=3, nums[i] = 2, and the average of its neighbors is (6+0) / 2 = 3.
   Constraints:
-1 <= num <= 109
-1 <= k <= num.length (taking num as a string)
+3 <= nums.length <= 105
+0 <= nums[i] <= 105

@@ -1,13 +1,15 @@
-An array is squareful if the sum of every pair of adjacent elements is a perfect square.
-Given an integer array nums, return the number of permutations of nums that are squareful.
-Two permutations perm1 and perm2 are different if there is some index i such that perm1[i] != perm2[i].
+There is a robot starting at the position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.
+You are given a string moves that represents the move sequence of the robot where moves[i] represents its ith move. Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down).
+Return true if the robot returns to the origin after it finishes all of its moves, or false otherwise.
+Note: The way that the robot is "facing" is irrelevant. 'R' will always make the robot move to the right once, 'L' will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.
   Example 1:
-Input: nums = [1,17,8]
-Output: 2
-Explanation: [1,8,17] and [17,8,1] are the valid permutations.
+Input: moves = "UD"
+Output: true
+Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
 Example 2:
-Input: nums = [2,2,2]
-Output: 1
+Input: moves = "LL"
+Output: false
+Explanation: The robot moves left twice. It ends up two "moves" to the left of the origin. We return false because it is not at the origin at the end of its moves.
   Constraints:
-1 <= nums.length <= 12
-0 <= nums[i] <= 109
+1 <= moves.length <= 2 * 104
+moves only contains the characters 'U', 'D', 'L' and 'R'.

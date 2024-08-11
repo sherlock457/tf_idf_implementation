@@ -1,18 +1,18 @@
-We define the string base to be the infinite wraparound string of "abcdefghijklmnopqrstuvwxyz", so base will look like this:
-"...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....".
-Given a string s, return the number of unique non-empty substrings of s are present in base.
+You are given an n x n binary matrix grid where 1 represents land and 0 represents water.
+An island is a 4-directionally connected group of 1's not connected to any other 1's. There are exactly two islands in grid.
+You may change 0's to 1's to connect the two islands to form one island.
+Return the smallest number of 0's you must flip to connect the two islands.
   Example 1:
-Input: s = "a"
+Input: grid = [[0,1],[1,0]]
 Output: 1
-Explanation: Only the substring "a" of s is in base.
 Example 2:
-Input: s = "cac"
+Input: grid = [[0,1,0],[0,0,0],[0,0,1]]
 Output: 2
-Explanation: There are two substrings ("a", "c") of s in base.
 Example 3:
-Input: s = "zab"
-Output: 6
-Explanation: There are six substrings ("z", "a", "b", "za", "ab", and "zab") of s in base.
+Input: grid = [[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
+Output: 1
   Constraints:
-1 <= s.length <= 105
-s consists of lowercase English letters.
+n == grid.length == grid[i].length
+2 <= n <= 100
+grid[i][j] is either 0 or 1.
+There are exactly two islands in grid.

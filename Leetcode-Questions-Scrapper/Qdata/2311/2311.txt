@@ -1,22 +1,15 @@
-You have a RecentCounter class which counts the number of recent requests within a certain time frame.
-Implement the RecentCounter class:
-RecentCounter() Initializes the counter with zero recent requests.
-int ping(int t) Adds a new request at time t, where t represents some time in milliseconds, and returns the number of requests that has happened in the past 3000 milliseconds (including the new request). Specifically, return the number of requests that have happened in the inclusive range [t - 3000, t].
-It is guaranteed that every call to ping uses a strictly larger value of t than the previous call.
+You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.
+For example, given num = 2932, you have the following digits: two 2's, one 9 and one 3. Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
+Return the minimum possible sum of new1 and new2.
   Example 1:
-Input
-["RecentCounter", "ping", "ping", "ping", "ping"]
-[[], [1], [100], [3001], [3002]]
-Output
-[null, 1, 2, 3, 3]
-
-Explanation
-RecentCounter recentCounter = new RecentCounter();
-recentCounter.ping(1);     // requests = [1], range is [-2999,1], return 1
-recentCounter.ping(100);   // requests = [1, 100], range is [-2900,100], return 2
-recentCounter.ping(3001);  // requests = [1, 100, 3001], range is [1,3001], return 3
-recentCounter.ping(3002);  // requests = [1, 100, 3001, 3002], range is [2,3002], return 3
+Input: num = 2932
+Output: 52
+Explanation: Some possible pairs [new1, new2] are [29, 23], [223, 9], etc.
+The minimum sum can be obtained by the pair [29, 23]: 29 + 23 = 52.
+Example 2:
+Input: num = 4009
+Output: 13
+Explanation: Some possible pairs [new1, new2] are [0, 49], [490, 0], etc. 
+The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
   Constraints:
-1 <= t <= 109
-Each test case will call ping with strictly increasing values of t.
-At most 104 calls will be made to ping.
+1000 <= num <= 9999

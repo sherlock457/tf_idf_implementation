@@ -1,22 +1,27 @@
-Given an integer array arr, return the length of a maximum size turbulent subarray of arr.
-A subarray is turbulent if the comparison sign flips between each adjacent pair of elements in the subarray.
-More formally, a subarray [arr[i], arr[i + 1], ..., arr[j]] of arr is said to be turbulent if and only if:
-For i <= k < j:
-arr[k] > arr[k + 1] when k is odd, and
-arr[k] < arr[k + 1] when k is even.
-Or, for i <= k < j:
-arr[k] > arr[k + 1] when k is even, and
-arr[k] < arr[k + 1] when k is odd.
-  Example 1:
-Input: arr = [9,4,2,10,7,8,8,1,9]
-Output: 5
-Explanation: arr[1] > arr[2] < arr[3] > arr[4] < arr[5]
-Example 2:
-Input: arr = [4,8,12,16]
-Output: 2
-Example 3:
-Input: arr = [100]
-Output: 1
+Design a data structure that supports adding new words and finding if a string matches any previously added string.
+Implement the WordDictionary class:
+WordDictionary() Initializes the object.
+void addWord(word) Adds word to the data structure, it can be matched later.
+bool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.
+  Example:
+Input
+["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
+[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
+Output
+[null,null,null,null,false,true,true,true]
+
+Explanation
+WordDictionary wordDictionary = new WordDictionary();
+wordDictionary.addWord("bad");
+wordDictionary.addWord("dad");
+wordDictionary.addWord("mad");
+wordDictionary.search("pad"); // return False
+wordDictionary.search("bad"); // return True
+wordDictionary.search(".ad"); // return True
+wordDictionary.search("b.."); // return True
   Constraints:
-1 <= arr.length <= 4 * 104
-0 <= arr[i] <= 109
+1 <= word.length <= 25
+word in addWord consists of lowercase English letters.
+word in search consist of '.' or lowercase English letters.
+There will be at most 2 dots in word for search queries.
+At most 104 calls will be made to addWord and search.

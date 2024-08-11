@@ -1,23 +1,17 @@
-Write a function that checks if a given value is an instance of a given class or superclass. For this problem, an object is considered an instance of a given class if that object has access to that class's methods.
-There are no constraints on the data types that can be passed to the function. For example, the value or the class could be undefined.
+There is a forest with an unknown number of rabbits. We asked n rabbits "How many rabbits have the same color as you?" and collected the answers in an integer array answers where answers[i] is the answer of the ith rabbit.
+Given the array answers, return the minimum number of rabbits that could be in the forest.
   Example 1:
-Input: func = () => checkIfInstanceOf(new Date(), Date)
-Output: true
-Explanation: The object returned by the Date constructor is, by definition, an instance of Date.
-Example 2:
-Input: func = () => { class Animal {}; class Dog extends Animal {}; return checkIfInstanceOf(new Dog(), Animal); }
-Output: true
+Input: answers = [1,1,2]
+Output: 5
 Explanation:
-class Animal {};
-class Dog extends Animal {};
-checkIfInstance(new Dog(), Animal); // true
-
-Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog and Animal.
-Example 3:
-Input: func = () => checkIfInstanceOf(Date, Date)
-Output: false
-Explanation: A date constructor cannot logically be an instance of itself.
-Example 4:
-Input: func = () => checkIfInstanceOf(5, Number)
-Output: true
-Explanation: 5 is a Number. Note that the "instanceof" keyword would return false. However, it is still considered an instance of Number because it accesses the Number methods. For example "toFixed()".
+The two rabbits that answered "1" could both be the same color, say red.
+The rabbit that answered "2" can't be red or the answers would be inconsistent.
+Say the rabbit that answered "2" was blue.
+Then there should be 2 other blue rabbits in the forest that didn't answer into the array.
+The smallest possible number of rabbits in the forest is therefore 5: 3 that answered plus 2 that didn't.
+Example 2:
+Input: answers = [10,10,10]
+Output: 11
+  Constraints:
+1 <= answers.length <= 1000
+0 <= answers[i] < 1000

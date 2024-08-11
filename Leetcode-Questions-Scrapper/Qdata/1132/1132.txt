@@ -1,23 +1,12 @@
-A k-booking happens when k events have some non-empty intersection (i.e., there is some time that is common to all k events.)
-You are given some events [startTime, endTime), after each given event, return an integer k representing the maximum k-booking between all the previous events.
-Implement the MyCalendarThree class:
-MyCalendarThree() Initializes the object.
-int book(int startTime, int endTime) Returns an integer k representing the largest integer such that there exists a k-booking in the calendar.
+Given a string s and a string array dictionary, return the longest string in the dictionary that can be formed by deleting some of the given string characters. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.
   Example 1:
-Input
-["MyCalendarThree", "book", "book", "book", "book", "book", "book"]
-[[], [10, 20], [50, 60], [10, 40], [5, 15], [5, 10], [25, 55]]
-Output
-[null, 1, 1, 2, 3, 3, 3]
-
-Explanation
-MyCalendarThree myCalendarThree = new MyCalendarThree();
-myCalendarThree.book(10, 20); // return 1
-myCalendarThree.book(50, 60); // return 1
-myCalendarThree.book(10, 40); // return 2
-myCalendarThree.book(5, 15); // return 3
-myCalendarThree.book(5, 10); // return 3
-myCalendarThree.book(25, 55); // return 3
+Input: s = "abpcplea", dictionary = ["ale","apple","monkey","plea"]
+Output: "apple"
+Example 2:
+Input: s = "abpcplea", dictionary = ["a","b","c"]
+Output: "a"
   Constraints:
-0 <= startTime < endTime <= 109
-At most 400 calls will be made to book.
+1 <= s.length <= 1000
+1 <= dictionary.length <= 1000
+1 <= dictionary[i].length <= 1000
+s and dictionary[i] consist of lowercase English letters.

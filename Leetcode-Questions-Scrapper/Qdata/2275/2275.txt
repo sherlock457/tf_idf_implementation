@@ -1,17 +1,24 @@
-You are given an array of strings words (0-indexed).
-In one operation, pick two distinct indices i and j, where words[i] is a non-empty string, and move any character from words[i] to any position in words[j].
-Return true if you can make every string in words equal using any number of operations, and false otherwise.
+You are given a 0-indexed array nums of size n consisting of non-negative integers.
+You need to apply n - 1 operations to this array where, in the ith operation (0-indexed), you will apply the following on the ith element of nums:
+If nums[i] == nums[i + 1], then multiply nums[i] by 2 and set nums[i + 1] to 0. Otherwise, you skip this operation.
+After performing all the operations, shift all the 0's to the end of the array.
+For example, the array [1,0,2,0,0,1] after shifting all its 0's to the end, is [1,2,1,0,0,0].
+Return the resulting array.
+Note that the operations are applied sequentially, not all at once.
   Example 1:
-Input: words = ["abc","aabc","bc"]
-Output: true
-Explanation: Move the first 'a' in words[1] to the front of words[2],
-to make words[1] = "abc" and words[2] = "abc".
-All the strings are now equal to "abc", so return true.
+Input: nums = [1,2,2,1,1,0]
+Output: [1,4,2,0,0,0]
+Explanation: We do the following operations:
+- i = 0: nums[0] and nums[1] are not equal, so we skip this operation.
+- i = 1: nums[1] and nums[2] are equal, we multiply nums[1] by 2 and change nums[2] to 0. The array becomes [1,4,0,1,1,0].
+- i = 2: nums[2] and nums[3] are not equal, so we skip this operation.
+- i = 3: nums[3] and nums[4] are equal, we multiply nums[3] by 2 and change nums[4] to 0. The array becomes [1,4,0,2,0,0].
+- i = 4: nums[4] and nums[5] are equal, we multiply nums[4] by 2 and change nums[5] to 0. The array becomes [1,4,0,2,0,0].
+After that, we shift the 0's to the end, which gives the array [1,4,2,0,0,0].
 Example 2:
-Input: words = ["ab","a"]
-Output: false
-Explanation: It is impossible to make all the strings equal using the operation.
+Input: nums = [0,1]
+Output: [1,0]
+Explanation: No operation can be applied, we just shift the 0 to the end.
   Constraints:
-1 <= words.length <= 100
-1 <= words[i].length <= 100
-words[i] consists of lowercase English letters.
+2 <= nums.length <= 2000
+0 <= nums[i] <= 1000

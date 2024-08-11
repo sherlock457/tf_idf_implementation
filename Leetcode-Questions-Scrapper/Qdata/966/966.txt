@@ -1,12 +1,18 @@
-Given an integer num, return three consecutive integers (as a sorted array) that sum to num. If num cannot be expressed as the sum of three consecutive integers, return an empty array.
+You are given an array of events where events[i] = [startDayi, endDayi]. Every event i starts at startDayi and ends at endDayi.
+You can attend an event i at any day d where startTimei <= d <= endTimei. You can only attend one event at any time d.
+Return the maximum number of events you can attend.
   Example 1:
-Input: num = 33
-Output: [10,11,12]
-Explanation: 33 can be expressed as 10 + 11 + 12 = 33.
-10, 11, 12 are 3 consecutive integers, so we return [10, 11, 12].
+Input: events = [[1,2],[2,3],[3,4]]
+Output: 3
+Explanation: You can attend all the three events.
+One way to attend them all is as shown.
+Attend the first event on day 1.
+Attend the second event on day 2.
+Attend the third event on day 3.
 Example 2:
-Input: num = 4
-Output: []
-Explanation: There is no way to express 4 as the sum of 3 consecutive integers.
+Input: events= [[1,2],[2,3],[3,4],[1,2]]
+Output: 4
   Constraints:
-0 <= num <= 1015
+1 <= events.length <= 105
+events[i].length == 2
+1 <= startDayi <= endDayi <= 105

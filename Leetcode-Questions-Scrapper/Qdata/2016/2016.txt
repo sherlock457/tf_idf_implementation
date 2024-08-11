@@ -1,37 +1,30 @@
-There is an ATM machine that stores banknotes of 5 denominations: 20, 50, 100, 200, and 500 dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money.
-When withdrawing, the machine prioritizes using banknotes of larger values.
-For example, if you want to withdraw $300 and there are 2 $50 banknotes, 1 $100 banknote, and 1 $200 banknote, then the machine will use the $100 and $200 banknotes.
-However, if you try to withdraw $600 and there are 3 $200 banknotes and 1 $500 banknote, then the withdraw request will be rejected because the machine will first try to use the $500 banknote and then be unable to use banknotes to complete the remaining $100. Note that the machine is not allowed to use the $200 banknotes instead of the $500 banknote.
-Implement the ATM class:
-ATM() Initializes the ATM object.
-void deposit(int[] banknotesCount) Deposits new banknotes in the order $20, $50, $100, $200, and $500.
-int[] withdraw(int amount) Returns an array of length 5 of the number of banknotes that will be handed to the user in the order $20, $50, $100, $200, and $500, and update the number of banknotes in the ATM after withdrawing. Returns [-1] if it is not possible (do not withdraw any banknotes in this case).
+You are given a 0-indexed array nums that consists of n distinct positive integers. Apply m operations to this array, where in the ith operation you replace the number operations[i][0] with operations[i][1].
+It is guaranteed that in the ith operation:
+operations[i][0] exists in nums.
+operations[i][1] does not exist in nums.
+Return the array obtained after applying all the operations.
   Example 1:
-Input
-["ATM", "deposit", "withdraw", "deposit", "withdraw", "withdraw"]
-[[], [[0,0,1,2,1]], [600], [[0,1,0,1,1]], [600], [550]]
-Output
-[null, null, [0,0,1,0,1], null, [-1], [0,1,0,0,1]]
-
-Explanation
-ATM atm = new ATM();
-atm.deposit([0,0,1,2,1]); // Deposits 1 $100 banknote, 2 $200 banknotes,
-                          // and 1 $500 banknote.
-atm.withdraw(600);        // Returns [0,0,1,0,1]. The machine uses 1 $100 banknote
-                          // and 1 $500 banknote. The banknotes left over in the
-                          // machine are [0,0,0,2,0].
-atm.deposit([0,1,0,1,1]); // Deposits 1 $50, $200, and $500 banknote.
-                          // The banknotes in the machine are now [0,1,0,3,1].
-atm.withdraw(600);        // Returns [-1]. The machine will try to use a $500 banknote
-                          // and then be unable to complete the remaining $100,
-                          // so the withdraw request will be rejected.
-                          // Since the request is rejected, the number of banknotes
-                          // in the machine is not modified.
-atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknote
-                          // and 1 $500 banknote.
+Input: nums = [1,2,4,6], operations = [[1,3],[4,7],[6,1]]
+Output: [3,2,7,1]
+Explanation: We perform the following operations on nums:
+- Replace the number 1 with 3. nums becomes [3,2,4,6].
+- Replace the number 4 with 7. nums becomes [3,2,7,6].
+- Replace the number 6 with 1. nums becomes [3,2,7,1].
+We return the final array [3,2,7,1].
+Example 2:
+Input: nums = [1,2], operations = [[1,3],[2,1],[3,2]]
+Output: [2,1]
+Explanation: We perform the following operations to nums:
+- Replace the number 1 with 3. nums becomes [3,2].
+- Replace the number 2 with 1. nums becomes [3,1].
+- Replace the number 3 with 2. nums becomes [2,1].
+We return the array [2,1].
   Constraints:
-banknotesCount.length == 5
-0 <= banknotesCount[i] <= 109
-1 <= amount <= 109
-At most 5000 calls in total will be made to withdraw and deposit.
-At least one call will be made to each function withdraw and deposit.
+n == nums.length
+m == operations.length
+1 <= n, m <= 105
+All the values of nums are distinct.
+operations[i].length == 2
+1 <= nums[i], operations[i][0], operations[i][1] <= 106
+operations[i][0] will exist in nums when applying the ith operation.
+operations[i][1] will not exist in nums when applying the ith operation.

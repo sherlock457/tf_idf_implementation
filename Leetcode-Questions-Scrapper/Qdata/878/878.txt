@@ -1,19 +1,17 @@
-You are given two strings of the same length s and t. In one step you can choose any character of t and replace it with another character.
-Return the minimum number of steps to make t an anagram of s.
-An Anagram of a string is a string that contains the same characters with a different (or the same) ordering.
+Given a positive integer k, you need to find the length of the smallest positive integer n such that n is divisible by k, and n only contains the digit 1.
+Return the length of n. If there is no such n, return -1.
+Note: n may not fit in a 64-bit signed integer.
   Example 1:
-Input: s = "bab", t = "aba"
+Input: k = 1
 Output: 1
-Explanation: Replace the first 'a' in t with b, t = "bba" which is anagram of s.
+Explanation: The smallest answer is n = 1, which has length 1.
 Example 2:
-Input: s = "leetcode", t = "practice"
-Output: 5
-Explanation: Replace 'p', 'r', 'a', 'i' and 'c' from t with proper characters to make t anagram of s.
+Input: k = 2
+Output: -1
+Explanation: There is no such positive integer n divisible by 2.
 Example 3:
-Input: s = "anagram", t = "mangaar"
-Output: 0
-Explanation: "anagram" and "mangaar" are anagrams. 
+Input: k = 3
+Output: 3
+Explanation: The smallest answer is n = 111, which has length 3.
   Constraints:
-1 <= s.length <= 5 * 104
-s.length == t.length
-s and t consist of lowercase English letters only.
+1 <= k <= 105

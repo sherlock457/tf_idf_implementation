@@ -1,15 +1,21 @@
-Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.
-Return a list of unique strings that are valid with the minimum number of removals. You may return the answer in any order.
+You are standing at position 0 on an infinite number line. There is a destination at position target.
+You can make some number of moves numMoves so that:
+On each move, you can either go left or right.
+During the ith move (starting from i == 1 to i == numMoves), you take i steps in the chosen direction.
+Given the integer target, return the minimum number of moves required (i.e., the minimum numMoves) to reach the destination.
   Example 1:
-Input: s = "()())()"
-Output: ["(())()","()()()"]
+Input: target = 2
+Output: 3
+Explanation:
+On the 1st move, we step from 0 to 1 (1 step).
+On the 2nd move, we step from 1 to -1 (2 steps).
+On the 3rd move, we step from -1 to 2 (3 steps).
 Example 2:
-Input: s = "(a)())()"
-Output: ["(a())()","(a)()()"]
-Example 3:
-Input: s = ")("
-Output: [""]
+Input: target = 3
+Output: 2
+Explanation:
+On the 1st move, we step from 0 to 1 (1 step).
+On the 2nd move, we step from 1 to 3 (2 steps).
   Constraints:
-1 <= s.length <= 25
-s consists of lowercase English letters and parentheses '(' and ')'.
-There will be at most 20 parentheses in s.
+-109 <= target <= 109
+target != 0

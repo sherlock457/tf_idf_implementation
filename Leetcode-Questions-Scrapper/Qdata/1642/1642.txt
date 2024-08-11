@@ -1,20 +1,27 @@
-You are given a string array words and a string s, where words[i] and s comprise only of lowercase English letters.
-Return the number of strings in words that are a prefix of s.
-A prefix of a string is a substring that occurs at the beginning of the string. A substring is a contiguous sequence of characters within a string.
+Given an array of integers nums, calculate the pivot index of this array.
+The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
+If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+Return the leftmost pivot index. If no such index exists, return -1.
   Example 1:
-Input: words = ["a","b","c","ab","bc","abc"], s = "abc"
+Input: nums = [1,7,3,6,5,6]
 Output: 3
 Explanation:
-The strings in words which are a prefix of s = "abc" are:
-"a", "ab", and "abc".
-Thus the number of strings in words which are a prefix of s is 3.
+The pivot index is 3.
+Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
+Right sum = nums[4] + nums[5] = 5 + 6 = 11
 Example 2:
-Input: words = ["a","a"], s = "aa"
-Output: 2
+Input: nums = [1,2,3]
+Output: -1
 Explanation:
-Both of the strings are a prefix of s. 
-Note that the same string can occur multiple times in words, and it should be counted each time.
+There is no index that satisfies the conditions in the problem statement.
+Example 3:
+Input: nums = [2,1,-1]
+Output: 0
+Explanation:
+The pivot index is 0.
+Left sum = 0 (no elements to the left of index 0)
+Right sum = nums[1] + nums[2] = 1 + -1 = 0
   Constraints:
-1 <= words.length <= 1000
-1 <= words[i].length, s.length <= 10
-words[i] and s consist of lowercase English letters only.
+1 <= nums.length <= 104
+-1000 <= nums[i] <= 1000
+  Note: This question is the same as 1991: https://leetcode.com/problems/find-the-middle-index-in-array/

@@ -1,16 +1,23 @@
-You are given two linked lists: list1 and list2 of sizes n and m respectively.
-Remove list1's nodes from the ath node to the bth node, and put list2 in their place.
-The blue edges and nodes in the following figure indicate the result:
-Build the result list and return its head.
+There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array points where points[i] = [xstart, xend] denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not know the exact y-coordinates of the balloons.
+Arrows can be shot up directly vertically (in the positive y-direction) from different points along the x-axis. A balloon with xstart and xend is burst by an arrow shot at x if xstart <= x <= xend. There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.
+Given the array points, return the minimum number of arrows that must be shot to burst all balloons.
   Example 1:
-Input: list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
-Output: [0,1,2,1000000,1000001,1000002,5]
-Explanation: We remove the nodes 3 and 4 and put the entire list2 in their place. The blue edges and nodes in the above figure indicate the result.
+Input: points = [[10,16],[2,8],[1,6],[7,12]]
+Output: 2
+Explanation: The balloons can be burst by 2 arrows:
+- Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].
+- Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
 Example 2:
-Input: list1 = [0,1,2,3,4,5,6], a = 2, b = 5, list2 = [1000000,1000001,1000002,1000003,1000004]
-Output: [0,1,1000000,1000001,1000002,1000003,1000004,6]
-Explanation: The blue edges and nodes in the above figure indicate the result.
+Input: points = [[1,2],[3,4],[5,6],[7,8]]
+Output: 4
+Explanation: One arrow needs to be shot for each balloon for a total of 4 arrows.
+Example 3:
+Input: points = [[1,2],[2,3],[3,4],[4,5]]
+Output: 2
+Explanation: The balloons can be burst by 2 arrows:
+- Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].
+- Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
   Constraints:
-3 <= list1.length <= 104
-1 <= a <= b < list1.length - 1
-1 <= list2.length <= 104
+1 <= points.length <= 105
+points[i].length == 2
+-231 <= xstart < xend <= 231 - 1

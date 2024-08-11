@@ -1,17 +1,20 @@
-Reversing an integer means to reverse all its digits.
-For example, reversing 2021 gives 1202. Reversing 12300 gives 321 as the leading zeros are not retained.
-Given an integer num, reverse num to get reversed1, then reverse reversed1 to get reversed2. Return true if reversed2 equals num. Otherwise return false.
+Given a binary tree root, return the maximum sum of all keys of any sub-tree which is also a Binary Search Tree (BST).
+Assume a BST is defined as follows:
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
   Example 1:
-Input: num = 526
-Output: true
-Explanation: Reverse num to get 625, then reverse 625 to get 526, which equals num.
+Input: root = [1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]
+Output: 20
+Explanation: Maximum sum in a valid Binary search tree is obtained in root node with key equal to 3.
 Example 2:
-Input: num = 1800
-Output: false
-Explanation: Reverse num to get 81, then reverse 81 to get 18, which does not equal num.
+Input: root = [4,3,null,1,2]
+Output: 2
+Explanation: Maximum sum in a valid Binary search tree is obtained in a single root node with key equal to 2.
 Example 3:
-Input: num = 0
-Output: true
-Explanation: Reverse num to get 0, then reverse 0 to get 0, which equals num.
+Input: root = [-4,-2,-5]
+Output: 0
+Explanation: All values are negatives. Return an empty BST.
   Constraints:
-0 <= num <= 106
+The number of nodes in the tree is in the range [1, 4 * 104].
+-4 * 104 <= Node.val <= 4 * 104

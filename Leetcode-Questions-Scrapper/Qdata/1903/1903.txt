@@ -1,12 +1,16 @@
-Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
-Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
-Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+Given an integer array arr and a target value target, return the integer value such that when we change all the integers larger than value in the given array to be equal to value, the sum of the array gets as close as possible (in absolute difference) to target.
+In case of a tie, return the minimum such integer.
+Notice that the answer is not neccesarilly a number from arr.
   Example 1:
-Input: root = [1,2,3,null,null,4,5]
-Output: [1,2,3,null,null,4,5]
+Input: arr = [4,9,3], target = 10
+Output: 3
+Explanation: When using 3 arr converts to [3, 3, 3] which sums 9 and that's the optimal answer.
 Example 2:
-Input: root = []
-Output: []
+Input: arr = [2,3,5], target = 10
+Output: 5
+Example 3:
+Input: arr = [60864,25176,27249,21296,20204], target = 56803
+Output: 11361
   Constraints:
-The number of nodes in the tree is in the range [0, 104].
--1000 <= Node.val <= 1000
+1 <= arr.length <= 104
+1 <= arr[i], target <= 105

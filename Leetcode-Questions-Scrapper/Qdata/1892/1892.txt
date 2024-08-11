@@ -1,16 +1,15 @@
-There is only one character 'A' on the screen of a notepad. You can perform one of two operations on this notepad for each step:
-Copy All: You can copy all the characters present on the screen (a partial copy is not allowed).
-Paste: You can paste the characters which are copied last time.
-Given an integer n, return the minimum number of operations to get the character 'A' exactly n times on the screen.
+You are given the root of a binary tree that consists of exactly 3 nodes: the root, its left child, and its right child.
+Return true if the value of the root is equal to the sum of the values of its two children, or false otherwise.
   Example 1:
-Input: n = 3
-Output: 3
-Explanation: Initially, we have one character 'A'.
-In step 1, we use Copy All operation.
-In step 2, we use Paste operation to get 'AA'.
-In step 3, we use Paste operation to get 'AAA'.
+Input: root = [10,4,6]
+Output: true
+Explanation: The values of the root, its left child, and its right child are 10, 4, and 6, respectively.
+10 is equal to 4 + 6, so we return true.
 Example 2:
-Input: n = 1
-Output: 0
+Input: root = [5,3,1]
+Output: false
+Explanation: The values of the root, its left child, and its right child are 5, 3, and 1, respectively.
+5 is not equal to 3 + 1, so we return false.
   Constraints:
-1 <= n <= 1000
+The tree consists only of the root, its left child, and its right child.
+-100 <= Node.val <= 100

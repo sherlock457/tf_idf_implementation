@@ -1,28 +1,23 @@
-A boolean expression is an expression that evaluates to either true or false. It can be in one of the following shapes:
-'t' that evaluates to true.
-'f' that evaluates to false.
-'!(subExpr)' that evaluates to the logical NOT of the inner expression subExpr.
-'&(subExpr1, subExpr2, ..., subExprn)' that evaluates to the logical AND of the inner expressions subExpr1, subExpr2, ..., subExprn where n >= 1.
-'|(subExpr1, subExpr2, ..., subExprn)' that evaluates to the logical OR of the inner expressions subExpr1, subExpr2, ..., subExprn where n >= 1.
-Given a string expression that represents a boolean expression, return the evaluation of that expression.
-It is guaranteed that the given expression is valid and follows the given rules.
+You are given a rectangular cake of size h x w and two arrays of integers horizontalCuts and verticalCuts where:
+horizontalCuts[i] is the distance from the top of the rectangular cake to the ith horizontal cut and similarly, and
+verticalCuts[j] is the distance from the left of the rectangular cake to the jth vertical cut.
+Return the maximum area of a piece of cake after you cut at each horizontal and vertical position provided in the arrays horizontalCuts and verticalCuts. Since the answer can be a large number, return this modulo 109 + 7.
   Example 1:
-Input: expression = "&(|(f))"
-Output: false
-Explanation: 
-First, evaluate |(f) --> f. The expression is now "&(f)".
-Then, evaluate &(f) --> f. The expression is now "f".
-Finally, return false.
+Input: h = 5, w = 4, horizontalCuts = [1,2,4], verticalCuts = [1,3]
+Output: 4 
+Explanation: The figure above represents the given rectangular cake. Red lines are the horizontal and vertical cuts. After you cut the cake, the green piece of cake has the maximum area.
 Example 2:
-Input: expression = "|(f,f,f,t)"
-Output: true
-Explanation: The evaluation of (false OR false OR false OR true) is true.
+Input: h = 5, w = 4, horizontalCuts = [3,1], verticalCuts = [1]
+Output: 6
+Explanation: The figure above represents the given rectangular cake. Red lines are the horizontal and vertical cuts. After you cut the cake, the green and yellow pieces of cake have the maximum area.
 Example 3:
-Input: expression = "!(&(f,t))"
-Output: true
-Explanation: 
-First, evaluate &(f,t) --> (false AND true) --> false --> f. The expression is now "!(f)".
-Then, evaluate !(f) --> NOT false --> true. We return true.
+Input: h = 5, w = 4, horizontalCuts = [3], verticalCuts = [3]
+Output: 9
   Constraints:
-1 <= expression.length <= 2 * 104
-expression[i] is one following characters: '(', ')', '&', '|', '!', 't', 'f', and ','.
+2 <= h, w <= 109
+1 <= horizontalCuts.length <= min(h - 1, 105)
+1 <= verticalCuts.length <= min(w - 1, 105)
+1 <= horizontalCuts[i] < h
+1 <= verticalCuts[i] < w
+All the elements in horizontalCuts are distinct.
+All the elements in verticalCuts are distinct.

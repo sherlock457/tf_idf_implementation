@@ -1,31 +1,22 @@
-There are n rings and each ring is either red, green, or blue. The rings are distributed across ten rods labeled from 0 to 9.
-You are given a string rings of length 2n that describes the n rings that are placed onto the rods. Every two characters in rings forms a color-position pair that is used to describe each ring where:
-The first character of the ith pair denotes the ith ring's color ('R', 'G', 'B').
-The second character of the ith pair denotes the rod that the ith ring is placed on ('0' to '9').
-For example, "R3G2B1" describes n == 3 rings: a red ring placed onto the rod labeled 3, a green ring placed onto the rod labeled 2, and a blue ring placed onto the rod labeled 1.
-Return the number of rods that have all three colors of rings on them.
+You are given an n x n binary grid board. In each move, you can swap any two rows with each other, or any two columns with each other.
+Return the minimum number of moves to transform the board into a chessboard board. If the task is impossible, return -1.
+A chessboard board is a board where no 0's and no 1's are 4-directionally adjacent.
   Example 1:
-Input: rings = "B0B6G0R6R0R6G9"
-Output: 1
-Explanation: 
-- The rod labeled 0 holds 3 rings with all colors: red, green, and blue.
-- The rod labeled 6 holds 3 rings, but it only has red and blue.
-- The rod labeled 9 holds only a green ring.
-Thus, the number of rods with all three colors is 1.
+Input: board = [[0,1,1,0],[0,1,1,0],[1,0,0,1],[1,0,0,1]]
+Output: 2
+Explanation: One potential sequence of moves is shown.
+The first move swaps the first and second column.
+The second move swaps the second and third row.
 Example 2:
-Input: rings = "B0R0G0R9R0B0G0"
-Output: 1
-Explanation: 
-- The rod labeled 0 holds 6 rings with all colors: red, green, and blue.
-- The rod labeled 9 holds only a red ring.
-Thus, the number of rods with all three colors is 1.
-Example 3:
-Input: rings = "G4"
+Input: board = [[0,1],[1,0]]
 Output: 0
-Explanation: 
-Only one ring is given. Thus, no rods have all three colors.
+Explanation: Also note that the board with 0 in the top left corner, is also a valid chessboard.
+Example 3:
+Input: board = [[1,0],[1,0]]
+Output: -1
+Explanation: No matter what sequence of moves you make, you cannot end with a valid chessboard.
   Constraints:
-rings.length == 2 * n
-1 <= n <= 100
-rings[i] where i is even is either 'R', 'G', or 'B' (0-indexed).
-rings[i] where i is odd is a digit from '0' to '9' (0-indexed).
+n == board.length
+n == board[i].length
+2 <= n <= 30
+board[i][j] is either 0 or 1.

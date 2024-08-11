@@ -1,20 +1,24 @@
-You are given two 0-indexed binary strings s and target of the same length n. You can do the following operation on s any number of times:
-Choose two different indices i and j where 0 <= i, j < n.
-Simultaneously, replace s[i] with (s[i] OR s[j]) and s[j] with (s[i] XOR s[j]).
-For example, if s = "0110", you can choose i = 0 and j = 2, then simultaneously replace s[0] with (s[0] OR s[2] = 0 OR 1 = 1), and s[2] with (s[0] XOR s[2] = 0 XOR 1 = 1), so we will have s = "1110".
-Return true if you can make the string s equal to target, or false otherwise.
+Suppose LeetCode will start its IPO soon. In order to sell a good price of its shares to Venture Capital, LeetCode would like to work on some projects to increase its capital before the IPO. Since it has limited resources, it can only finish at most k distinct projects before the IPO. Help LeetCode design the best way to maximize its total capital after finishing at most k distinct projects.
+You are given n projects where the ith project has a pure profit profits[i] and a minimum capital of capital[i] is needed to start it.
+Initially, you have w capital. When you finish a project, you will obtain its pure profit and the profit will be added to your total capital.
+Pick a list of at most k distinct projects from given projects to maximize your final capital, and return the final maximized capital.
+The answer is guaranteed to fit in a 32-bit signed integer.
   Example 1:
-Input: s = "1010", target = "0110"
-Output: true
-Explanation: We can do the following operations:
-- Choose i = 2 and j = 0. We have now s = "0010".
-- Choose i = 2 and j = 1. We have now s = "0110".
-Since we can make s equal to target, we return true.
+Input: k = 2, w = 0, profits = [1,2,3], capital = [0,1,1]
+Output: 4
+Explanation: Since your initial capital is 0, you can only start the project indexed 0.
+After finishing it you will obtain profit 1 and your capital becomes 1.
+With capital 1, you can either start the project indexed 1 or the project indexed 2.
+Since you can choose at most 2 projects, you need to finish the project indexed 2 to get the maximum capital.
+Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 Example 2:
-Input: s = "11", target = "00"
-Output: false
-Explanation: It is not possible to make s equal to target with any number of operations.
+Input: k = 3, w = 0, profits = [1,2,3], capital = [0,1,2]
+Output: 6
   Constraints:
-n == s.length == target.length
-2 <= n <= 105
-s and target consist of only the digits 0 and 1.
+1 <= k <= 105
+0 <= w <= 109
+n == profits.length
+n == capital.length
+1 <= n <= 105
+0 <= profits[i] <= 104
+0 <= capital[i] <= 109

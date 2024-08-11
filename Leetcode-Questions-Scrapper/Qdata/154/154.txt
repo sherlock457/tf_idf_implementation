@@ -1,16 +1,17 @@
-Given the API rand7() that generates a uniform random integer in the range [1, 7], write a function rand10() that generates a uniform random integer in the range [1, 10]. You can only call the API rand7(), and you shouldn't call any other API. Please do not use a language's built-in random API.
-Each test case will have one internal argument n, the number of times that your implemented function rand10() will be called while testing. Note that this is not an argument passed to rand10().
+You are given an array people where people[i] is the weight of the ith person, and an infinite number of boats where each boat can carry a maximum weight of limit. Each boat carries at most two people at the same time, provided the sum of the weight of those people is at most limit.
+Return the minimum number of boats to carry every given person.
   Example 1:
-Input: n = 1
-Output: [2]
+Input: people = [1,2], limit = 3
+Output: 1
+Explanation: 1 boat (1, 2)
 Example 2:
-Input: n = 2
-Output: [2,8]
+Input: people = [3,2,2,1], limit = 3
+Output: 3
+Explanation: 3 boats (1, 2), (2) and (3)
 Example 3:
-Input: n = 3
-Output: [3,8,10]
+Input: people = [3,5,3,4], limit = 5
+Output: 4
+Explanation: 4 boats (3), (3), (4), (5)
   Constraints:
-1 <= n <= 105
-  Follow up:
-What is the expected value for the number of calls to rand7() function?
-Could you minimize the number of calls to rand7()?
+1 <= people.length <= 5 * 104
+1 <= people[i] <= limit <= 3 * 104

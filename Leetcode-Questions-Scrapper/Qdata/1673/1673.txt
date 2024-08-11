@@ -1,28 +1,20 @@
-You have a chat log of n messages. You are given two string arrays messages and senders where messages[i] is a message sent by senders[i].
-A message is list of words that are separated by a single space with no leading or trailing spaces. The word count of a sender is the total number of words sent by the sender. Note that a sender may send more than one message.
-Return the sender with the largest word count. If there is more than one sender with the largest word count, return the one with the lexicographically largest name.
-Note:
-Uppercase letters come before lowercase letters in lexicographical order.
-"Alice" and "alice" are distinct.
+You are given an array of integers stones where stones[i] is the weight of the ith stone.
+We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
+If x == y, both stones are destroyed, and
+If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x.
+At the end of the game, there is at most one stone left.
+Return the weight of the last remaining stone. If there are no stones left, return 0.
   Example 1:
-Input: messages = ["Hello userTwooo","Hi userThree","Wonderful day Alice","Nice day userThree"], senders = ["Alice","userTwo","userThree","Alice"]
-Output: "Alice"
-Explanation: Alice sends a total of 2 + 3 = 5 words.
-userTwo sends a total of 2 words.
-userThree sends a total of 3 words.
-Since Alice has the largest word count, we return "Alice".
+Input: stones = [2,7,4,1,8,1]
+Output: 1
+Explanation: 
+We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
+we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
+we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
+we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
 Example 2:
-Input: messages = ["How is leetcode for everyone","Leetcode is useful for practice"], senders = ["Bob","Charlie"]
-Output: "Charlie"
-Explanation: Bob sends a total of 5 words.
-Charlie sends a total of 5 words.
-Since there is a tie for the largest word count, we return the sender with the lexicographically larger name, Charlie.
+Input: stones = [1]
+Output: 1
   Constraints:
-n == messages.length == senders.length
-1 <= n <= 104
-1 <= messages[i].length <= 100
-1 <= senders[i].length <= 10
-messages[i] consists of uppercase and lowercase English letters and ' '.
-All the words in messages[i] are separated by a single space.
-messages[i] does not have leading or trailing spaces.
-senders[i] consists of uppercase and lowercase English letters only.
+1 <= stones.length <= 30
+1 <= stones[i] <= 1000

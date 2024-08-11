@@ -1,20 +1,21 @@
-You are given an array arr which consists of only zeros and ones, divide the array into three non-empty parts such that all of these parts represent the same binary value.
-If it is possible, return any [i, j] with i + 1 < j, such that:
-arr[0], arr[1], ..., arr[i] is the first part,
-arr[i + 1], arr[i + 2], ..., arr[j - 1] is the second part, and
-arr[j], arr[j + 1], ..., arr[arr.length - 1] is the third part.
-All three parts have equal binary values.
-If it is not possible, return [-1, -1].
-Note that the entire part is used when considering what binary value it represents. For example, [1,1,0] represents 6 in decimal, not 3. Also, leading zeros are allowed, so [0,1,1] and [1,1] represent the same value.
+A password is considered strong if the below conditions are all met:
+It has at least 6 characters and at most 20 characters.
+It contains at least one lowercase letter, at least one uppercase letter, and at least one digit.
+It does not contain three repeating characters in a row (i.e., "Baaabb0" is weak, but "Baaba0" is strong).
+Given a string password, return the minimum number of steps required to make password strong. if password is already strong, return 0.
+In one step, you can:
+Insert one character to password,
+Delete one character from password, or
+Replace one character of password with another character.
   Example 1:
-Input: arr = [1,0,1,0,1]
-Output: [0,3]
+Input: password = "a"
+Output: 5
 Example 2:
-Input: arr = [1,1,0,1,1]
-Output: [-1,-1]
+Input: password = "aA1"
+Output: 3
 Example 3:
-Input: arr = [1,1,0,0,1]
-Output: [0,2]
+Input: password = "1337C0d3"
+Output: 0
   Constraints:
-3 <= arr.length <= 3 * 104
-arr[i] is 0 or 1
+1 <= password.length <= 50
+password consists of letters, digits, dot '.' or exclamation mark '!'.

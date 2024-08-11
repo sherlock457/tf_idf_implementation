@@ -1,20 +1,18 @@
-You are given an integer array score of size n, where score[i] is the score of the ith athlete in a competition. All the scores are guaranteed to be unique.
-The athletes are placed based on their scores, where the 1st place athlete has the highest score, the 2nd place athlete has the 2nd highest score, and so on. The placement of each athlete determines their rank:
-The 1st place athlete's rank is "Gold Medal".
-The 2nd place athlete's rank is "Silver Medal".
-The 3rd place athlete's rank is "Bronze Medal".
-For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete's rank is "x").
-Return an array answer of size n where answer[i] is the rank of the ith athlete.
+You are given two positive integers startPos and endPos. Initially, you are standing at position startPos on an infinite number line. With one step, you can move either one position to the left, or one position to the right.
+Given a positive integer k, return the number of different ways to reach the position endPos starting from startPos, such that you perform exactly k steps. Since the answer may be very large, return it modulo 109 + 7.
+Two ways are considered different if the order of the steps made is not exactly the same.
+Note that the number line includes negative integers.
   Example 1:
-Input: score = [5,4,3,2,1]
-Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
-Explanation: The placements are [1st, 2nd, 3rd, 4th, 5th].
+Input: startPos = 1, endPos = 2, k = 3
+Output: 3
+Explanation: We can reach position 2 from 1 in exactly 3 steps in three ways:
+- 1 -> 2 -> 3 -> 2.
+- 1 -> 2 -> 1 -> 2.
+- 1 -> 0 -> 1 -> 2.
+It can be proven that no other way is possible, so we return 3.
 Example 2:
-Input: score = [10,3,8,9,4]
-Output: ["Gold Medal","5","Bronze Medal","Silver Medal","4"]
-Explanation: The placements are [1st, 5th, 3rd, 2nd, 4th].
+Input: startPos = 2, endPos = 5, k = 10
+Output: 0
+Explanation: It is impossible to reach position 5 from position 2 in exactly 10 steps.
   Constraints:
-n == score.length
-1 <= n <= 104
-0 <= score[i] <= 106
-All the values in score are unique.
+1 <= startPos, endPos, k <= 1000

@@ -1,19 +1,51 @@
-In a row of dominoes, tops[i] and bottoms[i] represent the top and bottom halves of the ith domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)
-We may rotate the ith domino, so that tops[i] and bottoms[i] swap values.
-Return the minimum number of rotations so that all the values in tops are the same, or all the values in bottoms are the same.
-If it cannot be done, return -1.
+SQL Schema
+Table: Person
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| personId    | int     |
+| lastName    | varchar |
+| firstName   | varchar |
++-------------+---------+
+personId is the primary key column for this table.
+This table contains information about the ID of some persons and their first and last names.
+  Table: Address
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| addressId   | int     |
+| personId    | int     |
+| city        | varchar |
+| state       | varchar |
++-------------+---------+
+addressId is the primary key column for this table.
+Each row of this table contains information about the city and state of one person with ID = PersonId.
+  Write an SQL query to report the first name, last name, city, and state of each person in the Person table. If the address of a personId is not present in the Address table, report null instead.
+Return the result table in any order.
+The query result format is in the following example.
   Example 1:
-Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2]
-Output: 2
+Input: 
+Person table:
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+| 1        | Wang     | Allen     |
+| 2        | Alice    | Bob       |
++----------+----------+-----------+
+Address table:
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+| 1         | 2        | New York City | New York   |
+| 2         | 3        | Leetcode      | California |
++-----------+----------+---------------+------------+
+Output: 
++-----------+----------+---------------+----------+
+| firstName | lastName | city          | state    |
++-----------+----------+---------------+----------+
+| Allen     | Wang     | Null          | Null     |
+| Bob       | Alice    | New York City | New York |
++-----------+----------+---------------+----------+
 Explanation: 
-The first figure represents the dominoes as given by tops and bottoms: before we do any rotations.
-If we rotate the second and fourth dominoes, we can make every value in the top row equal to 2, as indicated by the second figure.
-Example 2:
-Input: tops = [3,5,1,2,3], bottoms = [3,6,3,3,4]
-Output: -1
-Explanation: 
-In this case, it is not possible to rotate the dominoes to make one row of values equal.
-  Constraints:
-2 <= tops.length <= 2 * 104
-bottoms.length == tops.length
-1 <= tops[i], bottoms[i] <= 6
+There is no address in the address table for the personId = 1 so we return null in their city and state.
+addressId = 1 contains information about the address of personId = 2.

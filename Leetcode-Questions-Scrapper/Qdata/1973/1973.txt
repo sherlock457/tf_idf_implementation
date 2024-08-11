@@ -1,16 +1,32 @@
-There is an undirected star graph consisting of n nodes labeled from 1 to n. A star graph is a graph where there is one center node and exactly n - 1 edges that connect the center node with every other node.
-You are given a 2D integer array edges where each edges[i] = [ui, vi] indicates that there is an edge between the nodes ui and vi. Return the center of the given star graph.
+Alice and Bob take turns playing a game, with Alice starting first.
+There are n stones in a pile. On each player's turn, they can remove a stone from the pile and receive points based on the stone's value. Alice and Bob may value the stones differently.
+You are given two integer arrays of length n, aliceValues and bobValues. Each aliceValues[i] and bobValues[i] represents how Alice and Bob, respectively, value the ith stone.
+The winner is the person with the most points after all the stones are chosen. If both players have the same amount of points, the game results in a draw. Both players will play optimally. Both players know the other's values.
+Determine the result of the game, and:
+If Alice wins, return 1.
+If Bob wins, return -1.
+If the game results in a draw, return 0.
   Example 1:
-Input: edges = [[1,2],[2,3],[4,2]]
-Output: 2
-Explanation: As shown in the figure above, node 2 is connected to every other node, so 2 is the center.
-Example 2:
-Input: edges = [[1,2],[5,1],[1,3],[1,4]]
+Input: aliceValues = [1,3], bobValues = [2,1]
 Output: 1
+Explanation:
+If Alice takes stone 1 (0-indexed) first, Alice will receive 3 points.
+Bob can only choose stone 0, and will only receive 2 points.
+Alice wins.
+Example 2:
+Input: aliceValues = [1,2], bobValues = [3,1]
+Output: 0
+Explanation:
+If Alice takes stone 0, and Bob takes stone 1, they will both have 1 point.
+Draw.
+Example 3:
+Input: aliceValues = [2,4,3], bobValues = [1,6,7]
+Output: -1
+Explanation:
+Regardless of how Alice plays, Bob will be able to have more points than Alice.
+For example, if Alice takes stone 1, Bob can take stone 2, and Alice takes stone 0, Alice will have 6 points to Bob's 7.
+Bob wins.
   Constraints:
-3 <= n <= 105
-edges.length == n - 1
-edges[i].length == 2
-1 <= ui, vi <= n
-ui != vi
-The given edges represent a valid star graph.
+n == aliceValues.length == bobValues.length
+1 <= n <= 105
+1 <= aliceValues[i], bobValues[i] <= 100

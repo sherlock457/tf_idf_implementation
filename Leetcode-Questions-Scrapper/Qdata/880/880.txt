@@ -1,19 +1,15 @@
-You are given an array of non-negative integers nums and an integer k. In one operation, you may choose any element from nums and increment it by 1.
-Return the maximum product of nums after at most k operations. Since the answer may be very large, return it modulo 109 + 7. Note that you should maximize the product before taking the modulo. 
+A binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.
+For example, the below binary watch reads "4:51".
+Given an integer turnedOn which represents the number of LEDs that are currently on (ignoring the PM), return all possible times the watch could represent. You may return the answer in any order.
+The hour must not contain a leading zero.
+For example, "01:00" is not valid. It should be "1:00".
+The minute must be consist of two digits and may contain a leading zero.
+For example, "10:2" is not valid. It should be "10:02".
   Example 1:
-Input: nums = [0,4], k = 5
-Output: 20
-Explanation: Increment the first number 5 times.
-Now nums = [5, 4], with a product of 5 * 4 = 20.
-It can be shown that 20 is maximum product possible, so we return 20.
-Note that there may be other ways to increment nums to have the maximum product.
+Input: turnedOn = 1
+Output: ["0:01","0:02","0:04","0:08","0:16","0:32","1:00","2:00","4:00","8:00"]
 Example 2:
-Input: nums = [6,3,3,2], k = 2
-Output: 216
-Explanation: Increment the second number 1 time and increment the fourth number 1 time.
-Now nums = [6, 4, 3, 3], with a product of 6 * 4 * 3 * 3 = 216.
-It can be shown that 216 is maximum product possible, so we return 216.
-Note that there may be other ways to increment nums to have the maximum product.
+Input: turnedOn = 9
+Output: []
   Constraints:
-1 <= nums.length, k <= 105
-0 <= nums[i] <= 106
+0 <= turnedOn <= 10

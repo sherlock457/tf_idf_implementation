@@ -1,16 +1,22 @@
-Given the string s, return the size of the longest substring containing each vowel an even number of times. That is, 'a', 'e', 'i', 'o', and 'u' must appear an even number of times.
+Given a binary tree
+struct Node {
+  int val;
+  Node *left;
+  Node *right;
+  Node *next;
+}
+Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+Initially, all next pointers are set to NULL.
   Example 1:
-Input: s = "eleetminicoworoep"
-Output: 13
-Explanation: The longest substring is "leetminicowor" which contains two each of the vowels: e, i and o and zero of the vowels: a and u.
+Input: root = [1,2,3,4,5,null,7]
+Output: [1,#,2,3,#,4,5,7,#]
+Explanation: Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
 Example 2:
-Input: s = "leetcodeisgreat"
-Output: 5
-Explanation: The longest substring is "leetc" which contains two e's.
-Example 3:
-Input: s = "bcbcbc"
-Output: 6
-Explanation: In this case, the given string "bcbcbc" is the longest because all vowels: a, e, i, o and u appear zero times.
+Input: root = []
+Output: []
   Constraints:
-1 <= s.length <= 5 x 10^5
-s contains only lowercase English letters.
+The number of nodes in the tree is in the range [0, 6000].
+-100 <= Node.val <= 100
+  Follow-up:
+You may only use constant extra space.
+The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.

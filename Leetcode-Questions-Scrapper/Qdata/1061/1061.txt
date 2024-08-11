@@ -1,23 +1,18 @@
-Write a function that checks if a given value is an instance of a given class or superclass. For this problem, an object is considered an instance of a given class if that object has access to that class's methods.
-There are no constraints on the data types that can be passed to the function. For example, the value or the class could be undefined.
+For a string sequence, a string word is k-repeating if word concatenated k times is a substring of sequence. The word's maximum k-repeating value is the highest value k where word is k-repeating in sequence. If word is not a substring of sequence, word's maximum k-repeating value is 0.
+Given strings sequence and word, return the maximum k-repeating value of word in sequence.
   Example 1:
-Input: func = () => checkIfInstanceOf(new Date(), Date)
-Output: true
-Explanation: The object returned by the Date constructor is, by definition, an instance of Date.
+Input: sequence = "ababc", word = "ab"
+Output: 2
+Explanation: "abab" is a substring in "ababc".
 Example 2:
-Input: func = () => { class Animal {}; class Dog extends Animal {}; return checkIfInstanceOf(new Dog(), Animal); }
-Output: true
-Explanation:
-class Animal {};
-class Dog extends Animal {};
-checkIfInstance(new Dog(), Animal); // true
-
-Dog is a subclass of Animal. Therefore, a Dog object is an instance of both Dog and Animal.
+Input: sequence = "ababc", word = "ba"
+Output: 1
+Explanation: "ba" is a substring in "ababc". "baba" is not a substring in "ababc".
 Example 3:
-Input: func = () => checkIfInstanceOf(Date, Date)
-Output: false
-Explanation: A date constructor cannot logically be an instance of itself.
-Example 4:
-Input: func = () => checkIfInstanceOf(5, Number)
-Output: true
-Explanation: 5 is a Number. Note that the "instanceof" keyword would return false. However, it is still considered an instance of Number because it accesses the Number methods. For example "toFixed()".
+Input: sequence = "ababc", word = "ac"
+Output: 0
+Explanation: "ac" is not a substring in "ababc". 
+  Constraints:
+1 <= sequence.length <= 100
+1 <= word.length <= 100
+sequence and word contains only lowercase English letters.

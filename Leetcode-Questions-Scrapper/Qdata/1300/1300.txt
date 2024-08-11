@@ -1,23 +1,20 @@
-You are given a 0-indexed integer array nums.
-Initially, all of the indices are unmarked. You are allowed to make this operation any number of times:
-Pick two different unmarked indices i and j such that 2 * nums[i] <= nums[j], then mark i and j.
-Return the maximum possible number of marked indices in nums using the above operation any number of times.
+Given a m x n binary matrix mat, find the 0-indexed position of the row that contains the maximum count of ones, and the number of ones in that row.
+In case there are multiple rows that have the maximum count of ones, the row with the smallest row number should be selected.
+Return an array containing the index of the row, and the number of ones in it.
   Example 1:
-Input: nums = [3,5,2,4]
-Output: 2
-Explanation: In the first operation: pick i = 2 and j = 1, the operation is allowed because 2 * nums[2] <= nums[1]. Then mark index 2 and 1.
-It can be shown that there's no other valid operation so the answer is 2.
+Input: mat = [[0,1],[1,0]]
+Output: [0,1]
+Explanation: Both rows have the same number of 1's. So we return the index of the smaller row, 0, and the maximum count of ones (1). So, the answer is [0,1]. 
 Example 2:
-Input: nums = [9,2,5,4]
-Output: 4
-Explanation: In the first operation: pick i = 3 and j = 0, the operation is allowed because 2 * nums[3] <= nums[0]. Then mark index 3 and 0.
-In the second operation: pick i = 1 and j = 2, the operation is allowed because 2 * nums[1] <= nums[2]. Then mark index 1 and 2.
-Since there is no other operation, the answer is 4.
+Input: mat = [[0,0,0],[0,1,1]]
+Output: [1,2]
+Explanation: The row indexed 1 has the maximum count of ones (2). So we return its index, 1, and the count. So, the answer is [1,2].
 Example 3:
-Input: nums = [7,6,8]
-Output: 0
-Explanation: There is no valid operation to do, so the answer is 0.
+Input: mat = [[0,0],[1,1],[0,0]]
+Output: [1,2]
+Explanation: The row indexed 1 has the maximum count of ones (2). So the answer is [1,2].
   Constraints:
-1 <= nums.length <= 105
-1 <= nums[i] <= 109
- 
+m == mat.length 
+n == mat[i].length 
+1 <= m, n <= 100 
+mat[i][j] is either 0 or 1.

@@ -1,19 +1,18 @@
-Given two integer arrays startTime and endTime and given an integer queryTime.
-The ith student started doing their homework at the time startTime[i] and finished it at time endTime[i].
-Return the number of students doing their homework at time queryTime. More formally, return the number of students where queryTime lays in the interval [startTime[i], endTime[i]] inclusive.
+An ugly number is a positive integer that is divisible by a, b, or c.
+Given four integers n, a, b, and c, return the nth ugly number.
   Example 1:
-Input: startTime = [1,2,3], endTime = [3,2,7], queryTime = 4
-Output: 1
-Explanation: We have 3 students where:
-The first student started doing homework at time 1 and finished at time 3 and wasn't doing anything at time 4.
-The second student started doing homework at time 2 and finished at time 2 and also wasn't doing anything at time 4.
-The third student started doing homework at time 3 and finished at time 7 and was the only student doing homework at time 4.
+Input: n = 3, a = 2, b = 3, c = 5
+Output: 4
+Explanation: The ugly numbers are 2, 3, 4, 5, 6, 8, 9, 10... The 3rd is 4.
 Example 2:
-Input: startTime = [4], endTime = [4], queryTime = 4
-Output: 1
-Explanation: The only student was doing their homework at the queryTime.
+Input: n = 4, a = 2, b = 3, c = 4
+Output: 6
+Explanation: The ugly numbers are 2, 3, 4, 6, 8, 9, 10, 12... The 4th is 6.
+Example 3:
+Input: n = 5, a = 2, b = 11, c = 13
+Output: 10
+Explanation: The ugly numbers are 2, 4, 6, 8, 10, 11, 12, 13... The 5th is 10.
   Constraints:
-startTime.length == endTime.length
-1 <= startTime.length <= 100
-1 <= startTime[i] <= endTime[i] <= 1000
-1 <= queryTime <= 1000
+1 <= n, a, b, c <= 109
+1 <= a * b * c <= 1018
+It is guaranteed that the result will be in range [1, 2 * 109].

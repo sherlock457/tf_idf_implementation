@@ -1,51 +1,35 @@
-You have an infinite number of stacks arranged in a row and numbered (left to right) from 0, each of the stacks has the same maximum capacity.
-Implement the DinnerPlates class:
-DinnerPlates(int capacity) Initializes the object with the maximum capacity of the stacks capacity.
-void push(int val) Pushes the given integer val into the leftmost stack with a size less than capacity.
-int pop() Returns the value at the top of the rightmost non-empty stack and removes it from that stack, and returns -1 if all the stacks are empty.
-int popAtStack(int index) Returns the value at the top of the stack with the given index index and removes it from that stack or returns -1 if the stack with that given index is empty.
+You are given n tasks labeled from 0 to n - 1 represented by a 2D integer array tasks, where tasks[i] = [enqueueTimei, processingTimei] means that the ith task will be available to process at enqueueTimei and will take processingTimei to finish processing.
+You have a single-threaded CPU that can process at most one task at a time and will act in the following way:
+If the CPU is idle and there are no available tasks to process, the CPU remains idle.
+If the CPU is idle and there are available tasks, the CPU will choose the one with the shortest processing time. If multiple tasks have the same shortest processing time, it will choose the task with the smallest index.
+Once a task is started, the CPU will process the entire task without stopping.
+The CPU can finish a task then start a new one instantly.
+Return the order in which the CPU will process the tasks.
   Example 1:
-Input
-["DinnerPlates", "push", "push", "push", "push", "push", "popAtStack", "push", "push", "popAtStack", "popAtStack", "pop", "pop", "pop", "pop", "pop"]
-[[2], [1], [2], [3], [4], [5], [0], [20], [21], [0], [2], [], [], [], [], []]
-Output
-[null, null, null, null, null, null, 2, null, null, 20, 21, 5, 4, 3, 1, -1]
-
-Explanation: 
-DinnerPlates D = DinnerPlates(2);  // Initialize with capacity = 2
-D.push(1);
-D.push(2);
-D.push(3);
-D.push(4);
-D.push(5);         // The stacks are now:  2  4
-                                           1  3  5
-                                           ﹈ ﹈ ﹈
-D.popAtStack(0);   // Returns 2.  The stacks are now:     4
-                                                       1  3  5
-                                                       ﹈ ﹈ ﹈
-D.push(20);        // The stacks are now: 20  4
-                                           1  3  5
-                                           ﹈ ﹈ ﹈
-D.push(21);        // The stacks are now: 20  4 21
-                                           1  3  5
-                                           ﹈ ﹈ ﹈
-D.popAtStack(0);   // Returns 20.  The stacks are now:     4 21
-                                                        1  3  5
-                                                        ﹈ ﹈ ﹈
-D.popAtStack(2);   // Returns 21.  The stacks are now:     4
-                                                        1  3  5
-                                                        ﹈ ﹈ ﹈ 
-D.pop()            // Returns 5.  The stacks are now:      4
-                                                        1  3 
-                                                        ﹈ ﹈  
-D.pop()            // Returns 4.  The stacks are now:   1  3 
-                                                        ﹈ ﹈   
-D.pop()            // Returns 3.  The stacks are now:   1 
-                                                        ﹈   
-D.pop()            // Returns 1.  There are no stacks.
-D.pop()            // Returns -1.  There are still no stacks.
+Input: tasks = [[1,2],[2,4],[3,2],[4,1]]
+Output: [0,2,3,1]
+Explanation: The events go as follows: 
+- At time = 1, task 0 is available to process. Available tasks = {0}.
+- Also at time = 1, the idle CPU starts processing task 0. Available tasks = {}.
+- At time = 2, task 1 is available to process. Available tasks = {1}.
+- At time = 3, task 2 is available to process. Available tasks = {1, 2}.
+- Also at time = 3, the CPU finishes task 0 and starts processing task 2 as it is the shortest. Available tasks = {1}.
+- At time = 4, task 3 is available to process. Available tasks = {1, 3}.
+- At time = 5, the CPU finishes task 2 and starts processing task 3 as it is the shortest. Available tasks = {1}.
+- At time = 6, the CPU finishes task 3 and starts processing task 1. Available tasks = {}.
+- At time = 10, the CPU finishes task 1 and becomes idle.
+Example 2:
+Input: tasks = [[7,10],[7,12],[7,5],[7,4],[7,2]]
+Output: [4,3,2,0,1]
+Explanation: The events go as follows:
+- At time = 7, all the tasks become available. Available tasks = {0,1,2,3,4}.
+- Also at time = 7, the idle CPU starts processing task 4. Available tasks = {0,1,2,3}.
+- At time = 9, the CPU finishes task 4 and starts processing task 3. Available tasks = {0,1,2}.
+- At time = 13, the CPU finishes task 3 and starts processing task 2. Available tasks = {0,1}.
+- At time = 18, the CPU finishes task 2 and starts processing task 0. Available tasks = {1}.
+- At time = 28, the CPU finishes task 0 and starts processing task 1. Available tasks = {}.
+- At time = 40, the CPU finishes task 1 and becomes idle.
   Constraints:
-1 <= capacity <= 2 * 104
-1 <= val <= 2 * 104
-0 <= index <= 105
-At most 2 * 105 calls will be made to push, pop, and popAtStack.
+tasks.length == n
+1 <= n <= 105
+1 <= enqueueTimei, processingTimei <= 109

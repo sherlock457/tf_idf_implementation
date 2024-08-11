@@ -1,29 +1,26 @@
-You are given a string s consisting of lowercase English letters, and an integer k.
-First, convert s into an integer by replacing each letter with its position in the alphabet (i.e., replace 'a' with 1, 'b' with 2, ..., 'z' with 26). Then, transform the integer by replacing it with the sum of its digits. Repeat the transform operation k times in total.
-For example, if s = "zbax" and k = 2, then the resulting integer would be 8 by the following operations:
-Convert: "zbax" ➝ "(26)(2)(1)(24)" ➝ "262124" ➝ 262124
-Transform #1: 262124 ➝ 2 + 6 + 2 + 1 + 2 + 4 ➝ 17
-Transform #2: 17 ➝ 1 + 7 ➝ 8
-Return the resulting integer after performing the operations described above.
+You are given two 0-indexed integer arrays nums1 and nums2, both of length n.
+You can choose two integers left and right where 0 <= left <= right < n and swap the subarray nums1[left...right] with the subarray nums2[left...right].
+For example, if nums1 = [1,2,3,4,5] and nums2 = [11,12,13,14,15] and you choose left = 1 and right = 2, nums1 becomes [1,12,13,4,5] and nums2 becomes [11,2,3,14,15].
+You may choose to apply the mentioned operation once or not do anything.
+The score of the arrays is the maximum of sum(nums1) and sum(nums2), where sum(arr) is the sum of all the elements in the array arr.
+Return the maximum possible score.
+A subarray is a contiguous sequence of elements within an array. arr[left...right] denotes the subarray that contains the elements of nums between indices left and right (inclusive).
   Example 1:
-Input: s = "iiii", k = 1
-Output: 36
-Explanation: The operations are as follows:
-- Convert: "iiii" ➝ "(9)(9)(9)(9)" ➝ "9999" ➝ 9999
-- Transform #1: 9999 ➝ 9 + 9 + 9 + 9 ➝ 36
-Thus the resulting integer is 36.
+Input: nums1 = [60,60,60], nums2 = [10,90,10]
+Output: 210
+Explanation: Choosing left = 1 and right = 1, we have nums1 = [60,90,60] and nums2 = [10,60,10].
+The score is max(sum(nums1), sum(nums2)) = max(210, 80) = 210.
 Example 2:
-Input: s = "leetcode", k = 2
-Output: 6
-Explanation: The operations are as follows:
-- Convert: "leetcode" ➝ "(12)(5)(5)(20)(3)(15)(4)(5)" ➝ "12552031545" ➝ 12552031545
-- Transform #1: 12552031545 ➝ 1 + 2 + 5 + 5 + 2 + 0 + 3 + 1 + 5 + 4 + 5 ➝ 33
-- Transform #2: 33 ➝ 3 + 3 ➝ 6
-Thus the resulting integer is 6.
+Input: nums1 = [20,40,20,70,30], nums2 = [50,20,50,40,20]
+Output: 220
+Explanation: Choosing left = 3, right = 4, we have nums1 = [20,40,20,40,20] and nums2 = [50,20,50,70,30].
+The score is max(sum(nums1), sum(nums2)) = max(140, 220) = 220.
 Example 3:
-Input: s = "zbax", k = 2
-Output: 8
+Input: nums1 = [7,11,13], nums2 = [1,1,1]
+Output: 31
+Explanation: We choose not to swap any subarray.
+The score is max(sum(nums1), sum(nums2)) = max(31, 3) = 31.
   Constraints:
-1 <= s.length <= 100
-1 <= k <= 10
-s consists of lowercase English letters.
+n == nums1.length == nums2.length
+1 <= n <= 105
+1 <= nums1[i], nums2[i] <= 104

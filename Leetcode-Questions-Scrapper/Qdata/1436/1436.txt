@@ -1,16 +1,19 @@
-In MATLAB, there is a handy function called reshape which can reshape an m x n matrix into a new one with a different size r x c keeping its original data.
-You are given an m x n matrix mat and two integers r and c representing the number of rows and the number of columns of the wanted reshaped matrix.
-The reshaped matrix should be filled with all the elements of the original matrix in the same row-traversing order as they were.
-If the reshape operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.
+Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
   Example 1:
-Input: mat = [[1,2],[3,4]], r = 1, c = 4
-Output: [[1,2,3,4]]
+Input: s = "1 + 1"
+Output: 2
 Example 2:
-Input: mat = [[1,2],[3,4]], r = 2, c = 4
-Output: [[1,2],[3,4]]
+Input: s = " 2-1 + 2 "
+Output: 3
+Example 3:
+Input: s = "(1+(4+5+2)-3)+(6+8)"
+Output: 23
   Constraints:
-m == mat.length
-n == mat[i].length
-1 <= m, n <= 100
--1000 <= mat[i][j] <= 1000
-1 <= r, c <= 300
+1 <= s.length <= 3 * 105
+s consists of digits, '+', '-', '(', ')', and ' '.
+s represents a valid expression.
+'+' is not used as a unary operation (i.e., "+1" and "+(2 + 3)" is invalid).
+'-' could be used as a unary operation (i.e., "-1" and "-(2 + 3)" is valid).
+There will be no two consecutive operators in the input.
+Every number and running calculation will fit in a signed 32-bit integer.

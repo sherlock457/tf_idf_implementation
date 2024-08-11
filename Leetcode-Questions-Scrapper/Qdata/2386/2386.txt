@@ -1,23 +1,16 @@
-Given a string s of lower and upper case English letters.
-A good string is a string which doesn't have two adjacent characters s[i] and s[i + 1] where:
-0 <= i <= s.length - 2
-s[i] is a lower-case letter and s[i + 1] is the same letter but in upper-case or vice-versa.
-To make the string good, you can choose two adjacent characters that make the string bad and remove them. You can keep doing this until the string becomes good.
-Return the string after making it good. The answer is guaranteed to be unique under the given constraints.
-Notice that an empty string is also good.
+Given a 2D integer array nums where nums[i] is a non-empty array of distinct positive integers, return the list of integers that are present in each array of nums sorted in ascending order.
   Example 1:
-Input: s = "leEeetcode"
-Output: "leetcode"
-Explanation: In the first step, either you choose i = 1 or i = 2, both will result "leEeetcode" to be reduced to "leetcode".
+Input: nums = [[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]
+Output: [3,4]
+Explanation: 
+The only integers present in each of nums[0] = [3,1,2,4,5], nums[1] = [1,2,3,4], and nums[2] = [3,4,5,6] are 3 and 4, so we return [3,4].
 Example 2:
-Input: s = "abBAcC"
-Output: ""
-Explanation: We have many possible scenarios, and all lead to the same answer. For example:
-"abBAcC" --> "aAcC" --> "cC" --> ""
-"abBAcC" --> "abBA" --> "aA" --> ""
-Example 3:
-Input: s = "s"
-Output: "s"
+Input: nums = [[1,2,3],[4,5,6]]
+Output: []
+Explanation: 
+There does not exist any integer present both in nums[0] and nums[1], so we return an empty list [].
   Constraints:
-1 <= s.length <= 100
-s contains only lower and upper case English letters.
+1 <= nums.length <= 1000
+1 <= sum(nums[i].length) <= 1000
+1 <= nums[i][j] <= 1000
+All the values of nums[i] are unique.

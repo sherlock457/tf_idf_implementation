@@ -1,26 +1,24 @@
-You are given an array of strings nums and an integer k. Each string in nums represents an integer without leading zeros.
-Return the string that represents the kth largest integer in nums.
-Note: Duplicate numbers should be counted distinctly. For example, if nums is ["1","2","2"], "2" is the first largest integer, "2" is the second-largest integer, and "1" is the third-largest integer.
+You are given a 0-indexed array nums of size n consisting of non-negative integers.
+You need to apply n - 1 operations to this array where, in the ith operation (0-indexed), you will apply the following on the ith element of nums:
+If nums[i] == nums[i + 1], then multiply nums[i] by 2 and set nums[i + 1] to 0. Otherwise, you skip this operation.
+After performing all the operations, shift all the 0's to the end of the array.
+For example, the array [1,0,2,0,0,1] after shifting all its 0's to the end, is [1,2,1,0,0,0].
+Return the resulting array.
+Note that the operations are applied sequentially, not all at once.
   Example 1:
-Input: nums = ["3","6","7","10"], k = 4
-Output: "3"
-Explanation:
-The numbers in nums sorted in non-decreasing order are ["3","6","7","10"].
-The 4th largest integer in nums is "3".
+Input: nums = [1,2,2,1,1,0]
+Output: [1,4,2,0,0,0]
+Explanation: We do the following operations:
+- i = 0: nums[0] and nums[1] are not equal, so we skip this operation.
+- i = 1: nums[1] and nums[2] are equal, we multiply nums[1] by 2 and change nums[2] to 0. The array becomes [1,4,0,1,1,0].
+- i = 2: nums[2] and nums[3] are not equal, so we skip this operation.
+- i = 3: nums[3] and nums[4] are equal, we multiply nums[3] by 2 and change nums[4] to 0. The array becomes [1,4,0,2,0,0].
+- i = 4: nums[4] and nums[5] are equal, we multiply nums[4] by 2 and change nums[5] to 0. The array becomes [1,4,0,2,0,0].
+After that, we shift the 0's to the end, which gives the array [1,4,2,0,0,0].
 Example 2:
-Input: nums = ["2","21","12","1"], k = 3
-Output: "2"
-Explanation:
-The numbers in nums sorted in non-decreasing order are ["1","2","12","21"].
-The 3rd largest integer in nums is "2".
-Example 3:
-Input: nums = ["0","0"], k = 2
-Output: "0"
-Explanation:
-The numbers in nums sorted in non-decreasing order are ["0","0"].
-The 2nd largest integer in nums is "0".
+Input: nums = [0,1]
+Output: [1,0]
+Explanation: No operation can be applied, we just shift the 0 to the end.
   Constraints:
-1 <= k <= nums.length <= 104
-1 <= nums[i].length <= 100
-nums[i] consists of only digits.
-nums[i] will not have any leading zeros.
+2 <= nums.length <= 2000
+0 <= nums[i] <= 1000

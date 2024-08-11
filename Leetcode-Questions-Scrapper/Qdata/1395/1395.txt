@@ -1,24 +1,21 @@
-Given two version numbers, version1 and version2, compare them.
-Version numbers consist of one or more revisions joined by a dot '.'. Each revision consists of digits and may contain leading zeros. Every revision contains at least one character. Revisions are 0-indexed from left to right, with the leftmost revision being revision 0, the next revision being revision 1, and so on. For example 2.5.33 and 0.1 are valid version numbers.
-To compare version numbers, compare their revisions in left-to-right order. Revisions are compared using their integer value ignoring any leading zeros. This means that revisions 1 and 001 are considered equal. If a version number does not specify a revision at an index, then treat the revision as 0. For example, version 1.0 is less than version 1.1 because their revision 0s are the same, but their revision 1s are 0 and 1 respectively, and 0 < 1.
-Return the following:
-If version1 < version2, return -1.
-If version1 > version2, return 1.
-Otherwise, return 0.
+Given two arrays nums1 and nums2.
+Return the maximum dot product between non-empty subsequences of nums1 and nums2 with the same length.
+A subsequence of a array is a new array which is formed from the original array by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, [2,3,5] is a subsequence of [1,2,3,4,5] while [1,5,3] is not).
   Example 1:
-Input: version1 = "1.01", version2 = "1.001"
-Output: 0
-Explanation: Ignoring leading zeroes, both "01" and "001" represent the same integer "1".
+Input: nums1 = [2,1,-2,5], nums2 = [3,0,-6]
+Output: 18
+Explanation: Take subsequence [2,-2] from nums1 and subsequence [3,-6] from nums2.
+Their dot product is (2*3 + (-2)*(-6)) = 18.
 Example 2:
-Input: version1 = "1.0", version2 = "1.0.0"
-Output: 0
-Explanation: version1 does not specify revision 2, which means it is treated as "0".
+Input: nums1 = [3,-2], nums2 = [2,-6,7]
+Output: 21
+Explanation: Take subsequence [3] from nums1 and subsequence [7] from nums2.
+Their dot product is (3*7) = 21.
 Example 3:
-Input: version1 = "0.1", version2 = "1.1"
+Input: nums1 = [-1,-1], nums2 = [1,1]
 Output: -1
-Explanation: version1's revision 0 is "0", while version2's revision 0 is "1". 0 < 1, so version1 < version2.
+Explanation: Take subsequence [-1] from nums1 and subsequence [1] from nums2.
+Their dot product is -1.
   Constraints:
-1 <= version1.length, version2.length <= 500
-version1 and version2 only contain digits and '.'.
-version1 and version2 are valid version numbers.
-All the given revisions in version1 and version2 can be stored in a 32-bit integer.
+1 <= nums1.length, nums2.length <= 500
+-1000 <= nums1[i], nums2[i] <= 1000

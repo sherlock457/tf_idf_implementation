@@ -1,29 +1,18 @@
-You are given two 0-indexed integer arrays nums and divisors.
-The divisibility score of divisors[i] is the number of indices j such that nums[j] is divisible by divisors[i].
-Return the integer divisors[i] with the maximum divisibility score. If there is more than one integer with the maximum score, return the minimum of them.
+You are given an integer array nums and an integer k. Append k unique positive integers that do not appear in nums to nums such that the resulting total sum is minimum.
+Return the sum of the k integers appended to nums.
   Example 1:
-Input: nums = [4,7,9,3,9], divisors = [5,2,3]
-Output: 3
-Explanation: The divisibility score for every element in divisors is:
-The divisibility score of divisors[0] is 0 since no number in nums is divisible by 5.
-The divisibility score of divisors[1] is 1 since nums[0] is divisible by 2.
-The divisibility score of divisors[2] is 3 since nums[2], nums[3], and nums[4] are divisible by 3.
-Since divisors[2] has the maximum divisibility score, we return it.
-Example 2:
-Input: nums = [20,14,21,10], divisors = [5,7,5]
+Input: nums = [1,4,25,10,25], k = 2
 Output: 5
-Explanation: The divisibility score for every element in divisors is:
-The divisibility score of divisors[0] is 2 since nums[0] and nums[3] are divisible by 5.
-The divisibility score of divisors[1] is 2 since nums[1] and nums[2] are divisible by 7.
-The divisibility score of divisors[2] is 2 since nums[0] and nums[3] are divisible by 5.
-Since divisors[0], divisors[1], and divisors[2] all have the maximum divisibility score, we return the minimum of them (i.e., divisors[2]).
-Example 3:
-Input: nums = [12], divisors = [10,16]
-Output: 10
-Explanation: The divisibility score for every element in divisors is:
-The divisibility score of divisors[0] is 0 since no number in nums is divisible by 10.
-The divisibility score of divisors[1] is 0 since no number in nums is divisible by 16.
-Since divisors[0] and divisors[1] both have the maximum divisibility score, we return the minimum of them (i.e., divisors[0]).
+Explanation: The two unique positive integers that do not appear in nums which we append are 2 and 3.
+The resulting sum of nums is 1 + 4 + 25 + 10 + 25 + 2 + 3 = 70, which is the minimum.
+The sum of the two integers appended is 2 + 3 = 5, so we return 5.
+Example 2:
+Input: nums = [5,6], k = 6
+Output: 25
+Explanation: The six unique positive integers that do not appear in nums which we append are 1, 2, 3, 4, 7, and 8.
+The resulting sum of nums is 5 + 6 + 1 + 2 + 3 + 4 + 7 + 8 = 36, which is the minimum. 
+The sum of the six integers appended is 1 + 2 + 3 + 4 + 7 + 8 = 25, so we return 25.
   Constraints:
-1 <= nums.length, divisors.length <= 1000
-1 <= nums[i], divisors[i] <= 109
+1 <= nums.length <= 105
+1 <= nums[i] <= 109
+1 <= k <= 108

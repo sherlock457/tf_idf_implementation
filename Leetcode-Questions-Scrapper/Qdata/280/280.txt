@@ -1,36 +1,31 @@
-You are given a string s that contains digits 0-9, addition symbols '+', and multiplication symbols '*' only, representing a valid math expression of single digit numbers (e.g., 3+5*2). This expression was given to n elementary school students. The students were instructed to get the answer of the expression by following this order of operations:
-Compute multiplication, reading from left to right; Then,
-Compute addition, reading from left to right.
-You are given an integer array answers of length n, which are the submitted answers of the students in no particular order. You are asked to grade the answers, by following these rules:
-If an answer equals the correct answer of the expression, this student will be rewarded 5 points;
-Otherwise, if the answer could be interpreted as if the student applied the operators in the wrong order but had correct arithmetic, this student will be rewarded 2 points;
-Otherwise, this student will be rewarded 0 points.
-Return the sum of the points of the students.
+You are given a 0-indexed integer array stations of length n, where stations[i] represents the number of power stations in the ith city.
+Each power station can provide power to every city in a fixed range. In other words, if the range is denoted by r, then a power station at city i can provide power to all cities j such that |i - j| <= r and 0 <= i, j <= n - 1.
+Note that |x| denotes absolute value. For example, |7 - 5| = 2 and |3 - 10| = 7.
+The power of a city is the total number of power stations it is being provided power from.
+The government has sanctioned building k more power stations, each of which can be built in any city, and have the same range as the pre-existing ones.
+Given the two integers r and k, return the maximum possible minimum power of a city, if the additional power stations are built optimally.
+Note that you can build the k power stations in multiple cities.
   Example 1:
-Input: s = "7+3*1*2", answers = [20,13,42]
-Output: 7
-Explanation: As illustrated above, the correct answer of the expression is 13, therefore one student is rewarded 5 points: [20,13,42]
-A student might have applied the operators in this wrong order: ((7+3)*1)*2 = 20. Therefore one student is rewarded 2 points: [20,13,42]
-The points for the students are: [2,5,0]. The sum of the points is 2+5+0=7.
+Input: stations = [1,2,4,5,0], r = 1, k = 2
+Output: 5
+Explanation: 
+One of the optimal ways is to install both the power stations at city 1. 
+So stations will become [1,4,4,5,0].
+- City 0 is provided by 1 + 4 = 5 power stations.
+- City 1 is provided by 1 + 4 + 4 = 9 power stations.
+- City 2 is provided by 4 + 4 + 5 = 13 power stations.
+- City 3 is provided by 5 + 4 = 9 power stations.
+- City 4 is provided by 5 + 0 = 5 power stations.
+So the minimum power of a city is 5.
+Since it is not possible to obtain a larger power, we return 5.
 Example 2:
-Input: s = "3+5*2", answers = [13,0,10,13,13,16,16]
-Output: 19
-Explanation: The correct answer of the expression is 13, therefore three students are rewarded 5 points each: [13,0,10,13,13,16,16]
-A student might have applied the operators in this wrong order: ((3+5)*2 = 16. Therefore two students are rewarded 2 points: [13,0,10,13,13,16,16]
-The points for the students are: [5,0,0,5,5,2,2]. The sum of the points is 5+0+0+5+5+2+2=19.
-Example 3:
-Input: s = "6+0*1", answers = [12,9,6,4,8,6]
-Output: 10
-Explanation: The correct answer of the expression is 6.
-If a student had incorrectly done (6+0)*1, the answer would also be 6.
-By the rules of grading, the students will still be rewarded 5 points (as they got the correct answer), not 2 points.
-The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
+Input: stations = [4,4,4,4], r = 0, k = 3
+Output: 4
+Explanation: 
+It can be proved that we cannot make the minimum power of a city greater than 4.
   Constraints:
-3 <= s.length <= 31
-s represents a valid expression that contains only digits 0-9, '+', and '*' only.
-All the integer operands in the expression are in the inclusive range [0, 9].
-1 <= The count of all operators ('+' and '*') in the math expression <= 15
-Test data are generated such that the correct answer of the expression is in the range of [0, 1000].
-n == answers.length
-1 <= n <= 104
-0 <= answers[i] <= 1000
+n == stations.length
+1 <= n <= 105
+0 <= stations[i] <= 105
+0 <= r <= n - 1
+0 <= k <= 109

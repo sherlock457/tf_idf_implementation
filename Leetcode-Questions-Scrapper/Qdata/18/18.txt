@@ -1,12 +1,20 @@
-You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
-You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+Given a binary tree root, return the maximum sum of all keys of any sub-tree which is also a Binary Search Tree (BST).
+Assume a BST is defined as follows:
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
   Example 1:
-Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [[7,4,1],[8,5,2],[9,6,3]]
+Input: root = [1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]
+Output: 20
+Explanation: Maximum sum in a valid Binary search tree is obtained in root node with key equal to 3.
 Example 2:
-Input: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+Input: root = [4,3,null,1,2]
+Output: 2
+Explanation: Maximum sum in a valid Binary search tree is obtained in a single root node with key equal to 2.
+Example 3:
+Input: root = [-4,-2,-5]
+Output: 0
+Explanation: All values are negatives. Return an empty BST.
   Constraints:
-n == matrix.length == matrix[i].length
-1 <= n <= 20
--1000 <= matrix[i][j] <= 1000
+The number of nodes in the tree is in the range [1, 4 * 104].
+-4 * 104 <= Node.val <= 4 * 104

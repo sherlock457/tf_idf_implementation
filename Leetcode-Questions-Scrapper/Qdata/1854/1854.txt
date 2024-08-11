@@ -1,21 +1,17 @@
-You are given an array of events where events[i] = [startDayi, endDayi, valuei]. The ith event starts at startDayi and ends at endDayi, and if you attend this event, you will receive a value of valuei. You are also given an integer k which represents the maximum number of events you can attend.
-You can only attend one event at a time. If you choose to attend an event, you must attend the entire event. Note that the end day is inclusive: that is, you cannot attend two events where one of them starts and the other ends on the same day.
-Return the maximum sum of values that you can receive by attending events.
+You are given an array nums of positive integers and a positive integer k.
+A subset of nums is beautiful if it does not contain two integers with an absolute difference equal to k.
+Return the number of non-empty beautiful subsets of the array nums.
+A subset of nums is an array that can be obtained by deleting some (possibly none) elements from nums. Two subsets are different if and only if the chosen indices to delete are different.
   Example 1:
-Input: events = [[1,2,4],[3,4,3],[2,3,1]], k = 2
-Output: 7
-Explanation: Choose the green events, 0 and 1 (0-indexed) for a total value of 4 + 3 = 7.
+Input: nums = [2,4,6], k = 2
+Output: 4
+Explanation: The beautiful subsets of the array nums are: [2], [4], [6], [2, 6].
+It can be proved that there are only 4 beautiful subsets in the array [2,4,6].
 Example 2:
-Input: events = [[1,2,4],[3,4,3],[2,3,10]], k = 2
-Output: 10
-Explanation: Choose event 2 for a total value of 10.
-Notice that you cannot attend any other event as they overlap, and that you do not have to attend k events.
-Example 3:
-Input: events = [[1,1,1],[2,2,2],[3,3,3],[4,4,4]], k = 3
-Output: 9
-Explanation: Although the events do not overlap, you can only attend 3 events. Pick the highest valued three.
+Input: nums = [1], k = 1
+Output: 1
+Explanation: The beautiful subset of the array nums is [1].
+It can be proved that there is only 1 beautiful subset in the array [1].
   Constraints:
-1 <= k <= events.length
-1 <= k * events.length <= 106
-1 <= startDayi <= endDayi <= 109
-1 <= valuei <= 106
+1 <= nums.length <= 20
+1 <= nums[i], k <= 1000

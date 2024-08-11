@@ -1,15 +1,24 @@
-Reverse bits of a given 32 bits unsigned integer.
-Note:
-Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
-In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 2 above, the input represents the signed integer -3 and the output represents the signed integer -1073741825.
+You are given a 0-indexed integer array nums. Rearrange the values of nums according to the following rules:
+Sort the values at odd indices of nums in non-increasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [4,3,2,1] after. The values at odd indices 1 and 3 are sorted in non-increasing order.
+Sort the values at even indices of nums in non-decreasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [2,1,4,3] after. The values at even indices 0 and 2 are sorted in non-decreasing order.
+Return the array formed after rearranging the values of nums.
   Example 1:
-Input: n = 00000010100101000001111010011100
-Output:    964176192 (00111001011110000010100101000000)
-Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.
+Input: nums = [4,1,2,3]
+Output: [2,3,4,1]
+Explanation: 
+First, we sort the values present at odd indices (1 and 3) in non-increasing order.
+So, nums changes from [4,1,2,3] to [4,3,2,1].
+Next, we sort the values present at even indices (0 and 2) in non-decreasing order.
+So, nums changes from [4,1,2,3] to [2,3,4,1].
+Thus, the array formed after rearranging the values is [2,3,4,1].
 Example 2:
-Input: n = 11111111111111111111111111111101
-Output:   3221225471 (10111111111111111111111111111111)
-Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is 10111111111111111111111111111111.
+Input: nums = [2,1]
+Output: [2,1]
+Explanation: 
+Since there is exactly one odd index and one even index, no rearrangement of values takes place.
+The resultant array formed is [2,1], which is the same as the initial array. 
   Constraints:
-The input must be a binary string of length 32
-  Follow up: If this function is called many times, how would you optimize it?
+1 <= nums.length <= 100
+1 <= nums[i] <= 100

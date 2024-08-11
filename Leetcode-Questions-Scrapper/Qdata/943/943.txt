@@ -1,24 +1,15 @@
-You are given a 0-indexed m x n integer matrix grid. Your initial position is at the top-left cell (0, 0).
-Starting from the cell (i, j), you can move to one of the following cells:
-Cells (i, k) with j < k <= grid[i][j] + j (rightward movement), or
-Cells (k, j) with i < k <= grid[i][j] + i (downward movement).
-Return the minimum number of cells you need to visit to reach the bottom-right cell (m - 1, n - 1). If there is no valid path, return -1.
+Given an array nums of integers, a move consists of choosing any element and decreasing it by 1.
+An array A is a zigzag array if either:
+Every even-indexed element is greater than adjacent elements, ie. A[0] > A[1] < A[2] > A[3] < A[4] > ...
+OR, every odd-indexed element is greater than adjacent elements, ie. A[0] < A[1] > A[2] < A[3] > A[4] < ...
+Return the minimum number of moves to transform the given array nums into a zigzag array.
   Example 1:
-Input: grid = [[3,4,2,1],[4,2,3,1],[2,1,0,0],[2,4,0,0]]
-Output: 4
-Explanation: The image above shows one of the paths that visits exactly 4 cells.
+Input: nums = [1,2,3]
+Output: 2
+Explanation: We can decrease 2 to 0 or 3 to 1.
 Example 2:
-Input: grid = [[3,4,2,1],[4,2,1,1],[2,1,1,0],[3,4,1,0]]
-Output: 3
-Explanation: The image above shows one of the paths that visits exactly 3 cells.
-Example 3:
-Input: grid = [[2,1,0],[1,0,0]]
-Output: -1
-Explanation: It can be proven that no path exists.
+Input: nums = [9,6,1,6,2]
+Output: 4
   Constraints:
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 105
-1 <= m * n <= 105
-0 <= grid[i][j] < m * n
-grid[m - 1][n - 1] == 0
+1 <= nums.length <= 1000
+1 <= nums[i] <= 1000

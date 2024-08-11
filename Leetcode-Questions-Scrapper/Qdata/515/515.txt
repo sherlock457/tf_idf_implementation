@@ -1,22 +1,21 @@
-A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
-You are given an array of strings sentences, where each sentences[i] represents a single sentence.
-Return the maximum number of words that appear in a single sentence.
+A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:
+Every adjacent pair of words differs by a single letter.
+Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
+sk == endWord
+Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
   Example 1:
-Input: sentences = ["alice and bob love leetcode", "i think so too", "this is great thanks very much"]
-Output: 6
-Explanation: 
-- The first sentence, "alice and bob love leetcode", has 5 words in total.
-- The second sentence, "i think so too", has 4 words in total.
-- The third sentence, "this is great thanks very much", has 6 words in total.
-Thus, the maximum number of words in a single sentence comes from the third sentence, which has 6 words.
+Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+Output: 5
+Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
 Example 2:
-Input: sentences = ["please wait", "continue to fight", "continue to win"]
-Output: 3
-Explanation: It is possible that multiple sentences contain the same number of words. 
-In this example, the second and third sentences (underlined) have the same number of words.
+Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
+Output: 0
+Explanation: The endWord "cog" is not in wordList, therefore there is no valid transformation sequence.
   Constraints:
-1 <= sentences.length <= 100
-1 <= sentences[i].length <= 100
-sentences[i] consists only of lowercase English letters and ' ' only.
-sentences[i] does not have leading or trailing spaces.
-All the words in sentences[i] are separated by a single space.
+1 <= beginWord.length <= 10
+endWord.length == beginWord.length
+1 <= wordList.length <= 5000
+wordList[i].length == beginWord.length
+beginWord, endWord, and wordList[i] consist of lowercase English letters.
+beginWord != endWord
+All the words in wordList are unique.

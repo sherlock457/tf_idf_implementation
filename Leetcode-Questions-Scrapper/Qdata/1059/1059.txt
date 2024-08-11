@@ -1,20 +1,24 @@
-A string is a valid parentheses string (denoted VPS) if and only if it consists of "(" and ")" characters only, and:
-It is the empty string, or
-It can be written as AB (A concatenated with B), where A and B are VPS's, or
-It can be written as (A), where A is a VPS.
-We can similarly define the nesting depth depth(S) of any VPS S as follows:
-depth("") = 0
-depth(A + B) = max(depth(A), depth(B)), where A and B are VPS's
-depth("(" + A + ")") = 1 + depth(A), where A is a VPS.
-For example,  "", "()()", and "()(()())" are VPS's (with nesting depths 0, 1, and 2), and ")(" and "(()" are not VPS's.
-  Given a VPS seq, split it into two disjoint subsequences A and B, such that A and B are VPS's (and A.length + B.length = seq.length).
-Now choose any such A and B such that max(depth(A), depth(B)) is the minimum possible value.
-Return an answer array (of length seq.length) that encodes such a choice of A and B:  answer[i] = 0 if seq[i] is part of A, else answer[i] = 1.  Note that even though multiple answers may exist, you may return any of them.
+Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
+A good subarray is a subarray where:
+its length is at least two, and
+the sum of the elements of the subarray is a multiple of k.
+Note that:
+A subarray is a contiguous part of the array.
+An integer x is a multiple of k if there exists an integer n such that x = n * k. 0 is always a multiple of k.
   Example 1:
-Input: seq = "(()())"
-Output: [0,1,1,1,1,0]
+Input: nums = [23,2,4,6,7], k = 6
+Output: true
+Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
 Example 2:
-Input: seq = "()(())()"
-Output: [0,0,0,1,1,0,1,1]
+Input: nums = [23,2,6,4,7], k = 6
+Output: true
+Explanation: [23, 2, 6, 4, 7] is an continuous subarray of size 5 whose elements sum up to 42.
+42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer.
+Example 3:
+Input: nums = [23,2,6,4,7], k = 13
+Output: false
   Constraints:
-1 <= seq.size <= 10000
+1 <= nums.length <= 105
+0 <= nums[i] <= 109
+0 <= sum(nums[i]) <= 231 - 1
+1 <= k <= 231 - 1

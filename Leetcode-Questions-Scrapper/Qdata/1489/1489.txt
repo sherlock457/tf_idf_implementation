@@ -1,16 +1,12 @@
-You are given an array points representing integer coordinates of some points on a 2D-plane, where points[i] = [xi, yi].
-The cost of connecting two points [xi, yi] and [xj, yj] is the manhattan distance between them: |xi - xj| + |yi - yj|, where |val| denotes the absolute value of val.
-Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.
+You are given the head of a linked list, and an integer k.
+Return the head of the linked list after swapping the values of the kth node from the beginning and the kth node from the end (the list is 1-indexed).
   Example 1:
-Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
-Output: 20
-Explanation: 
-We can connect the points as shown above to get the minimum cost of 20.
-Notice that there is a unique path between every pair of points.
+Input: head = [1,2,3,4,5], k = 2
+Output: [1,4,3,2,5]
 Example 2:
-Input: points = [[3,12],[-2,5],[-4,1]]
-Output: 18
+Input: head = [7,9,6,6,7,8,3,0,9,5], k = 5
+Output: [7,9,6,6,8,7,3,0,9,5]
   Constraints:
-1 <= points.length <= 1000
--106 <= xi, yi <= 106
-All pairs (xi, yi) are distinct.
+The number of nodes in the list is n.
+1 <= k <= n <= 105
+0 <= Node.val <= 100

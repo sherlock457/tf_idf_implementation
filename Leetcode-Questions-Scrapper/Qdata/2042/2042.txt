@@ -1,19 +1,18 @@
-You are given a binary string s consisting only of zeroes and ones.
-A substring of s is considered balanced if all zeroes are before ones and the number of zeroes is equal to the number of ones inside the substring. Notice that the empty substring is considered a balanced substring.
-Return the length of the longest balanced substring of s.
-A substring is a contiguous sequence of characters within a string.
+Given an array of positive integers nums and a positive integer target, return the minimal length of a
+subarray
+whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
   Example 1:
-Input: s = "01000111"
-Output: 6
-Explanation: The longest balanced substring is "000111", which has length 6.
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] has the minimal length under the problem constraint.
 Example 2:
-Input: s = "00111"
-Output: 4
-Explanation: The longest balanced substring is "0011", which has length 4. 
+Input: target = 4, nums = [1,4,4]
+Output: 1
 Example 3:
-Input: s = "111"
+Input: target = 11, nums = [1,1,1,1,1,1,1,1]
 Output: 0
-Explanation: There is no balanced substring except the empty substring, so the answer is 0.
   Constraints:
-1 <= s.length <= 50
-'0' <= s[i] <= '1'
+1 <= target <= 109
+1 <= nums.length <= 105
+1 <= nums[i] <= 104
+  Follow up: If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log(n)).

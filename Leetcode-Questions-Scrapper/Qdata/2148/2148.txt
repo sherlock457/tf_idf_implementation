@@ -1,16 +1,30 @@
-Given the root of a binary tree and an integer limit, delete all insufficient nodes in the tree simultaneously, and return the root of the resulting binary tree.
-A node is insufficient if every root to leaf path intersecting this node has a sum strictly less than limit.
-A leaf is a node with no children.
+Given an array of integers cost and an integer target, return the maximum integer you can paint under the following rules:
+The cost of painting a digit (i + 1) is given by cost[i] (0-indexed).
+The total cost used must be equal to target.
+The integer does not have 0 digits.
+Since the answer may be very large, return it as a string. If there is no way to paint any integer given the condition, return "0".
   Example 1:
-Input: root = [1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14], limit = 1
-Output: [1,2,3,4,null,null,7,8,9,null,14]
+Input: cost = [4,3,2,5,6,7,2,5,5], target = 9
+Output: "7772"
+Explanation: The cost to paint the digit '7' is 2, and the digit '2' is 3. Then cost("7772") = 2*3+ 3*1 = 9. You could also paint "977", but "7772" is the largest number.
+Digit    cost
+  1  ->   4
+  2  ->   3
+  3  ->   2
+  4  ->   5
+  5  ->   6
+  6  ->   7
+  7  ->   2
+  8  ->   5
+  9  ->   5
 Example 2:
-Input: root = [5,4,8,11,null,17,4,7,1,null,null,5,3], limit = 22
-Output: [5,4,8,11,null,17,4,7,null,null,null,5]
+Input: cost = [7,6,5,5,5,6,8,7,8], target = 12
+Output: "85"
+Explanation: The cost to paint the digit '8' is 7, and the digit '5' is 5. Then cost("85") = 7 + 5 = 12.
 Example 3:
-Input: root = [1,2,-3,-5,null,4,null], limit = -1
-Output: [1,null,-3,4]
+Input: cost = [2,4,6,2,4,6,4,4,4], target = 5
+Output: "0"
+Explanation: It is impossible to paint any integer with total cost equal to target.
   Constraints:
-The number of nodes in the tree is in the range [1, 5000].
--105 <= Node.val <= 105
--109 <= limit <= 109
+cost.length == 9
+1 <= cost[i], target <= 5000

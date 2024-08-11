@@ -1,17 +1,26 @@
-Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix. This matrix has the following properties:
-Integers in each row are sorted in ascending from left to right.
-Integers in each column are sorted in ascending from top to bottom.
+You are given an array of strings nums and an integer k. Each string in nums represents an integer without leading zeros.
+Return the string that represents the kth largest integer in nums.
+Note: Duplicate numbers should be counted distinctly. For example, if nums is ["1","2","2"], "2" is the first largest integer, "2" is the second-largest integer, and "1" is the third-largest integer.
   Example 1:
-Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
-Output: true
+Input: nums = ["3","6","7","10"], k = 4
+Output: "3"
+Explanation:
+The numbers in nums sorted in non-decreasing order are ["3","6","7","10"].
+The 4th largest integer in nums is "3".
 Example 2:
-Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
-Output: false
+Input: nums = ["2","21","12","1"], k = 3
+Output: "2"
+Explanation:
+The numbers in nums sorted in non-decreasing order are ["1","2","12","21"].
+The 3rd largest integer in nums is "2".
+Example 3:
+Input: nums = ["0","0"], k = 2
+Output: "0"
+Explanation:
+The numbers in nums sorted in non-decreasing order are ["0","0"].
+The 2nd largest integer in nums is "0".
   Constraints:
-m == matrix.length
-n == matrix[i].length
-1 <= n, m <= 300
--109 <= matrix[i][j] <= 109
-All the integers in each row are sorted in ascending order.
-All the integers in each column are sorted in ascending order.
--109 <= target <= 109
+1 <= k <= nums.length <= 104
+1 <= nums[i].length <= 100
+nums[i] consists of only digits.
+nums[i] will not have any leading zeros.

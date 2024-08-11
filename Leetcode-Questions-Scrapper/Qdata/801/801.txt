@@ -1,47 +1,25 @@
-You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.
-You are given a list of strings operations, where operations[i] is the ith operation you must apply to the record and is one of the following:
-An integer x.
-Record a new score of x.
-'+'.
-Record a new score that is the sum of the previous two scores.
-'D'.
-Record a new score that is the double of the previous score.
-'C'.
-Invalidate the previous score, removing it from the record.
-Return the sum of all the scores on the record after applying all the operations.
-The test cases are generated such that the answer and all intermediate calculations fit in a 32-bit integer and that all operations are valid.
+You are given a string s and an integer repeatLimit. Construct a new string repeatLimitedString using the characters of s such that no letter appears more than repeatLimit times in a row. You do not have to use all characters from s.
+Return the lexicographically largest repeatLimitedString possible.
+A string a is lexicographically larger than a string b if in the first position where a and b differ, string a has a letter that appears later in the alphabet than the corresponding letter in b. If the first min(a.length, b.length) characters do not differ, then the longer string is the lexicographically larger one.
   Example 1:
-Input: ops = ["5","2","C","D","+"]
-Output: 30
-Explanation:
-"5" - Add 5 to the record, record is now [5].
-"2" - Add 2 to the record, record is now [5, 2].
-"C" - Invalidate and remove the previous score, record is now [5].
-"D" - Add 2 * 5 = 10 to the record, record is now [5, 10].
-"+" - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].
-The total sum is 5 + 10 + 15 = 30.
+Input: s = "cczazcc", repeatLimit = 3
+Output: "zzcccac"
+Explanation: We use all of the characters from s to construct the repeatLimitedString "zzcccac".
+The letter 'a' appears at most 1 time in a row.
+The letter 'c' appears at most 3 times in a row.
+The letter 'z' appears at most 2 times in a row.
+Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
+The string is the lexicographically largest repeatLimitedString possible so we return "zzcccac".
+Note that the string "zzcccca" is lexicographically larger but the letter 'c' appears more than 3 times in a row, so it is not a valid repeatLimitedString.
 Example 2:
-Input: ops = ["5","-2","4","C","D","9","+","+"]
-Output: 27
-Explanation:
-"5" - Add 5 to the record, record is now [5].
-"-2" - Add -2 to the record, record is now [5, -2].
-"4" - Add 4 to the record, record is now [5, -2, 4].
-"C" - Invalidate and remove the previous score, record is now [5, -2].
-"D" - Add 2 * -2 = -4 to the record, record is now [5, -2, -4].
-"9" - Add 9 to the record, record is now [5, -2, -4, 9].
-"+" - Add -4 + 9 = 5 to the record, record is now [5, -2, -4, 9, 5].
-"+" - Add 9 + 5 = 14 to the record, record is now [5, -2, -4, 9, 5, 14].
-The total sum is 5 + -2 + -4 + 9 + 5 + 14 = 27.
-Example 3:
-Input: ops = ["1","C"]
-Output: 0
-Explanation:
-"1" - Add 1 to the record, record is now [1].
-"C" - Invalidate and remove the previous score, record is now [].
-Since the record is empty, the total sum is 0.
+Input: s = "aababab", repeatLimit = 2
+Output: "bbabaa"
+Explanation: We use only some of the characters from s to construct the repeatLimitedString "bbabaa". 
+The letter 'a' appears at most 2 times in a row.
+The letter 'b' appears at most 2 times in a row.
+Hence, no letter appears more than repeatLimit times in a row and the string is a valid repeatLimitedString.
+The string is the lexicographically largest repeatLimitedString possible so we return "bbabaa".
+Note that the string "bbabaaa" is lexicographically larger but the letter 'a' appears more than 2 times in a row, so it is not a valid repeatLimitedString.
   Constraints:
-1 <= operations.length <= 1000
-operations[i] is "C", "D", "+", or a string representing an integer in the range [-3 * 104, 3 * 104].
-For operation "+", there will always be at least two previous scores on the record.
-For operations "C" and "D", there will always be at least one previous score on the record.
+1 <= repeatLimit <= s.length <= 105
+s consists of lowercase English letters.

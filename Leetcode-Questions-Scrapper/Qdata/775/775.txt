@@ -1,21 +1,17 @@
-Implement a SnapshotArray that supports the following interface:
-SnapshotArray(int length) initializes an array-like data structure with the given length. Initially, each element equals 0.
-void set(index, val) sets the element at the given index to be equal to val.
-int snap() takes a snapshot of the array and returns the snap_id: the total number of times we called snap() minus 1.
-int get(index, snap_id) returns the value at the given index, at the time we took the snapshot with the given snap_id
+You are given a positive integer num. You may swap any two digits of num that have the same parity (i.e. both odd digits or both even digits).
+Return the largest possible value of num after any number of swaps.
   Example 1:
-Input: ["SnapshotArray","set","snap","set","get"]
-[[3],[0,5],[],[0,6],[0,0]]
-Output: [null,null,0,null,5]
-Explanation: 
-SnapshotArray snapshotArr = new SnapshotArray(3); // set the length to be 3
-snapshotArr.set(0,5);  // Set array[0] = 5
-snapshotArr.snap();  // Take a snapshot, return snap_id = 0
-snapshotArr.set(0,6);
-snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5
+Input: num = 1234
+Output: 3412
+Explanation: Swap the digit 3 with the digit 1, this results in the number 3214.
+Swap the digit 2 with the digit 4, this results in the number 3412.
+Note that there may be other sequences of swaps but it can be shown that 3412 is the largest possible number.
+Also note that we may not swap the digit 4 with the digit 1 since they are of different parities.
+Example 2:
+Input: num = 65875
+Output: 87655
+Explanation: Swap the digit 8 with the digit 6, this results in the number 85675.
+Swap the first digit 5 with the digit 7, this results in the number 87655.
+Note that there may be other sequences of swaps but it can be shown that 87655 is the largest possible number.
   Constraints:
-1 <= length <= 5 * 104
-0 <= index < length
-0 <= val <= 109
-0 <= snap_id < (the total number of times we call snap())
-At most 5 * 104 calls will be made to set, snap, and get.
+1 <= num <= 109

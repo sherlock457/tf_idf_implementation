@@ -1,15 +1,19 @@
-Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.
-An integer a is closer to x than an integer b if:
-|a - x| < |b - x|, or
-|a - x| == |b - x| and a < b
+Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
+Note that the same word in the dictionary may be reused multiple times in the segmentation.
   Example 1:
-Input: arr = [1,2,3,4,5], k = 4, x = 3
-Output: [1,2,3,4]
+Input: s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
+Output: ["cats and dog","cat sand dog"]
 Example 2:
-Input: arr = [1,2,3,4,5], k = 4, x = -1
-Output: [1,2,3,4]
+Input: s = "pineapplepenapple", wordDict = ["apple","pen","applepen","pine","pineapple"]
+Output: ["pine apple pen apple","pineapple pen apple","pine applepen apple"]
+Explanation: Note that you are allowed to reuse a dictionary word.
+Example 3:
+Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+Output: []
   Constraints:
-1 <= k <= arr.length
-1 <= arr.length <= 104
-arr is sorted in ascending order.
--104 <= arr[i], x <= 104
+1 <= s.length <= 20
+1 <= wordDict.length <= 1000
+1 <= wordDict[i].length <= 10
+s and wordDict[i] consist of only lowercase English letters.
+All the strings of wordDict are unique.
+Input is generated in a way that the length of the answer doesn't exceed 105.

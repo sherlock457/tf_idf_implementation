@@ -1,24 +1,16 @@
-You are given a string s (0-indexed). You are asked to perform the following operation on s until you get a sorted string:
-Find the largest index i such that 1 <= i < s.length and s[i] < s[i - 1].
-Find the largest index j such that i <= j < s.length and s[k] < s[i - 1] for all the possible values of k in the range [i, j] inclusive.
-Swap the two characters at indices i - 1 and j.
-Reverse the suffix starting at index i.
-Return the number of operations needed to make the string sorted. Since the answer can be too large, return it modulo 109 + 7.
+You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
+Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where:
+0 <= j <= nums[i] and
+i + j < n
+Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
   Example 1:
-Input: s = "cba"
-Output: 5
-Explanation: The simulation goes as follows:
-Operation 1: i=2, j=2. Swap s[1] and s[2] to get s="cab", then reverse the suffix starting at 2. Now, s="cab".
-Operation 2: i=1, j=2. Swap s[0] and s[2] to get s="bac", then reverse the suffix starting at 1. Now, s="bca".
-Operation 3: i=2, j=2. Swap s[1] and s[2] to get s="bac", then reverse the suffix starting at 2. Now, s="bac".
-Operation 4: i=1, j=1. Swap s[0] and s[1] to get s="abc", then reverse the suffix starting at 1. Now, s="acb".
-Operation 5: i=2, j=2. Swap s[1] and s[2] to get s="abc", then reverse the suffix starting at 2. Now, s="abc".
-Example 2:
-Input: s = "aabaa"
+Input: nums = [2,3,1,1,4]
 Output: 2
-Explanation: The simulation goes as follows:
-Operation 1: i=3, j=4. Swap s[2] and s[4] to get s="aaaab", then reverse the substring starting at 3. Now, s="aaaba".
-Operation 2: i=4, j=4. Swap s[3] and s[4] to get s="aaaab", then reverse the substring starting at 4. Now, s="aaaab".
+Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+Example 2:
+Input: nums = [2,3,0,1,4]
+Output: 2
   Constraints:
-1 <= s.length <= 3000
-s consists only of lowercase English letters.
+1 <= nums.length <= 104
+0 <= nums[i] <= 1000
+It's guaranteed that you can reach nums[n - 1].

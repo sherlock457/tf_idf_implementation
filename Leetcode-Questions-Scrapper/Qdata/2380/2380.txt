@@ -1,34 +1,18 @@
-SQL Schema
-Table: Employees
-+-------------+----------+
-| Column Name | Type     |
-+-------------+----------+
-| employee_id | int      |
-| name        | varchar  |
-| reports_to  | int      |
-| age         | int      |
-+-------------+----------+
-employee_id is the primary key for this table.
-This table contains information about the employees and the id of the manager they report to. Some employees do not report to anyone (reports_to is null). 
-  For this problem, we will consider a manager an employee who has at least 1 other employee reporting to them.
-Write an SQL query to report the ids and the names of all managers, the number of employees who report directly to them, and the average age of the reports rounded to the nearest integer.
-Return the result table ordered by employee_id.
-The query result format is in the following example.
+You are given an integer array arr.
+We split arr into some number of chunks (i.e., partitions), and individually sort each chunk. After concatenating them, the result should equal the sorted array.
+Return the largest number of chunks we can make to sort the array.
   Example 1:
-Input: 
-Employees table:
-+-------------+---------+------------+-----+
-| employee_id | name    | reports_to | age |
-+-------------+---------+------------+-----+
-| 9           | Hercy   | null       | 43  |
-| 6           | Alice   | 9          | 41  |
-| 4           | Bob     | 9          | 36  |
-| 2           | Winston | null       | 37  |
-+-------------+---------+------------+-----+
-Output: 
-+-------------+-------+---------------+-------------+
-| employee_id | name  | reports_count | average_age |
-+-------------+-------+---------------+-------------+
-| 9           | Hercy | 2             | 39          |
-+-------------+-------+---------------+-------------+
-Explanation: Hercy has 2 people report directly to him, Alice and Bob. Their average age is (41+36)/2 = 38.5, which is 39 after rounding it to the nearest integer.
+Input: arr = [5,4,3,2,1]
+Output: 1
+Explanation:
+Splitting into two or more chunks will not return the required result.
+For example, splitting into [5, 4], [3, 2, 1] will result in [4, 5, 1, 2, 3], which isn't sorted.
+Example 2:
+Input: arr = [2,1,3,4,4]
+Output: 4
+Explanation:
+We can split into two chunks, such as [2, 1], [3, 4, 4].
+However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks possible.
+  Constraints:
+1 <= arr.length <= 2000
+0 <= arr[i] <= 108

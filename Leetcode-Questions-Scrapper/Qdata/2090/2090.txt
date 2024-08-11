@@ -1,24 +1,21 @@
-Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
-[4,5,6,7,0,1,2] if it was rotated 4 times.
-[0,1,2,4,5,6,7] if it was rotated 7 times.
-Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
-Given the sorted rotated array nums of unique elements, return the minimum element of this array.
-You must write an algorithm that runs in O(log n) time.
+You are given a 0-indexed binary string floor, which represents the colors of tiles on a floor:
+floor[i] = '0' denotes that the ith tile of the floor is colored black.
+On the other hand, floor[i] = '1' denotes that the ith tile of the floor is colored white.
+You are also given numCarpets and carpetLen. You have numCarpets black carpets, each of length carpetLen tiles. Cover the tiles with the given carpets such that the number of white tiles still visible is minimum. Carpets may overlap one another.
+Return the minimum number of white tiles still visible.
   Example 1:
-Input: nums = [3,4,5,1,2]
-Output: 1
-Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+Input: floor = "10110101", numCarpets = 2, carpetLen = 2
+Output: 2
+Explanation: 
+The figure above shows one way of covering the tiles with the carpets such that only 2 white tiles are visible.
+No other way of covering the tiles with the carpets can leave less than 2 white tiles visible.
 Example 2:
-Input: nums = [4,5,6,7,0,1,2]
+Input: floor = "11111", numCarpets = 2, carpetLen = 3
 Output: 0
-Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
-Example 3:
-Input: nums = [11,13,15,17]
-Output: 11
-Explanation: The original array was [11,13,15,17] and it was rotated 4 times. 
+Explanation: 
+The figure above shows one way of covering the tiles with the carpets such that no white tiles are visible.
+Note that the carpets are able to overlap one another.
   Constraints:
-n == nums.length
-1 <= n <= 5000
--5000 <= nums[i] <= 5000
-All the integers of nums are unique.
-nums is sorted and rotated between 1 and n times.
+1 <= carpetLen <= floor.length <= 1000
+floor[i] is either '0' or '1'.
+1 <= numCarpets <= 1000

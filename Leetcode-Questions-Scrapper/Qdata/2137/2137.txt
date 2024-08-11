@@ -1,27 +1,42 @@
-You are given an m x n grid. Each cell of grid represents a street. The street of grid[i][j] can be:
-1 which means a street connecting the left cell and the right cell.
-2 which means a street connecting the upper cell and the lower cell.
-3 which means a street connecting the left cell and the lower cell.
-4 which means a street connecting the right cell and the lower cell.
-5 which means a street connecting the left cell and the upper cell.
-6 which means a street connecting the right cell and the upper cell.
-You will initially start at the street of the upper-left cell (0, 0). A valid path in the grid is a path that starts from the upper left cell (0, 0) and ends at the bottom-right cell (m - 1, n - 1). The path should only follow the streets.
-Notice that you are not allowed to change any street.
-Return true if there is a valid path in the grid or false otherwise.
+There is a special typewriter with lowercase English letters 'a' to 'z' arranged in a circle with a pointer. A character can only be typed if the pointer is pointing to that character. The pointer is initially pointing to the character 'a'.
+Each second, you may perform one of the following operations:
+Move the pointer one character counterclockwise or clockwise.
+Type the character the pointer is currently on.
+Given a string word, return the minimum number of seconds to type out the characters in word.
   Example 1:
-Input: grid = [[2,4,3],[6,5,2]]
-Output: true
-Explanation: As shown you can start at cell (0, 0) and visit all the cells of the grid to reach (m - 1, n - 1).
+Input: word = "abc"
+Output: 5
+Explanation: 
+The characters are printed as follows:
+- Type the character 'a' in 1 second since the pointer is initially on 'a'.
+- Move the pointer clockwise to 'b' in 1 second.
+- Type the character 'b' in 1 second.
+- Move the pointer clockwise to 'c' in 1 second.
+- Type the character 'c' in 1 second.
 Example 2:
-Input: grid = [[1,2,1],[1,2,1]]
-Output: false
-Explanation: As shown you the street at cell (0, 0) is not connected with any street of any other cell and you will get stuck at cell (0, 0)
+Input: word = "bza"
+Output: 7
+Explanation:
+The characters are printed as follows:
+- Move the pointer clockwise to 'b' in 1 second.
+- Type the character 'b' in 1 second.
+- Move the pointer counterclockwise to 'z' in 2 seconds.
+- Type the character 'z' in 1 second.
+- Move the pointer clockwise to 'a' in 1 second.
+- Type the character 'a' in 1 second.
 Example 3:
-Input: grid = [[1,1,2]]
-Output: false
-Explanation: You will get stuck at cell (0, 1) and you cannot reach cell (0, 2).
+Input: word = "zjpc"
+Output: 34
+Explanation:
+The characters are printed as follows:
+- Move the pointer counterclockwise to 'z' in 1 second.
+- Type the character 'z' in 1 second.
+- Move the pointer clockwise to 'j' in 10 seconds.
+- Type the character 'j' in 1 second.
+- Move the pointer clockwise to 'p' in 6 seconds.
+- Type the character 'p' in 1 second.
+- Move the pointer counterclockwise to 'c' in 13 seconds.
+- Type the character 'c' in 1 second.
   Constraints:
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 300
-1 <= grid[i][j] <= 6
+1 <= word.length <= 100
+word consists of lowercase English letters.

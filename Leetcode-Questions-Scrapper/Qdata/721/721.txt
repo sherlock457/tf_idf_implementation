@@ -1,14 +1,14 @@
-You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them.
-We repeatedly make duplicate removals on s until we no longer can.
-Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
+Given an array of strings strs, return the length of the longest uncommon subsequence between them. If the longest uncommon subsequence does not exist, return -1.
+An uncommon subsequence between an array of strings is a string that is a subsequence of one string but not the others.
+A subsequence of a string s is a string that can be obtained after deleting any number of characters from s.
+For example, "abc" is a subsequence of "aebdc" because you can delete the underlined characters in "aebdc" to get "abc". Other subsequences of "aebdc" include "aebdc", "aeb", and "" (empty string).
   Example 1:
-Input: s = "abbaca"
-Output: "ca"
-Explanation: 
-For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+Input: strs = ["aba","cdc","eae"]
+Output: 3
 Example 2:
-Input: s = "azxxzy"
-Output: "ay"
+Input: strs = ["aaa","aaa","aa"]
+Output: -1
   Constraints:
-1 <= s.length <= 105
-s consists of lowercase English letters.
+2 <= strs.length <= 50
+1 <= strs[i].length <= 10
+strs[i] consists of lowercase English letters.

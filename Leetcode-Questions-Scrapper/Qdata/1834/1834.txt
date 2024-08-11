@@ -1,22 +1,22 @@
-You are given a string s that consists of only digits.
-Check if we can split s into two or more non-empty substrings such that the numerical values of the substrings are in descending order and the difference between numerical values of every two adjacent substrings is equal to 1.
-For example, the string s = "0090089" can be split into ["0090", "089"] with numerical values [90,89]. The values are in descending order and adjacent values differ by 1, so this way is valid.
-Another example, the string s = "001" can be split into ["0", "01"], ["00", "1"], or ["0", "0", "1"]. However all the ways are invalid because they have numerical values [0,1], [0,1], and [0,0,1] respectively, all of which are not in descending order.
-Return true if it is possible to split s as described above, or false otherwise.
-A substring is a contiguous sequence of characters in a string.
+You have a RecentCounter class which counts the number of recent requests within a certain time frame.
+Implement the RecentCounter class:
+RecentCounter() Initializes the counter with zero recent requests.
+int ping(int t) Adds a new request at time t, where t represents some time in milliseconds, and returns the number of requests that has happened in the past 3000 milliseconds (including the new request). Specifically, return the number of requests that have happened in the inclusive range [t - 3000, t].
+It is guaranteed that every call to ping uses a strictly larger value of t than the previous call.
   Example 1:
-Input: s = "1234"
-Output: false
-Explanation: There is no valid way to split s.
-Example 2:
-Input: s = "050043"
-Output: true
-Explanation: s can be split into ["05", "004", "3"] with numerical values [5,4,3].
-The values are in descending order with adjacent values differing by 1.
-Example 3:
-Input: s = "9080701"
-Output: false
-Explanation: There is no valid way to split s.
+Input
+["RecentCounter", "ping", "ping", "ping", "ping"]
+[[], [1], [100], [3001], [3002]]
+Output
+[null, 1, 2, 3, 3]
+
+Explanation
+RecentCounter recentCounter = new RecentCounter();
+recentCounter.ping(1);     // requests = [1], range is [-2999,1], return 1
+recentCounter.ping(100);   // requests = [1, 100], range is [-2900,100], return 2
+recentCounter.ping(3001);  // requests = [1, 100, 3001], range is [1,3001], return 3
+recentCounter.ping(3002);  // requests = [1, 100, 3001, 3002], range is [2,3002], return 3
   Constraints:
-1 <= s.length <= 20
-s only consists of digits.
+1 <= t <= 109
+Each test case will call ping with strictly increasing values of t.
+At most 104 calls will be made to ping.

@@ -1,22 +1,20 @@
-There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he refuses to steal from adjacent homes.
-The capability of the robber is the maximum amount of money he steals from one house of all the houses he robbed.
-You are given an integer array nums representing how much money is stashed in each house. More formally, the ith house from the left has nums[i] dollars.
-You are also given an integer k, representing the minimum number of houses the robber will steal from. It is always possible to steal at least k houses.
-Return the minimum capability of the robber out of all the possible ways to steal at least k houses.
+You are given an integer array nums (0-indexed). In one operation, you can choose an element of the array and increment it by 1.
+For example, if nums = [1,2,3], you can choose to increment nums[1] to make nums = [1,3,3].
+Return the minimum number of operations needed to make nums strictly increasing.
+An array nums is strictly increasing if nums[i] < nums[i+1] for all 0 <= i < nums.length - 1. An array of length 1 is trivially strictly increasing.
   Example 1:
-Input: nums = [2,3,5,9], k = 2
-Output: 5
-Explanation: 
-There are three ways to rob at least 2 houses:
-- Rob the houses at indices 0 and 2. Capability is max(nums[0], nums[2]) = 5.
-- Rob the houses at indices 0 and 3. Capability is max(nums[0], nums[3]) = 9.
-- Rob the houses at indices 1 and 3. Capability is max(nums[1], nums[3]) = 9.
-Therefore, we return min(5, 9, 9) = 5.
+Input: nums = [1,1,1]
+Output: 3
+Explanation: You can do the following operations:
+1) Increment nums[2], so nums becomes [1,1,2].
+2) Increment nums[1], so nums becomes [1,2,2].
+3) Increment nums[2], so nums becomes [1,2,3].
 Example 2:
-Input: nums = [2,7,9,3,1], k = 2
-Output: 2
-Explanation: There are 7 ways to rob the houses. The way which leads to minimum capability is to rob the house at index 0 and 4. Return max(nums[0], nums[4]) = 2.
+Input: nums = [1,5,2,4,1]
+Output: 14
+Example 3:
+Input: nums = [8]
+Output: 0
   Constraints:
-1 <= nums.length <= 105
-1 <= nums[i] <= 109
-1 <= k <= (nums.length + 1)/2
+1 <= nums.length <= 5000
+1 <= nums[i] <= 104

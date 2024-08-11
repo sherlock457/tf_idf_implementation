@@ -1,22 +1,20 @@
-You are given a 0-indexed integer array nums and an integer k. You have a starting score of 0.
-In one operation:
-choose an index i such that 0 <= i < nums.length,
-increase your score by nums[i], and
-replace nums[i] with ceil(nums[i] / 3).
-Return the maximum possible score you can attain after applying exactly k operations.
-The ceiling function ceil(val) is the least integer greater than or equal to val.
+You are given an array nums consisting of positive integers.
+We call a subarray of nums nice if the bitwise AND of every pair of elements that are in different positions in the subarray is equal to 0.
+Return the length of the longest nice subarray.
+A subarray is a contiguous part of an array.
+Note that subarrays of length 1 are always considered nice.
   Example 1:
-Input: nums = [10,10,10,10,10], k = 5
-Output: 50
-Explanation: Apply the operation to each array element exactly once. The final score is 10 + 10 + 10 + 10 + 10 = 50.
+Input: nums = [1,3,8,48,10]
+Output: 3
+Explanation: The longest nice subarray is [3,8,48]. This subarray satisfies the conditions:
+- 3 AND 8 = 0.
+- 3 AND 48 = 0.
+- 8 AND 48 = 0.
+It can be proven that no longer nice subarray can be obtained, so we return 3.
 Example 2:
-Input: nums = [1,10,3,3,3], k = 3
-Output: 17
-Explanation: You can do the following operations:
-Operation 1: Select i = 1, so nums becomes [1,4,3,3,3]. Your score increases by 10.
-Operation 2: Select i = 1, so nums becomes [1,2,3,3,3]. Your score increases by 4.
-Operation 3: Select i = 2, so nums becomes [1,1,1,3,3]. Your score increases by 3.
-The final score is 10 + 4 + 3 = 17.
+Input: nums = [3,1,5,11,13]
+Output: 1
+Explanation: The length of the longest nice subarray is 1. Any subarray of length 1 can be chosen.
   Constraints:
-1 <= nums.length, k <= 105
+1 <= nums.length <= 105
 1 <= nums[i] <= 109

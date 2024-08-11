@@ -1,12 +1,21 @@
-Given the root of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.
-A binary search tree is balanced if the depth of the two subtrees of every node never differs by more than 1.
+You are given a string s and an integer k, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them, causing the left and the right side of the deleted substring to concatenate together.
+We repeatedly make k duplicate removals on s until we no longer can.
+Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.
   Example 1:
-Input: root = [1,null,2,null,3,null,4,null,null]
-Output: [2,1,3,null,null,null,4]
-Explanation: This is not the only correct answer, [3,1,4,null,2] is also correct.
+Input: s = "abcd", k = 2
+Output: "abcd"
+Explanation: There's nothing to delete.
 Example 2:
-Input: root = [2,1,3]
-Output: [2,1,3]
+Input: s = "deeedbbcccbdaa", k = 3
+Output: "aa"
+Explanation: 
+First delete "eee" and "ccc", get "ddbbbdaa"
+Then delete "bbb", get "dddaa"
+Finally delete "ddd", get "aa"
+Example 3:
+Input: s = "pbbcggttciiippooaais", k = 2
+Output: "ps"
   Constraints:
-The number of nodes in the tree is in the range [1, 104].
-1 <= Node.val <= 105
+1 <= s.length <= 105
+2 <= k <= 104
+s only contains lowercase English letters.

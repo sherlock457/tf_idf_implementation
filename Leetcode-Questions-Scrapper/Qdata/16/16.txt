@@ -1,17 +1,17 @@
-Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
-The overall run time complexity should be O(log (m+n)).
+Given an integer n, return the smallest prime palindrome greater than or equal to n.
+An integer is prime if it has exactly two divisors: 1 and itself. Note that 1 is not a prime number.
+For example, 2, 3, 5, 7, 11, and 13 are all primes.
+An integer is a palindrome if it reads the same from left to right as it does from right to left.
+For example, 101 and 12321 are palindromes.
+The test cases are generated so that the answer always exists and is in the range [2, 2 * 108].
   Example 1:
-Input: nums1 = [1,3], nums2 = [2]
-Output: 2.00000
-Explanation: merged array = [1,2,3] and median is 2.
+Input: n = 6
+Output: 7
 Example 2:
-Input: nums1 = [1,2], nums2 = [3,4]
-Output: 2.50000
-Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+Input: n = 8
+Output: 11
+Example 3:
+Input: n = 13
+Output: 101
   Constraints:
-nums1.length == m
-nums2.length == n
-0 <= m <= 1000
-0 <= n <= 1000
-1 <= m + n <= 2000
--106 <= nums1[i], nums2[i] <= 106
+1 <= n <= 108

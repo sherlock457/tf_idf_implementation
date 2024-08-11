@@ -1,21 +1,13 @@
-Given an integer array arr and a mapping function fn, return a new array with a transformation applied to each element.
-The returned array should be created such that returnedArray[i] = fn(arr[i], i).
-Please solve it without the built-in Array.map method.
+You are given an integer array matchsticks where matchsticks[i] is the length of the ith matchstick. You want to use all the matchsticks to make one square. You should not break any stick, but you can link them up, and each matchstick must be used exactly one time.
+Return true if you can make this square and false otherwise.
   Example 1:
-Input: arr = [1,2,3], fn = function plusone(n) { return n + 1; }
-Output: [2,3,4]
-Explanation:
-const newArray = map(arr, plusone); // [2,3,4]
-The function increases each value in the array by one. 
+Input: matchsticks = [1,1,2,2,2]
+Output: true
+Explanation: You can form a square with length 2, one side of the square came two sticks with length 1.
 Example 2:
-Input: arr = [1,2,3], fn = function plusI(n, i) { return n + i; }
-Output: [1,3,5]
-Explanation: The function increases each value by the index it resides in.
-Example 3:
-Input: arr = [10,20,30], fn = function constant() { return 42; }
-Output: [42,42,42]
-Explanation: The function always returns 42.
+Input: matchsticks = [3,3,3,3,4]
+Output: false
+Explanation: You cannot find a way to form a square with all the matchsticks.
   Constraints:
-0 <= arr.length <= 1000
--109 <= arr[i] <= 109
-fn returns a number
+1 <= matchsticks.length <= 15
+1 <= matchsticks[i] <= 108

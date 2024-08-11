@@ -1,19 +1,15 @@
-You are given a string s.
-A split is called good if you can split s into two non-empty strings sleft and sright where their concatenation is equal to s (i.e., sleft + sright = s) and the number of distinct letters in sleft and sright is the same.
-Return the number of good splits you can make in s.
+Given the root of a binary tree, return all duplicate subtrees.
+For each kind of duplicate subtrees, you only need to return the root node of any one of them.
+Two trees are duplicate if they have the same structure with the same node values.
   Example 1:
-Input: s = "aacaba"
-Output: 2
-Explanation: There are 5 ways to split "aacaba" and 2 of them are good. 
-("a", "acaba") Left string and right string contains 1 and 3 different letters respectively.
-("aa", "caba") Left string and right string contains 1 and 3 different letters respectively.
-("aac", "aba") Left string and right string contains 2 and 2 different letters respectively (good split).
-("aaca", "ba") Left string and right string contains 2 and 2 different letters respectively (good split).
-("aacab", "a") Left string and right string contains 3 and 1 different letters respectively.
+Input: root = [1,2,3,4,null,2,4,null,null,4]
+Output: [[2,4],[4]]
 Example 2:
-Input: s = "abcd"
-Output: 1
-Explanation: Split the string as follows ("ab", "cd").
+Input: root = [2,1,1]
+Output: [[1]]
+Example 3:
+Input: root = [2,2,2,3,null,3,null]
+Output: [[2,3],[3]]
   Constraints:
-1 <= s.length <= 105
-s consists of only lowercase English letters.
+The number of the nodes in the tree will be in the range [1, 5000]
+-200 <= Node.val <= 200

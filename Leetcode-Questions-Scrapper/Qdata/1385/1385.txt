@@ -1,19 +1,32 @@
-Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences in any order.
-Note that the same word in the dictionary may be reused multiple times in the segmentation.
+You are given an integer array nums and an integer k. You may partition nums into one or more subsequences such that each element in nums appears in exactly one of the subsequences.
+Return the minimum number of subsequences needed such that the difference between the maximum and minimum values in each subsequence is at most k.
+A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
   Example 1:
-Input: s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
-Output: ["cats and dog","cat sand dog"]
+Input: nums = [3,6,1,2,5], k = 2
+Output: 2
+Explanation:
+We can partition nums into the two subsequences [3,1,2] and [6,5].
+The difference between the maximum and minimum value in the first subsequence is 3 - 1 = 2.
+The difference between the maximum and minimum value in the second subsequence is 6 - 5 = 1.
+Since two subsequences were created, we return 2. It can be shown that 2 is the minimum number of subsequences needed.
 Example 2:
-Input: s = "pineapplepenapple", wordDict = ["apple","pen","applepen","pine","pineapple"]
-Output: ["pine apple pen apple","pineapple pen apple","pine applepen apple"]
-Explanation: Note that you are allowed to reuse a dictionary word.
+Input: nums = [1,2,3], k = 1
+Output: 2
+Explanation:
+We can partition nums into the two subsequences [1,2] and [3].
+The difference between the maximum and minimum value in the first subsequence is 2 - 1 = 1.
+The difference between the maximum and minimum value in the second subsequence is 3 - 3 = 0.
+Since two subsequences were created, we return 2. Note that another optimal solution is to partition nums into the two subsequences [1] and [2,3].
 Example 3:
-Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
-Output: []
+Input: nums = [2,2,4,5], k = 0
+Output: 3
+Explanation:
+We can partition nums into the three subsequences [2,2], [4], and [5].
+The difference between the maximum and minimum value in the first subsequences is 2 - 2 = 0.
+The difference between the maximum and minimum value in the second subsequences is 4 - 4 = 0.
+The difference between the maximum and minimum value in the third subsequences is 5 - 5 = 0.
+Since three subsequences were created, we return 3. It can be shown that 3 is the minimum number of subsequences needed.
   Constraints:
-1 <= s.length <= 20
-1 <= wordDict.length <= 1000
-1 <= wordDict[i].length <= 10
-s and wordDict[i] consist of only lowercase English letters.
-All the strings of wordDict are unique.
-Input is generated in a way that the length of the answer doesn't exceed 105.
+1 <= nums.length <= 105
+0 <= nums[i] <= 105
+0 <= k <= 105

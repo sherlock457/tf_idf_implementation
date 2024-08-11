@@ -1,10 +1,10 @@
-Given an integer array nums, return all the different possible non-decreasing subsequences of the given array with at least two elements. You may return the answer in any order.
+Given an integer n, return the count of all numbers with unique digits, x, where 0 <= x < 10n.
   Example 1:
-Input: nums = [4,6,7,7]
-Output: [[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]]
+Input: n = 2
+Output: 91
+Explanation: The answer should be the total numbers in the range of 0 ≤ x < 100, excluding 11,22,33,44,55,66,77,88,99
 Example 2:
-Input: nums = [4,4,3,2,1]
-Output: [[4,4]]
+Input: n = 0
+Output: 1
   Constraints:
-1 <= nums.length <= 15
--100 <= nums[i] <= 100
+0 <= n <= 8

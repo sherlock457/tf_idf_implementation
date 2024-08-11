@@ -1,30 +1,17 @@
-You are given a 0-indexed string s that you must perform k replacement operations on. The replacement operations are given as three 0-indexed parallel arrays, indices, sources, and targets, all of length k.
-To complete the ith replacement operation:
-Check if the substring sources[i] occurs at index indices[i] in the original string s.
-If it does not occur, do nothing.
-Otherwise if it does occur, replace that substring with targets[i].
-For example, if s = "abcd", indices[i] = 0, sources[i] = "ab", and targets[i] = "eee", then the result of this replacement will be "eeecd".
-All replacement operations must occur simultaneously, meaning the replacement operations should not affect the indexing of each other. The testcases will be generated such that the replacements will not overlap.
-For example, a testcase with s = "abc", indices = [0, 1], and sources = ["ab","bc"] will not be generated because the "ab" and "bc" replacements overlap.
-Return the resulting string after performing all replacement operations on s.
-A substring is a contiguous sequence of characters in a string.
+Hercy wants to save money for his first car. He puts money in the Leetcode bank every day.
+He starts by putting in $1 on Monday, the first day. Every day from Tuesday to Sunday, he will put in $1 more than the day before. On every subsequent Monday, he will put in $1 more than the previous Monday.
+Given n, return the total amount of money he will have in the Leetcode bank at the end of the nth day.
   Example 1:
-Input: s = "abcd", indices = [0, 2], sources = ["a", "cd"], targets = ["eee", "ffff"]
-Output: "eeebffff"
-Explanation:
-"a" occurs at index 0 in s, so we replace it with "eee".
-"cd" occurs at index 2 in s, so we replace it with "ffff".
+Input: n = 4
+Output: 10
+Explanation: After the 4th day, the total is 1 + 2 + 3 + 4 = 10.
 Example 2:
-Input: s = "abcd", indices = [0, 2], sources = ["ab","ec"], targets = ["eee","ffff"]
-Output: "eeecd"
-Explanation:
-"ab" occurs at index 0 in s, so we replace it with "eee".
-"ec" does not occur at index 2 in s, so we do nothing.
+Input: n = 10
+Output: 37
+Explanation: After the 10th day, the total is (1 + 2 + 3 + 4 + 5 + 6 + 7) + (2 + 3 + 4) = 37. Notice that on the 2nd Monday, Hercy only puts in $2.
+Example 3:
+Input: n = 20
+Output: 96
+Explanation: After the 20th day, the total is (1 + 2 + 3 + 4 + 5 + 6 + 7) + (2 + 3 + 4 + 5 + 6 + 7 + 8) + (3 + 4 + 5 + 6 + 7 + 8) = 96.
   Constraints:
-1 <= s.length <= 1000
-k == indices.length == sources.length == targets.length
-1 <= k <= 100
-0 <= indexes[i] < s.length
-1 <= sources[i].length, targets[i].length <= 50
-s consists of only lowercase English letters.
-sources[i] and targets[i] consist of only lowercase English letters.
+1 <= n <= 1000

@@ -1,15 +1,17 @@
-The Tribonacci sequence Tn is defined as follows: 
-T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
-Given n, return the value of Tn.
+Alice is throwing n darts on a very large wall. You are given an array darts where darts[i] = [xi, yi] is the position of the ith dart that Alice threw on the wall.
+Bob knows the positions of the n darts on the wall. He wants to place a dartboard of radius r on the wall so that the maximum number of darts that Alice throws lies on the dartboard.
+Given the integer r, return the maximum number of darts that can lie on the dartboard.
   Example 1:
-Input: n = 4
+Input: darts = [[-2,0],[2,0],[0,2],[0,-2]], r = 2
 Output: 4
-Explanation:
-T_3 = 0 + 1 + 1 = 2
-T_4 = 1 + 1 + 2 = 4
+Explanation: Circle dartboard with center in (0,0) and radius = 2 contain all points.
 Example 2:
-Input: n = 25
-Output: 1389537
+Input: darts = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5
+Output: 5
+Explanation: Circle dartboard with center in (0,4) and radius = 5 contain all points except the point (7,8).
   Constraints:
-0 <= n <= 37
-The answer is guaranteed to fit within a 32-bit integer, ie. answer <= 2^31 - 1.
+1 <= darts.length <= 100
+darts[i].length == 2
+-104 <= xi, yi <= 104
+All the darts are unique
+1 <= r <= 5000

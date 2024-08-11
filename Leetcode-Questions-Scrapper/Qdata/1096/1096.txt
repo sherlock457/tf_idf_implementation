@@ -1,19 +1,26 @@
-You are given an n x n grid where we place some 1 x 1 x 1 cubes that are axis-aligned with the x, y, and z axes.
-Each value v = grid[i][j] represents a tower of v cubes placed on top of the cell (i, j).
-We view the projection of these cubes onto the xy, yz, and zx planes.
-A projection is like a shadow, that maps our 3-dimensional figure to a 2-dimensional plane. We are viewing the "shadow" when looking at the cubes from the top, the front, and the side.
-Return the total area of all three projections.
+A sentence is a list of words that are separated by a single space with no leading or trailing spaces. Each of the words consists of only uppercase and lowercase English letters (no punctuation).
+For example, "Hello World", "HELLO", and "hello world hello world" are all sentences.
+You are given a sentence s and an integer k. You want to truncate s such that it contains only the first k words. Return s after truncating it.
   Example 1:
-Input: grid = [[1,2],[3,4]]
-Output: 17
-Explanation: Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
+Input: s = "Hello how are you Contestant", k = 4
+Output: "Hello how are you"
+Explanation:
+The words in s are ["Hello", "how" "are", "you", "Contestant"].
+The first 4 words are ["Hello", "how", "are", "you"].
+Hence, you should return "Hello how are you".
 Example 2:
-Input: grid = [[2]]
-Output: 5
+Input: s = "What is the solution to this problem", k = 4
+Output: "What is the solution"
+Explanation:
+The words in s are ["What", "is" "the", "solution", "to", "this", "problem"].
+The first 4 words are ["What", "is", "the", "solution"].
+Hence, you should return "What is the solution".
 Example 3:
-Input: grid = [[1,0],[0,2]]
-Output: 8
+Input: s = "chopper is not a tanuki", k = 5
+Output: "chopper is not a tanuki"
   Constraints:
-n == grid.length == grid[i].length
-1 <= n <= 50
-0 <= grid[i][j] <= 50
+1 <= s.length <= 500
+k is in the range [1, the number of words in s].
+s consist of only lowercase and uppercase English letters and spaces.
+The words in s are separated by a single space.
+There are no leading or trailing spaces.

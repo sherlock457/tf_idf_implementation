@@ -1,15 +1,15 @@
-Given an integer n, return the number of ways you can write n as the sum of consecutive positive integers.
+Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.
   Example 1:
 Input: n = 5
-Output: 2
-Explanation: 5 = 2 + 3
+Output: true
+Explanation: The binary representation of 5 is: 101
 Example 2:
-Input: n = 9
-Output: 3
-Explanation: 9 = 4 + 5 = 2 + 3 + 4
+Input: n = 7
+Output: false
+Explanation: The binary representation of 7 is: 111.
 Example 3:
-Input: n = 15
-Output: 4
-Explanation: 15 = 8 + 7 = 4 + 5 + 6 = 1 + 2 + 3 + 4 + 5
+Input: n = 11
+Output: false
+Explanation: The binary representation of 11 is: 1011.
   Constraints:
-1 <= n <= 109
+1 <= n <= 231 - 1

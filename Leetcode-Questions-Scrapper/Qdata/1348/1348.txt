@@ -1,20 +1,22 @@
-You are given an array arr which consists of only zeros and ones, divide the array into three non-empty parts such that all of these parts represent the same binary value.
-If it is possible, return any [i, j] with i + 1 < j, such that:
-arr[0], arr[1], ..., arr[i] is the first part,
-arr[i + 1], arr[i + 2], ..., arr[j - 1] is the second part, and
-arr[j], arr[j + 1], ..., arr[arr.length - 1] is the third part.
-All three parts have equal binary values.
-If it is not possible, return [-1, -1].
-Note that the entire part is used when considering what binary value it represents. For example, [1,1,0] represents 6 in decimal, not 3. Also, leading zeros are allowed, so [0,1,1] and [1,1] represent the same value.
+In the "100 game" two players take turns adding, to a running total, any integer from 1 to 10. The player who first causes the running total to reach or exceed 100 wins.
+What if we change the game so that players cannot re-use integers?
+For example, two players might take turns drawing from a common pool of numbers from 1 to 15 without replacement until they reach a total >= 100.
+Given two integers maxChoosableInteger and desiredTotal, return true if the first player to move can force a win, otherwise, return false. Assume both players play optimally.
   Example 1:
-Input: arr = [1,0,1,0,1]
-Output: [0,3]
+Input: maxChoosableInteger = 10, desiredTotal = 11
+Output: false
+Explanation:
+No matter which integer the first player choose, the first player will lose.
+The first player can choose an integer from 1 up to 10.
+If the first player choose 1, the second player can only choose integers from 2 up to 10.
+The second player will win by choosing 10 and get a total = 11, which is >= desiredTotal.
+Same with other integers chosen by the first player, the second player will always win.
 Example 2:
-Input: arr = [1,1,0,1,1]
-Output: [-1,-1]
+Input: maxChoosableInteger = 10, desiredTotal = 0
+Output: true
 Example 3:
-Input: arr = [1,1,0,0,1]
-Output: [0,2]
+Input: maxChoosableInteger = 10, desiredTotal = 1
+Output: true
   Constraints:
-3 <= arr.length <= 3 * 104
-arr[i] is 0 or 1
+1 <= maxChoosableInteger <= 20
+0 <= desiredTotal <= 300

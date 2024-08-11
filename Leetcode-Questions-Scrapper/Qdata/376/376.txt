@@ -1,14 +1,17 @@
-Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.
-Return the decimal value of the number in the linked list.
-The most significant bit is at the head of the linked list.
+Given an unsorted integer array nums, return the smallest missing positive integer.
+You must implement an algorithm that runs in O(n) time and uses constant extra space.
   Example 1:
-Input: head = [1,0,1]
-Output: 5
-Explanation: (101) in base 2 = (5) in base 10
+Input: nums = [1,2,0]
+Output: 3
+Explanation: The numbers in the range [1,2] are all in the array.
 Example 2:
-Input: head = [0]
-Output: 0
+Input: nums = [3,4,-1,1]
+Output: 2
+Explanation: 1 is in the array but 2 is missing.
+Example 3:
+Input: nums = [7,8,9,11,12]
+Output: 1
+Explanation: The smallest positive integer 1 is missing.
   Constraints:
-The Linked List is not empty.
-Number of nodes will not exceed 30.
-Each node's value is either 0 or 1.
+1 <= nums.length <= 105
+-231 <= nums[i] <= 231 - 1

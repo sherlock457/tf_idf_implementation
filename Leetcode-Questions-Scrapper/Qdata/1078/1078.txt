@@ -1,26 +1,14 @@
-Write a function createCounter. It should accept an initial integer init. It should return an object with three functions.
-The three functions are:
-increment() increases the current value by 1 and then returns it.
-decrement() reduces the current value by 1 and then returns it.
-reset() sets the current value to init and then returns it.
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+You must write an algorithm that runs in O(n) time and without using the division operation.
   Example 1:
-Input: init = 5, calls = ["increment","reset","decrement"]
-Output: [6,5,4]
-Explanation:
-const counter = createCounter(5);
-counter.increment(); // 6
-counter.reset(); // 5
-counter.decrement(); // 4
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
 Example 2:
-Input: init = 0, calls = ["increment","increment","decrement","reset","reset"]
-Output: [1,2,1,0,0]
-Explanation:
-const counter = createCounter(0);
-counter.increment(); // 1
-counter.increment(); // 2
-counter.decrement(); // 1
-counter.reset(); // 0
-counter.reset(); // 0
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
   Constraints:
--1000 <= init <= 1000
-total calls not to exceed 1000
+2 <= nums.length <= 105
+-30 <= nums[i] <= 30
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+  Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)

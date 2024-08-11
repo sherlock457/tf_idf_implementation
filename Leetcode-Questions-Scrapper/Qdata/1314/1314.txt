@@ -1,21 +1,22 @@
-You are given a 0-indexed integer array nums and a target element target.
-A target index is an index i such that nums[i] == target.
-Return a list of the target indices of nums after sorting nums in non-decreasing order. If there are no target indices, return an empty list. The returned list must be sorted in increasing order.
+Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
+A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
   Example 1:
-Input: nums = [1,2,5,2,3], target = 2
-Output: [1,2]
-Explanation: After sorting, nums is [1,2,2,3,5].
-The indices where nums[i] == 2 are 1 and 2.
+Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+Output: true
+Explanation:
+In the above grid, the diagonals are:
+"[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".
+In each diagonal all elements are the same, so the answer is True.
 Example 2:
-Input: nums = [1,2,5,2,3], target = 3
-Output: [3]
-Explanation: After sorting, nums is [1,2,2,3,5].
-The index where nums[i] == 3 is 3.
-Example 3:
-Input: nums = [1,2,5,2,3], target = 5
-Output: [4]
-Explanation: After sorting, nums is [1,2,2,3,5].
-The index where nums[i] == 5 is 4.
+Input: matrix = [[1,2],[2,2]]
+Output: false
+Explanation:
+The diagonal "[1, 2]" has different elements.
   Constraints:
-1 <= nums.length <= 100
-1 <= nums[i], target <= 100
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 20
+0 <= matrix[i][j] <= 99
+  Follow up:
+What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?
+What if the matrix is so large that you can only load up a partial row into the memory at once?

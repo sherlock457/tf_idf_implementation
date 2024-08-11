@@ -1,16 +1,23 @@
-You are given a string s formed by digits and '#'. We want to map s to English lowercase characters as follows:
-Characters ('a' to 'i') are represented by ('1' to '9') respectively.
-Characters ('j' to 'z') are represented by ('10#' to '26#') respectively.
-Return the string formed after mapping.
-The test cases are generated so that a unique mapping will always exist.
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+Each number in candidates may only be used once in the combination.
+Note: The solution set must not contain duplicate combinations.
   Example 1:
-Input: s = "10#11#12"
-Output: "jkab"
-Explanation: "j" -> "10#" , "k" -> "11#" , "a" -> "1" , "b" -> "2".
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
 Example 2:
-Input: s = "1326#"
-Output: "acz"
+Input: candidates = [2,5,2,1,2], target = 5
+Output: 
+[
+[1,2,2],
+[5]
+]
   Constraints:
-1 <= s.length <= 1000
-s consists of digits and the '#' letter.
-s will be a valid string such that mapping is always possible.
+1 <= candidates.length <= 100
+1 <= candidates[i] <= 50
+1 <= target <= 30

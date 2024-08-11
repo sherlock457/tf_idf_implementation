@@ -1,18 +1,16 @@
-Given an integer array nums and an integer k, return the number of good subarrays of nums.
-A subarray arr is good if it there are at least k pairs of indices (i, j) such that i < j and arr[i] == arr[j].
-A subarray is a contiguous non-empty sequence of elements within an array.
-  Example 1:
-Input: nums = [1,1,1,1,1], k = 10
-Output: 1
-Explanation: The only good subarray is the array nums itself.
+Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
+After doing so, return the head of the final linked list.  You may return any such answer.
+  (Note that in the examples below, all sequences are serializations of ListNode objects.)
+Example 1:
+Input: head = [1,2,-3,3,1]
+Output: [3,1]
+Note: The answer [1,2,1] would also be accepted.
 Example 2:
-Input: nums = [3,1,4,3,2,2,4], k = 2
-Output: 4
-Explanation: There are 4 different good subarrays:
-- [3,1,4,3,2,2] that has 2 pairs.
-- [3,1,4,3,2,2,4] that has 3 pairs.
-- [1,4,3,2,2,4] that has 2 pairs.
-- [4,3,2,2,4] that has 2 pairs.
+Input: head = [1,2,3,-3,4]
+Output: [1,2,4]
+Example 3:
+Input: head = [1,2,3,-3,-2]
+Output: [1]
   Constraints:
-1 <= nums.length <= 105
-1 <= nums[i], k <= 109
+The given linked list will contain between 1 and 1000 nodes.
+Each node in the linked list has -1000 <= node.val <= 1000.

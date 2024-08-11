@@ -1,24 +1,17 @@
-You are given an m x n binary matrix grid where each cell is either 0 (empty) or 1 (occupied).
-You are then given stamps of size stampHeight x stampWidth. We want to fit the stamps such that they follow the given restrictions and requirements:
-Cover all the empty cells.
-Do not cover any of the occupied cells.
-We can put as many stamps as we want.
-Stamps can overlap with each other.
-Stamps are not allowed to be rotated.
-Stamps must stay completely inside the grid.
-Return true if it is possible to fit the stamps while following the given restrictions and requirements. Otherwise, return false.
+Given the array houses where houses[i] is the location of the ith house along a street and an integer k, allocate k mailboxes in the street.
+Return the minimum total distance between each house and its nearest mailbox.
+The test cases are generated so that the answer fits in a 32-bit integer.
   Example 1:
-Input: grid = [[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0]], stampHeight = 4, stampWidth = 3
-Output: true
-Explanation: We have two overlapping stamps (labeled 1 and 2 in the image) that are able to cover all the empty cells.
+Input: houses = [1,4,8,10,20], k = 3
+Output: 5
+Explanation: Allocate mailboxes in position 3, 9 and 20.
+Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + |9-8| + |10-9| + |20-20| = 5 
 Example 2:
-Input: grid = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]], stampHeight = 2, stampWidth = 2 
-Output: false 
-Explanation: There is no way to fit the stamps onto all the empty cells without the stamps going outside the grid.
+Input: houses = [2,3,5,12,18], k = 2
+Output: 9
+Explanation: Allocate mailboxes in position 3 and 14.
+Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + |5-3| + |12-14| + |18-14| = 9.
   Constraints:
-m == grid.length
-n == grid[r].length
-1 <= m, n <= 105
-1 <= m * n <= 2 * 105
-grid[r][c] is either 0 or 1.
-1 <= stampHeight, stampWidth <= 105
+1 <= k <= houses.length <= 100
+1 <= houses[i] <= 104
+All the integers of houses are unique.

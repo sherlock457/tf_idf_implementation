@@ -1,24 +1,27 @@
-There are n persons on a social media website. You are given an integer array ages where ages[i] is the age of the ith person.
-A Person x will not send a friend request to a person y (x != y) if any of the following conditions is true:
-age[y] <= 0.5 * age[x] + 7
-age[y] > age[x]
-age[y] > 100 && age[x] < 100
-Otherwise, x will send a friend request to y.
-Note that if x sends a request to y, y will not necessarily send a request to x. Also, a person will not send a friend request to themself.
-Return the total number of friend requests made.
+Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray such that the absolute difference between any two elements of this subarray is less than or equal to limit.
   Example 1:
-Input: ages = [16,16]
-Output: 2
-Explanation: 2 people friend request each other.
+Input: nums = [8,2,4,7], limit = 4
+Output: 2 
+Explanation: All subarrays are: 
+[8] with maximum absolute diff |8-8| = 0 <= 4.
+[8,2] with maximum absolute diff |8-2| = 6 > 4. 
+[8,2,4] with maximum absolute diff |8-2| = 6 > 4.
+[8,2,4,7] with maximum absolute diff |8-2| = 6 > 4.
+[2] with maximum absolute diff |2-2| = 0 <= 4.
+[2,4] with maximum absolute diff |2-4| = 2 <= 4.
+[2,4,7] with maximum absolute diff |2-7| = 5 > 4.
+[4] with maximum absolute diff |4-4| = 0 <= 4.
+[4,7] with maximum absolute diff |4-7| = 3 <= 4.
+[7] with maximum absolute diff |7-7| = 0 <= 4. 
+Therefore, the size of the longest subarray is 2.
 Example 2:
-Input: ages = [16,17,18]
-Output: 2
-Explanation: Friend requests are made 17 -> 16, 18 -> 17.
+Input: nums = [10,1,2,4,7,2], limit = 5
+Output: 4 
+Explanation: The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 <= 5.
 Example 3:
-Input: ages = [20,30,100,110,120]
+Input: nums = [4,2,2,2,4,4,2,2], limit = 0
 Output: 3
-Explanation: Friend requests are made 110 -> 100, 120 -> 110, 120 -> 100.
   Constraints:
-n == ages.length
-1 <= n <= 2 * 104
-1 <= ages[i] <= 120
+1 <= nums.length <= 105
+1 <= nums[i] <= 109
+0 <= limit <= 109

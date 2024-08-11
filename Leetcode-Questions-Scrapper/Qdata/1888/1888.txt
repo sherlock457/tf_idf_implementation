@@ -1,33 +1,18 @@
-There is an undirected graph with n nodes numbered from 0 to n - 1 (inclusive). You are given a 0-indexed integer array values where values[i] is the value of the ith node. You are also given a 0-indexed 2D integer array edges, where each edges[j] = [uj, vj, timej] indicates that there is an undirected edge between the nodes uj and vj, and it takes timej seconds to travel between the two nodes. Finally, you are given an integer maxTime.
-A valid path in the graph is any path that starts at node 0, ends at node 0, and takes at most maxTime seconds to complete. You may visit the same node multiple times. The quality of a valid path is the sum of the values of the unique nodes visited in the path (each node's value is added at most once to the sum).
-Return the maximum quality of a valid path.
-Note: There are at most four edges connected to each node.
+Given a binary tree root and a linked list with head as the first node. 
+Return True if all the elements in the linked list starting from the head correspond to some downward path connected in the binary tree otherwise return False.
+In this context downward path means a path that starts at some node and goes downwards.
   Example 1:
-Input: values = [0,32,10,43], edges = [[0,1,10],[1,2,15],[0,3,10]], maxTime = 49
-Output: 75
-Explanation:
-One possible path is 0 -> 1 -> 0 -> 3 -> 0. The total time taken is 10 + 10 + 10 + 10 = 40 <= 49.
-The nodes visited are 0, 1, and 3, giving a maximal path quality of 0 + 32 + 43 = 75.
+Input: head = [4,2,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+Output: true
+Explanation: Nodes in blue form a subpath in the binary Tree.  
 Example 2:
-Input: values = [5,10,15,20], edges = [[0,1,10],[1,2,10],[0,3,10]], maxTime = 30
-Output: 25
-Explanation:
-One possible path is 0 -> 3 -> 0. The total time taken is 10 + 10 = 20 <= 30.
-The nodes visited are 0 and 3, giving a maximal path quality of 5 + 20 = 25.
+Input: head = [1,4,2,6], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+Output: true
 Example 3:
-Input: values = [1,2,3,4], edges = [[0,1,10],[1,2,11],[2,3,12],[1,3,13]], maxTime = 50
-Output: 7
-Explanation:
-One possible path is 0 -> 1 -> 3 -> 1 -> 0. The total time taken is 10 + 13 + 13 + 10 = 46 <= 50.
-The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 7.
+Input: head = [1,4,2,6,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]
+Output: false
+Explanation: There is no path in the binary tree that contains all the elements of the linked list from head.
   Constraints:
-n == values.length
-1 <= n <= 1000
-0 <= values[i] <= 108
-0 <= edges.length <= 2000
-edges[j].length == 3 
-0 <= uj < vj <= n - 1
-10 <= timej, maxTime <= 100
-All the pairs [uj, vj] are unique.
-There are at most four edges connected to each node.
-The graph may not be connected.
+The number of nodes in the tree will be in the range [1, 2500].
+The number of nodes in the list will be in the range [1, 100].
+1 <= Node.val <= 100 for each node in the linked list and binary tree.

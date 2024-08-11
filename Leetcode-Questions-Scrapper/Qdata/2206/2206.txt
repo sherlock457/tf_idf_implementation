@@ -1,15 +1,23 @@
-Given an integer n, return a string with n characters such that each character in such string occurs an odd number of times.
-The returned string must contain only lowercase English letters. If there are multiples valid strings, return any of them.  
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+Each number in candidates may only be used once in the combination.
+Note: The solution set must not contain duplicate combinations.
   Example 1:
-Input: n = 4
-Output: "pppz"
-Explanation: "pppz" is a valid string since the character 'p' occurs three times and the character 'z' occurs once. Note that there are many other valid strings such as "ohhh" and "love".
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
 Example 2:
-Input: n = 2
-Output: "xy"
-Explanation: "xy" is a valid string since the characters 'x' and 'y' occur once. Note that there are many other valid strings such as "ag" and "ur".
-Example 3:
-Input: n = 7
-Output: "holasss"
+Input: candidates = [2,5,2,1,2], target = 5
+Output: 
+[
+[1,2,2],
+[5]
+]
   Constraints:
-1 <= n <= 500
+1 <= candidates.length <= 100
+1 <= candidates[i] <= 50
+1 <= target <= 30

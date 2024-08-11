@@ -1,36 +1,68 @@
-You are given two integers, m and k, and a stream of integers. You are tasked to implement a data structure that calculates the MKAverage for the stream.
-The MKAverage can be calculated using these steps:
-If the number of the elements in the stream is less than m you should consider the MKAverage to be -1. Otherwise, copy the last m elements of the stream to a separate container.
-Remove the smallest k elements and the largest k elements from the container.
-Calculate the average value for the rest of the elements rounded down to the nearest integer.
-Implement the MKAverage class:
-MKAverage(int m, int k) Initializes the MKAverage object with an empty stream and the two integers m and k.
-void addElement(int num) Inserts a new element num into the stream.
-int calculateMKAverage() Calculates and returns the MKAverage for the current stream rounded down to the nearest integer.
+SQL Schema
+Table: Employee
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| id           | int     |
+| name         | varchar |
+| salary       | int     |
+| departmentId | int     |
++--------------+---------+
+id is the primary key column for this table.
+departmentId is a foreign key of the ID from the Department table.
+Each row of this table indicates the ID, name, and salary of an employee. It also contains the ID of their department.
+  Table: Department
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
++-------------+---------+
+id is the primary key column for this table.
+Each row of this table indicates the ID of a department and its name.
+  A company's executives are interested in seeing who earns the most money in each of the company's departments. A high earner in a department is an employee who has a salary in the top three unique salaries for that department.
+Write an SQL query to find the employees who are high earners in each of the departments.
+Return the result table in any order.
+The query result format is in the following example.
   Example 1:
-Input
-["MKAverage", "addElement", "addElement", "calculateMKAverage", "addElement", "calculateMKAverage", "addElement", "addElement", "addElement", "calculateMKAverage"]
-[[3, 1], [3], [1], [], [10], [], [5], [5], [5], []]
-Output
-[null, null, null, -1, null, 3, null, null, null, 5]
+Input: 
+Employee table:
++----+-------+--------+--------------+
+| id | name  | salary | departmentId |
++----+-------+--------+--------------+
+| 1  | Joe   | 85000  | 1            |
+| 2  | Henry | 80000  | 2            |
+| 3  | Sam   | 60000  | 2            |
+| 4  | Max   | 90000  | 1            |
+| 5  | Janet | 69000  | 1            |
+| 6  | Randy | 85000  | 1            |
+| 7  | Will  | 70000  | 1            |
++----+-------+--------+--------------+
+Department table:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | IT    |
+| 2  | Sales |
++----+-------+
+Output: 
++------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| IT         | Max      | 90000  |
+| IT         | Joe      | 85000  |
+| IT         | Randy    | 85000  |
+| IT         | Will     | 70000  |
+| Sales      | Henry    | 80000  |
+| Sales      | Sam      | 60000  |
++------------+----------+--------+
+Explanation: 
+In the IT department:
+- Max earns the highest unique salary
+- Both Randy and Joe earn the second-highest unique salary
+- Will earns the third-highest unique salary
 
-Explanation
-MKAverage obj = new MKAverage(3, 1); 
-obj.addElement(3);        // current elements are [3]
-obj.addElement(1);        // current elements are [3,1]
-obj.calculateMKAverage(); // return -1, because m = 3 and only 2 elements exist.
-obj.addElement(10);       // current elements are [3,1,10]
-obj.calculateMKAverage(); // The last 3 elements are [3,1,10].
-                          // After removing smallest and largest 1 element the container will be [3].
-                          // The average of [3] equals 3/1 = 3, return 3
-obj.addElement(5);        // current elements are [3,1,10,5]
-obj.addElement(5);        // current elements are [3,1,10,5,5]
-obj.addElement(5);        // current elements are [3,1,10,5,5,5]
-obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
-                          // After removing smallest and largest 1 element the container will be [5].
-                          // The average of [5] equals 5/1 = 5, return 5
-  Constraints:
-3 <= m <= 105
-1 <= k*2 < m
-1 <= num <= 105
-At most 105 calls will be made to addElement and calculateMKAverage.
+In the Sales department:
+- Henry earns the highest salary
+- Sam earns the second-highest salary
+- There is no third-highest salary as there are only two employees

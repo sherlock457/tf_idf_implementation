@@ -1,15 +1,15 @@
-You are given an integer num. Rearrange the digits of num such that its value is minimized and it does not contain any leading zeros.
-Return the rearranged number with minimal value.
-Note that the sign of the number does not change after rearranging the digits.
+Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size groupSize, and consists of groupSize consecutive cards.
+Given an integer array hand where hand[i] is the value written on the ith card and an integer groupSize, return true if she can rearrange the cards, or false otherwise.
   Example 1:
-Input: num = 310
-Output: 103
-Explanation: The possible arrangements for the digits of 310 are 013, 031, 103, 130, 301, 310. 
-The arrangement with the smallest value that does not contain any leading zeros is 103.
+Input: hand = [1,2,3,6,2,3,4,7,8], groupSize = 3
+Output: true
+Explanation: Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8]
 Example 2:
-Input: num = -7605
-Output: -7650
-Explanation: Some possible arrangements for the digits of -7605 are -7650, -6705, -5076, -0567.
-The arrangement with the smallest value that does not contain any leading zeros is -7650.
+Input: hand = [1,2,3,4,5], groupSize = 4
+Output: false
+Explanation: Alice's hand can not be rearranged into groups of 4.
   Constraints:
--1015 <= num <= 1015
+1 <= hand.length <= 104
+0 <= hand[i] <= 109
+1 <= groupSize <= hand.length
+  Note: This question is the same as 1296: https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/

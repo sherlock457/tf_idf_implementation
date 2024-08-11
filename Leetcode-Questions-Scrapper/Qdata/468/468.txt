@@ -1,18 +1,20 @@
-There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings.
-You are giving candies to these children subjected to the following requirements:
-Each child must have at least one candy.
-Children with a higher rating get more candies than their neighbors.
-Return the minimum number of candies you need to have to distribute the candies to the children.
+The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
+countAndSay(1) = "1"
+countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1), which is then converted into a different digit string.
+To determine how you "say" a digit string, split it into the minimal number of substrings such that each substring contains exactly one unique digit. Then for each substring, say the number of digits, then say the digit. Finally, concatenate every said digit.
+For example, the saying and conversion for digit string "3322251":
+Given a positive integer n, return the nth term of the count-and-say sequence.
   Example 1:
-Input: ratings = [1,0,2]
-Output: 5
-Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
+Input: n = 1
+Output: "1"
+Explanation: This is the base case.
 Example 2:
-Input: ratings = [1,2,2]
-Output: 4
-Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively.
-The third child gets 1 candy because it satisfies the above two conditions.
+Input: n = 4
+Output: "1211"
+Explanation:
+countAndSay(1) = "1"
+countAndSay(2) = say "1" = one 1 = "11"
+countAndSay(3) = say "11" = two 1's = "21"
+countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
   Constraints:
-n == ratings.length
-1 <= n <= 2 * 104
-0 <= ratings[i] <= 2 * 104
+1 <= n <= 30

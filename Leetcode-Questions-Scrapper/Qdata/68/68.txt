@@ -1,23 +1,59 @@
-You are given an array of logs. Each log is a space-delimited string of words, where the first word is the identifier.
-There are two types of logs:
-Letter-logs: All words (except the identifier) consist of lowercase English letters.
-Digit-logs: All words (except the identifier) consist of digits.
-Reorder these logs so that:
-The letter-logs come before all digit-logs.
-The letter-logs are sorted lexicographically by their contents. If their contents are the same, then sort them lexicographically by their identifiers.
-The digit-logs maintain their relative ordering.
-Return the final order of the logs.
+SQL Schema
+Table: Tree
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| p_id        | int  |
++-------------+------+
+id is the primary key column for this table.
+Each row of this table contains information about the id of a node and the id of its parent node in a tree.
+The given structure is always a valid tree.
+  Each node in the tree can be one of three types:
+"Leaf": if the node is a leaf node.
+"Root": if the node is the root of the tree.
+"Inner": If the node is neither a leaf node nor a root node.
+Write an SQL query to report the type of each node in the tree.
+Return the result table in any order.
+The query result format is in the following example.
   Example 1:
-Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
-Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
-Explanation:
-The letter-log contents are all different, so their ordering is "art can", "art zero", "own kit dig".
-The digit-logs have a relative order of "dig1 8 1 5 1", "dig2 3 6".
+Input: 
+Tree table:
++----+------+
+| id | p_id |
++----+------+
+| 1  | null |
+| 2  | 1    |
+| 3  | 1    |
+| 4  | 2    |
+| 5  | 2    |
++----+------+
+Output: 
++----+-------+
+| id | type  |
++----+-------+
+| 1  | Root  |
+| 2  | Inner |
+| 3  | Leaf  |
+| 4  | Leaf  |
+| 5  | Leaf  |
++----+-------+
+Explanation: 
+Node 1 is the root node because its parent node is null and it has child nodes 2 and 3.
+Node 2 is an inner node because it has parent node 1 and child node 4 and 5.
+Nodes 3, 4, and 5 are leaf nodes because they have parent nodes and they do not have child nodes.
 Example 2:
-Input: logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
-Output: ["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
-  Constraints:
-1 <= logs.length <= 100
-3 <= logs[i].length <= 100
-All the tokens of logs[i] are separated by a single space.
-logs[i] is guaranteed to have an identifier and at least one word after the identifier.
+Input: 
+Tree table:
++----+------+
+| id | p_id |
++----+------+
+| 1  | null |
++----+------+
+Output: 
++----+-------+
+| id | type  |
++----+-------+
+| 1  | Root  |
++----+-------+
+Explanation: If there is only one node on the tree, you only need to output its root attributes.

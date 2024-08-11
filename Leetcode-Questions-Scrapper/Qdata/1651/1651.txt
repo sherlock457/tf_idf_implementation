@@ -1,21 +1,30 @@
-You are given an integer array prices where prices[i] is the price of the ith item in a shop.
-There is a special discount for items in the shop. If you buy the ith item, then you will receive a discount equivalent to prices[j] where j is the minimum index such that j > i and prices[j] <= prices[i]. Otherwise, you will not receive any discount at all.
-Return an integer array answer where answer[i] is the final price you will pay for the ith item of the shop, considering the special discount.
+You are given an array of unique strings words where words[i] is six letters long. One word of words was chosen as a secret word.
+You are also given the helper object Master. You may call Master.guess(word) where word is a six-letter-long string, and it must be from words. Master.guess(word) returns:
+-1 if word is not from words, or
+an integer representing the number of exact matches (value and position) of your guess to the secret word.
+There is a parameter allowedGuesses for each test case where allowedGuesses is the maximum number of times you can call Master.guess(word).
+For each test case, you should call Master.guess with the secret word without exceeding the maximum number of allowed guesses. You will get:
+"Either you took too many guesses, or you did not find the secret word." if you called Master.guess more than allowedGuesses times or if you did not call Master.guess with the secret word, or
+"You guessed the secret word correctly." if you called Master.guess with the secret word with the number of calls to Master.guess less than or equal to allowedGuesses.
+The test cases are generated such that you can guess the secret word with a reasonable strategy (other than using the bruteforce method).
   Example 1:
-Input: prices = [8,4,6,2,3]
-Output: [4,2,4,2,3]
-Explanation: 
-For item 0 with price[0]=8 you will receive a discount equivalent to prices[1]=4, therefore, the final price you will pay is 8 - 4 = 4.
-For item 1 with price[1]=4 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 4 - 2 = 2.
-For item 2 with price[2]=6 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 6 - 2 = 4.
-For items 3 and 4 you will not receive any discount at all.
+Input: secret = "acckzz", words = ["acckzz","ccbazz","eiowzz","abcczz"], allowedGuesses = 10
+Output: You guessed the secret word correctly.
+Explanation:
+master.guess("aaaaaa") returns -1, because "aaaaaa" is not in wordlist.
+master.guess("acckzz") returns 6, because "acckzz" is secret and has all 6 matches.
+master.guess("ccbazz") returns 3, because "ccbazz" has 3 matches.
+master.guess("eiowzz") returns 2, because "eiowzz" has 2 matches.
+master.guess("abcczz") returns 4, because "abcczz" has 4 matches.
+We made 5 calls to master.guess, and one of them was the secret, so we pass the test case.
 Example 2:
-Input: prices = [1,2,3,4,5]
-Output: [1,2,3,4,5]
-Explanation: In this case, for all items, you will not receive any discount at all.
-Example 3:
-Input: prices = [10,1,1,6]
-Output: [9,0,1,6]
+Input: secret = "hamada", words = ["hamada","khaled"], allowedGuesses = 10
+Output: You guessed the secret word correctly.
+Explanation: Since there are two words, you can guess both.
   Constraints:
-1 <= prices.length <= 500
-1 <= prices[i] <= 1000
+1 <= words.length <= 100
+words[i].length == 6
+words[i] consist of lowercase English letters.
+All the strings of wordlist are unique.
+secret exists in words.
+10 <= allowedGuesses <= 30

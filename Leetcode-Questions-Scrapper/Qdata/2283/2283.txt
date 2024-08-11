@@ -1,91 +1,41 @@
-Write a function that accepts two deeply nested objects or arrays obj1 and obj2 and returns a new object representing their differences.
-The function should compare the properties of the two objects and identify any changes. The returned object should only contains keys where the value is different from obj1 to obj2. For each changed key, the value should be represented as an array [obj1 value, obj2 value]. Keys that exist in one object but not in the other should not be included in the returned object. When comparing two arrays, the indices of the arrays are considered to be their keys. The end result should be a deeply nested object where each leaf value is a difference array.
-You may assume that both objects are the output of JSON.parse.
+You are given a tree with n nodes numbered from 0 to n - 1 in the form of a parent array parent where parent[i] is the parent of the ith node. The root of the tree is node 0, so parent[0] = -1 since it has no parent. You want to design a data structure that allows users to lock, unlock, and upgrade nodes in the tree.
+The data structure should support the following functions:
+Lock: Locks the given node for the given user and prevents other users from locking the same node. You may only lock a node using this function if the node is unlocked.
+Unlock: Unlocks the given node for the given user. You may only unlock a node using this function if it is currently locked by the same user.
+Upgrade: Locks the given node for the given user and unlocks all of its descendants regardless of who locked it. You may only upgrade a node if all 3 conditions are true:
+The node is unlocked,
+It has at least one locked descendant (by any user), and
+It does not have any locked ancestors.
+Implement the LockingTree class:
+LockingTree(int[] parent) initializes the data structure with the parent array.
+lock(int num, int user) returns true if it is possible for the user with id user to lock the node num, or false otherwise. If it is possible, the node num will become locked by the user with id user.
+unlock(int num, int user) returns true if it is possible for the user with id user to unlock the node num, or false otherwise. If it is possible, the node num will become unlocked.
+upgrade(int num, int user) returns true if it is possible for the user with id user to upgrade the node num, or false otherwise. If it is possible, the node num will be upgraded.
   Example 1:
-Input: 
-obj1 = {}
-obj2 = {
-  "a": 1, 
-  "b": 2
-}
-Output: {}
-Explanation: There were no modifications made to obj1. New keys "a" and "b" appear in obj2, but keys that are added or removed should be ignored.
-Example 2:
-Input: 
-obj1 = {
-  "a": 1,
-  "v": 3,
-  "x": [],
-  "z": {
-    "a": null
-  }
-}
-obj2 = {
-  "a": 2,
-  "v": 4,
-  "x": [],
-  "z": {
-    "a": 2
-  }
-}
-Output: 
-{
-  "a": [1, 2],
-  "v": [3, 4],
-  "z": {
-    "a": [null, 2]
-  }
-}
-Explanation: The keys "a", "v", and "z" all had changes applied. "a" was chnaged from 1 to 2. "v" was changed from 3 to 4. "z" had a change applied to a child object. "z.a" was changed from null to 2.
-Example 3:
-Input: 
-obj1 = {
-  "a": 5, 
-  "v": 6, 
-  "z": [1, 2, 4, [2, 5, 7]]
-}
-obj2 = {
-  "a": 5, 
-  "v": 7, 
-  "z": [1, 2, 3, [1]]
-}
-Output: 
-{
-  "v": [6, 7],
-  "z": {
-    "2": [4, 3],
-    "3": {
-      "0": [2, 1]
-    }
-  }
-}
-Explanation: In obj1 and obj2, the keys "v" and "z" have different assigned values. "a" is ignored because the value is unchanged. In the key "z", there is a nested array. Arrays are treated like objects where the indices are keys. There were two alterations to the the array: z[2] and z[3][0]. z[0] and z[1] were unchanged and thus not included. z[3][1] and z[3][2] were removed and thus not included.
-Example 4:
-Input: 
-obj1 = {
-  "a": {"b": 1}, 
-}
-obj2 = {
-  "a": [5],
-}
-Output: 
-{
-  "a": [{"b": 1}, [5]]
-}
-Explanation: The key "a" exists in both objects. Since the two associated values have different types, they are placed in the difference array.
-Example 5:
-Input: 
-obj1 = {
-  "a": [1, 2, {}], 
-  "b": false
-}
-obj2 = {   
-  "b": false,
-  "a": [1, 2, {}]
-}
-Output: 
-{}
-Explanation: Apart from a different ordering of keys, the two objects are identical so an empty object is returned.
+Input
+["LockingTree", "lock", "unlock", "unlock", "lock", "upgrade", "lock"]
+[[[-1, 0, 0, 1, 1, 2, 2]], [2, 2], [2, 3], [2, 2], [4, 5], [0, 1], [0, 1]]
+Output
+[null, true, false, true, true, true, false]
+
+Explanation
+LockingTree lockingTree = new LockingTree([-1, 0, 0, 1, 1, 2, 2]);
+lockingTree.lock(2, 2);    // return true because node 2 is unlocked.
+                           // Node 2 will now be locked by user 2.
+lockingTree.unlock(2, 3);  // return false because user 3 cannot unlock a node locked by user 2.
+lockingTree.unlock(2, 2);  // return true because node 2 was previously locked by user 2.
+                           // Node 2 will now be unlocked.
+lockingTree.lock(4, 5);    // return true because node 4 is unlocked.
+                           // Node 4 will now be locked by user 5.
+lockingTree.upgrade(0, 1); // return true because node 0 is unlocked and has at least one locked descendant (node 4).
+                           // Node 0 will now be locked by user 1 and node 4 will now be unlocked.
+lockingTree.lock(0, 1);    // return false because node 0 is already locked.
   Constraints:
-2 <= JSON.stringify(obj1).length <= 104
-2 <= JSON.stringify(obj2).length <= 104
+n == parent.length
+2 <= n <= 2000
+0 <= parent[i] <= n - 1 for i != 0
+parent[0] == -1
+0 <= num <= n - 1
+1 <= user <= 104
+parent represents a valid tree.
+At most 2000 calls in total will be made to lock, unlock, and upgrade.

@@ -1,25 +1,16 @@
-You are given an array representing a row of seats where seats[i] = 1 represents a person sitting in the ith seat, and seats[i] = 0 represents that the ith seat is empty (0-indexed).
-There is at least one empty seat, and at least one person sitting.
-Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized. 
-Return that maximum distance to the closest person.
+Given the API rand7() that generates a uniform random integer in the range [1, 7], write a function rand10() that generates a uniform random integer in the range [1, 10]. You can only call the API rand7(), and you shouldn't call any other API. Please do not use a language's built-in random API.
+Each test case will have one internal argument n, the number of times that your implemented function rand10() will be called while testing. Note that this is not an argument passed to rand10().
   Example 1:
-Input: seats = [1,0,0,0,1,0,1]
-Output: 2
-Explanation: 
-If Alex sits in the second open seat (i.e. seats[2]), then the closest person has distance 2.
-If Alex sits in any other open seat, the closest person has distance 1.
-Thus, the maximum distance to the closest person is 2.
+Input: n = 1
+Output: [2]
 Example 2:
-Input: seats = [1,0,0,0]
-Output: 3
-Explanation: 
-If Alex sits in the last seat (i.e. seats[3]), the closest person is 3 seats away.
-This is the maximum distance possible, so the answer is 3.
+Input: n = 2
+Output: [2,8]
 Example 3:
-Input: seats = [0,1]
-Output: 1
+Input: n = 3
+Output: [3,8,10]
   Constraints:
-2 <= seats.length <= 2 * 104
-seats[i] is 0 or 1.
-At least one seat is empty.
-At least one seat is occupied.
+1 <= n <= 105
+  Follow up:
+What is the expected value for the number of calls to rand7() function?
+Could you minimize the number of calls to rand7()?

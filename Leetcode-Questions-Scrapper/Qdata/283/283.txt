@@ -1,62 +1,31 @@
-SQL Schema
-Table: Visits
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| visit_id    | int     |
-| customer_id | int     |
-+-------------+---------+
-visit_id is the primary key for this table.
-This table contains information about the customers who visited the mall.
-  Table: Transactions
-+----------------+---------+
-| Column Name    | Type    |
-+----------------+---------+
-| transaction_id | int     |
-| visit_id       | int     |
-| amount         | int     |
-+----------------+---------+
-transaction_id is the primary key for this table.
-This table contains information about the transactions made during the visit_id.
-  Write a SQL query to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.
-Return the result table sorted in any order.
-The query result format is in the following example.
+Given an array of digit strings nums and a digit string target, return the number of pairs of indices (i, j) (where i != j) such that the concatenation of nums[i] + nums[j] equals target.
   Example 1:
-Input: 
-Visits
-+----------+-------------+
-| visit_id | customer_id |
-+----------+-------------+
-| 1        | 23          |
-| 2        | 9           |
-| 4        | 30          |
-| 5        | 54          |
-| 6        | 96          |
-| 7        | 54          |
-| 8        | 54          |
-+----------+-------------+
-Transactions
-+----------------+----------+--------+
-| transaction_id | visit_id | amount |
-+----------------+----------+--------+
-| 2              | 5        | 310    |
-| 3              | 5        | 300    |
-| 9              | 5        | 200    |
-| 12             | 1        | 910    |
-| 13             | 2        | 970    |
-+----------------+----------+--------+
-Output: 
-+-------------+----------------+
-| customer_id | count_no_trans |
-+-------------+----------------+
-| 54          | 2              |
-| 30          | 1              |
-| 96          | 1              |
-+-------------+----------------+
-Explanation: 
-Customer with id = 23 visited the mall once and made one transaction during the visit with id = 12.
-Customer with id = 9 visited the mall once and made one transaction during the visit with id = 13.
-Customer with id = 30 visited the mall once and did not make any transactions.
-Customer with id = 54 visited the mall three times. During 2 visits they did not make any transactions, and during one visit they made 3 transactions.
-Customer with id = 96 visited the mall once and did not make any transactions.
-As we can see, users with IDs 30 and 96 visited the mall one time without making any transactions. Also, user 54 visited the mall twice and did not make any transactions.
+Input: nums = ["777","7","77","77"], target = "7777"
+Output: 4
+Explanation: Valid pairs are:
+- (0, 1): "777" + "7"
+- (1, 0): "7" + "777"
+- (2, 3): "77" + "77"
+- (3, 2): "77" + "77"
+Example 2:
+Input: nums = ["123","4","12","34"], target = "1234"
+Output: 2
+Explanation: Valid pairs are:
+- (0, 1): "123" + "4"
+- (2, 3): "12" + "34"
+Example 3:
+Input: nums = ["1","1","1"], target = "11"
+Output: 6
+Explanation: Valid pairs are:
+- (0, 1): "1" + "1"
+- (1, 0): "1" + "1"
+- (0, 2): "1" + "1"
+- (2, 0): "1" + "1"
+- (1, 2): "1" + "1"
+- (2, 1): "1" + "1"
+  Constraints:
+2 <= nums.length <= 100
+1 <= nums[i].length <= 100
+2 <= target.length <= 100
+nums[i] and target consist of digits.
+nums[i] and target do not have leading zeros.

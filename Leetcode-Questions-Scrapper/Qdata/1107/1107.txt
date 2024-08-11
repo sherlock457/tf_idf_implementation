@@ -1,24 +1,19 @@
-You are given a 0-indexed integer array nums of even length consisting of an equal number of positive and negative integers.
-You should rearrange the elements of nums such that the modified array follows the given conditions:
-Every consecutive pair of integers have opposite signs.
-For all integers with the same sign, the order in which they were present in nums is preserved.
-The rearranged array begins with a positive integer.
-Return the modified array after rearranging the elements to satisfy the aforementioned conditions.
+Given two binary trees original and cloned and given a reference to a node target in the original tree.
+The cloned tree is a copy of the original tree.
+Return a reference to the same node in the cloned tree.
+Note that you are not allowed to change any of the two trees or the target node and the answer must be a reference to a node in the cloned tree.
   Example 1:
-Input: nums = [3,1,-2,-5,2,-4]
-Output: [3,-2,1,-5,2,-4]
-Explanation:
-The positive integers in nums are [3,1,2]. The negative integers are [-2,-5,-4].
-The only possible way to rearrange them such that they satisfy all conditions is [3,-2,1,-5,2,-4].
-Other ways such as [1,-2,2,-5,3,-4], [3,1,2,-2,-5,-4], [-2,3,-5,1,-4,2] are incorrect because they do not satisfy one or more conditions.  
+Input: tree = [7,4,3,null,null,6,19], target = 3
+Output: 3
+Explanation: In all examples the original and cloned trees are shown. The target node is a green node from the original tree. The answer is the yellow node from the cloned tree.
 Example 2:
-Input: nums = [-1,1]
-Output: [1,-1]
-Explanation:
-1 is the only positive integer and -1 the only negative integer in nums.
-So nums is rearranged to [1,-1].
+Input: tree = [7], target =  7
+Output: 7
+Example 3:
+Input: tree = [8,null,6,null,5,null,4,null,3,null,2,null,1], target = 4
+Output: 4
   Constraints:
-2 <= nums.length <= 2 * 105
-nums.length is even
-1 <= |nums[i]| <= 105
-nums consists of equal number of positive and negative integers.
+The number of nodes in the tree is in the range [1, 104].
+The values of the nodes of the tree are unique.
+target node is a node from the original tree and is not null.
+  Follow up: Could you solve the problem if repeated values on the tree are allowed?

@@ -1,31 +1,26 @@
-You are given two 0-indexed integer arrays nums and multipliers of size n and m respectively, where n >= m.
-You begin with a score of 0. You want to perform exactly m operations. On the ith operation (0-indexed) you will:
-Choose one integer x from either the start or the end of the array nums.
-Add multipliers[i] * x to your score.
-Note that multipliers[0] corresponds to the first operation, multipliers[1] to the second operation, and so on.
-Remove x from nums.
-Return the maximum score after performing m operations.
+There is an undirected graph consisting of n nodes numbered from 0 to n - 1. You are given a 0-indexed integer array vals of length n where vals[i] denotes the value of the ith node.
+You are also given a 2D integer array edges where edges[i] = [ai, bi] denotes that there exists an undirected edge connecting nodes ai and bi.
+A star graph is a subgraph of the given graph having a center node containing 0 or more neighbors. In other words, it is a subset of edges of the given graph such that there exists a common node for all edges.
+The image below shows star graphs with 3 and 4 neighbors respectively, centered at the blue node.
+The star sum is the sum of the values of all the nodes present in the star graph.
+Given an integer k, return the maximum star sum of a star graph containing at most k edges.
   Example 1:
-Input: nums = [1,2,3], multipliers = [3,2,1]
-Output: 14
-Explanation: An optimal solution is as follows:
-- Choose from the end, [1,2,3], adding 3 * 3 = 9 to the score.
-- Choose from the end, [1,2], adding 2 * 2 = 4 to the score.
-- Choose from the end, [1], adding 1 * 1 = 1 to the score.
-The total score is 9 + 4 + 1 = 14.
+Input: vals = [1,2,3,4,10,-10,-20], edges = [[0,1],[1,2],[1,3],[3,4],[3,5],[3,6]], k = 2
+Output: 16
+Explanation: The above diagram represents the input graph.
+The star graph with the maximum star sum is denoted by blue. It is centered at 3 and includes its neighbors 1 and 4.
+It can be shown it is not possible to get a star graph with a sum greater than 16.
 Example 2:
-Input: nums = [-5,-3,-3,-2,7,1], multipliers = [-10,-5,3,4,6]
-Output: 102
-Explanation: An optimal solution is as follows:
-- Choose from the start, [-5,-3,-3,-2,7,1], adding -5 * -10 = 50 to the score.
-- Choose from the start, [-3,-3,-2,7,1], adding -3 * -5 = 15 to the score.
-- Choose from the start, [-3,-2,7,1], adding -3 * 3 = -9 to the score.
-- Choose from the end, [-2,7,1], adding 1 * 4 = 4 to the score.
-- Choose from the end, [-2,7], adding 7 * 6 = 42 to the score. 
-The total score is 50 + 15 - 9 + 4 + 42 = 102.
+Input: vals = [-5], edges = [], k = 0
+Output: -5
+Explanation: There is only one possible star graph, which is node 0 itself.
+Hence, we return -5.
   Constraints:
-n == nums.length
-m == multipliers.length
-1 <= m <= 300
-m <= n <= 105 
--1000 <= nums[i], multipliers[i] <= 1000
+n == vals.length
+1 <= n <= 105
+-104 <= vals[i] <= 104
+0 <= edges.length <= min(n * (n - 1) / 2, 105)
+edges[i].length == 2
+0 <= ai, bi <= n - 1
+ai != bi
+0 <= k <= n - 1

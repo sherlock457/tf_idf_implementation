@@ -1,24 +1,14 @@
-Given a 0-indexed integer array nums, return true if it can be made strictly increasing after removing exactly one element, or false otherwise. If the array is already strictly increasing, return true.
-The array nums is strictly increasing if nums[i - 1] < nums[i] for each index (1 <= i < nums.length).
+Given an integer array nums and two integers lower and upper, return the number of range sums that lie in [lower, upper] inclusive.
+Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j inclusive, where i <= j.
   Example 1:
-Input: nums = [1,2,10,5,7]
-Output: true
-Explanation: By removing 10 at index 2 from nums, it becomes [1,2,5,7].
-[1,2,5,7] is strictly increasing, so return true.
+Input: nums = [-2,5,-1], lower = -2, upper = 2
+Output: 3
+Explanation: The three ranges are: [0,0], [2,2], and [0,2] and their respective sums are: -2, -1, 2.
 Example 2:
-Input: nums = [2,3,1,2]
-Output: false
-Explanation:
-[3,1,2] is the result of removing the element at index 0.
-[2,1,2] is the result of removing the element at index 1.
-[2,3,2] is the result of removing the element at index 2.
-[2,3,1] is the result of removing the element at index 3.
-No resulting array is strictly increasing, so return false.
-Example 3:
-Input: nums = [1,1,1]
-Output: false
-Explanation: The result of removing any element is [1,1].
-[1,1] is not strictly increasing, so return false.
+Input: nums = [0], lower = 0, upper = 0
+Output: 1
   Constraints:
-2 <= nums.length <= 1000
-1 <= nums[i] <= 1000
+1 <= nums.length <= 105
+-231 <= nums[i] <= 231 - 1
+-105 <= lower <= upper <= 105
+The answer is guaranteed to fit in a 32-bit integer.

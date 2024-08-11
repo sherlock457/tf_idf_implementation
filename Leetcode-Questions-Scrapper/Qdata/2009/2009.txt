@@ -1,13 +1,17 @@
-You are given an integer array cards where cards[i] represents the value of the ith card. A pair of cards are matching if the cards have the same value.
-Return the minimum number of consecutive cards you have to pick up to have a pair of matching cards among the picked cards. If it is impossible to have matching cards, return -1.
+Given the root of a binary tree, find the maximum value v for which there exist different nodes a and b where v = |a.val - b.val| and a is an ancestor of b.
+A node a is an ancestor of b if either: any child of a is equal to b or any child of a is an ancestor of b.
   Example 1:
-Input: cards = [3,4,2,3,4,7]
-Output: 4
-Explanation: We can pick up the cards [3,4,2,3] which contain a matching pair of cards with value 3. Note that picking up the cards [4,2,3,4] is also optimal.
+Input: root = [8,3,10,1,6,null,14,null,null,4,7,13]
+Output: 7
+Explanation: We have various ancestor-node differences, some of which are given below :
+|8 - 3| = 5
+|3 - 7| = 4
+|8 - 1| = 7
+|10 - 13| = 3
+Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 7.
 Example 2:
-Input: cards = [1,0,5,3]
-Output: -1
-Explanation: There is no way to pick up a set of consecutive cards that contain a pair of matching cards.
+Input: root = [1,null,2,null,0,3]
+Output: 3
   Constraints:
-1 <= cards.length <= 105
-0 <= cards[i] <= 106
+The number of nodes in the tree is in the range [2, 5000].
+0 <= Node.val <= 105

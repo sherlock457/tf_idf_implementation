@@ -1,25 +1,21 @@
-You are given an m x n matrix grid consisting of positive integers.
-Perform the following operation until grid becomes empty:
-Delete the element with the greatest value from each row. If multiple such elements exist, delete any of them.
-Add the maximum of deleted elements to the answer.
-Note that the number of columns decreases by one after each operation.
-Return the answer after performing the operations described above.
-  Example 1:
-Input: grid = [[1,2,4],[3,3,1]]
-Output: 8
-Explanation: The diagram above shows the removed values in each step.
-- In the first operation, we remove 4 from the first row and 3 from the second row (notice that, there are two cells with value 3 and we can remove any of them). We add 4 to the answer.
-- In the second operation, we remove 2 from the first row and 3 from the second row. We add 3 to the answer.
-- In the third operation, we remove 1 from the first row and 1 from the second row. We add 1 to the answer.
-The final answer = 4 + 3 + 1 = 8.
+You are given a string s and array queries where queries[i] = [lefti, righti, ki]. We may rearrange the substring s[lefti...righti] for each query and then choose up to ki of them to replace with any lowercase English letter.
+If the substring is possible to be a palindrome string after the operations above, the result of the query is true. Otherwise, the result is false.
+Return a boolean array answer where answer[i] is the result of the ith query queries[i].
+Note that each letter is counted individually for replacement, so if, for example s[lefti...righti] = "aaa", and ki = 2, we can only replace two of the letters. Also, note that no query modifies the initial string s.
+  Example :
+Input: s = "abcda", queries = [[3,3,0],[1,2,0],[0,3,1],[0,3,2],[0,4,1]]
+Output: [true,false,false,true,true]
+Explanation:
+queries[0]: substring = "d", is palidrome.
+queries[1]: substring = "bc", is not palidrome.
+queries[2]: substring = "abcd", is not palidrome after replacing only 1 character.
+queries[3]: substring = "abcd", could be changed to "abba" which is palidrome. Also this can be changed to "baab" first rearrange it "bacd" then replace "cd" with "ab".
+queries[4]: substring = "abcda", could be changed to "abcba" which is palidrome.
 Example 2:
-Input: grid = [[10]]
-Output: 10
-Explanation: The diagram above shows the removed values in each step.
-- In the first operation, we remove 10 from the first row. We add 10 to the answer.
-The final answer = 10.
+Input: s = "lyb", queries = [[0,1,0],[2,2,1]]
+Output: [false,true]
   Constraints:
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 50
-1 <= grid[i][j] <= 100
+1 <= s.length, queries.length <= 105
+0 <= lefti <= righti < s.length
+0 <= ki <= s.length
+s consists of lowercase English letters.

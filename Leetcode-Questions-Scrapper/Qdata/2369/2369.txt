@@ -1,22 +1,20 @@
-You are given a string s, where every two consecutive vertical bars '|' are grouped into a pair. In other words, the 1st and 2nd '|' make a pair, the 3rd and 4th '|' make a pair, and so forth.
-Return the number of '*' in s, excluding the '*' between each pair of '|'.
-Note that each '|' will belong to exactly one pair.
+You are given a string s consisting only of uppercase English letters.
+You can apply some operations to this string where, in one operation, you can remove any occurrence of one of the substrings "AB" or "CD" from s.
+Return the minimum possible length of the resulting string that you can obtain.
+Note that the string concatenates after removing the substring and could produce new "AB" or "CD" substrings.
   Example 1:
-Input: s = "l|*e*et|c**o|*de|"
+Input: s = "ABFCACDB"
 Output: 2
-Explanation: The considered characters are underlined: "l|*e*et|c**o|*de|".
-The characters between the first and second '|' are excluded from the answer.
-Also, the characters between the third and fourth '|' are excluded from the answer.
-There are 2 asterisks considered. Therefore, we return 2.
+Explanation: We can do the following operations:
+- Remove the substring "ABFCACDB", so s = "FCACDB".
+- Remove the substring "FCACDB", so s = "FCAB".
+- Remove the substring "FCAB", so s = "FC".
+So the resulting length of the string is 2.
+It can be shown that it is the minimum length that we can obtain.
 Example 2:
-Input: s = "iamprogrammer"
-Output: 0
-Explanation: In this example, there are no asterisks in s. Therefore, we return 0.
-Example 3:
-Input: s = "yo|uar|e**|b|e***au|tifu|l"
+Input: s = "ACBBD"
 Output: 5
-Explanation: The considered characters are underlined: "yo|uar|e**|b|e***au|tifu|l". There are 5 asterisks considered. Therefore, we return 5.
+Explanation: We cannot do any operations on the string so the length remains the same.
   Constraints:
-1 <= s.length <= 1000
-s consists of lowercase English letters, vertical bars '|', and asterisks '*'.
-s contains an even number of vertical bars '|'.
+1 <= s.length <= 100
+s consists only of uppercase English letters.

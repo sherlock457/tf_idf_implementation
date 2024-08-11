@@ -1,17 +1,19 @@
-Alice is throwing n darts on a very large wall. You are given an array darts where darts[i] = [xi, yi] is the position of the ith dart that Alice threw on the wall.
-Bob knows the positions of the n darts on the wall. He wants to place a dartboard of radius r on the wall so that the maximum number of darts that Alice throws lies on the dartboard.
-Given the integer r, return the maximum number of darts that can lie on the dartboard.
+You wrote down many positive integers in a string called num. However, you realized that you forgot to add commas to seperate the different numbers. You remember that the list of integers was non-decreasing and that no integer had leading zeros.
+Return the number of possible lists of integers that you could have written down to get the string num. Since the answer may be large, return it modulo 109 + 7.
   Example 1:
-Input: darts = [[-2,0],[2,0],[0,2],[0,-2]], r = 2
-Output: 4
-Explanation: Circle dartboard with center in (0,0) and radius = 2 contain all points.
+Input: num = "327"
+Output: 2
+Explanation: You could have written down the numbers:
+3, 27
+327
 Example 2:
-Input: darts = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5
-Output: 5
-Explanation: Circle dartboard with center in (0,4) and radius = 5 contain all points except the point (7,8).
+Input: num = "094"
+Output: 0
+Explanation: No numbers can have leading zeros and all numbers must be positive.
+Example 3:
+Input: num = "0"
+Output: 0
+Explanation: No numbers can have leading zeros and all numbers must be positive.
   Constraints:
-1 <= darts.length <= 100
-darts[i].length == 2
--104 <= xi, yi <= 104
-All the darts are unique
-1 <= r <= 5000
+1 <= num.length <= 3500
+num consists of digits '0' through '9'.

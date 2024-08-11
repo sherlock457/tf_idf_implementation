@@ -1,53 +1,27 @@
-SQL Schema
-Table: Project
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| project_id  | int     |
-| employee_id | int     |
-+-------------+---------+
-(project_id, employee_id) is the primary key of this table.
-employee_id is a foreign key to Employee table.
-Each row of this table indicates that the employee with employee_id is working on the project with project_id.
-  Table: Employee
-+------------------+---------+
-| Column Name      | Type    |
-+------------------+---------+
-| employee_id      | int     |
-| name             | varchar |
-| experience_years | int     |
-+------------------+---------+
-employee_id is the primary key of this table. It's guaranteed that experience_years is not NULL.
-Each row of this table contains information about one employee.
-  Write an SQL query that reports the average experience years of all the employees for each project, rounded to 2 digits.
-Return the result table in any order.
-The query result format is in the following example.
+You are given a 0-indexed array of n integers arr.
+The interval between two elements in arr is defined as the absolute difference between their indices. More formally, the interval between arr[i] and arr[j] is |i - j|.
+Return an array intervals of length n where intervals[i] is the sum of intervals between arr[i] and each element in arr with the same value as arr[i].
+Note: |x| is the absolute value of x.
   Example 1:
-Input: 
-Project table:
-+-------------+-------------+
-| project_id  | employee_id |
-+-------------+-------------+
-| 1           | 1           |
-| 1           | 2           |
-| 1           | 3           |
-| 2           | 1           |
-| 2           | 4           |
-+-------------+-------------+
-Employee table:
-+-------------+--------+------------------+
-| employee_id | name   | experience_years |
-+-------------+--------+------------------+
-| 1           | Khaled | 3                |
-| 2           | Ali    | 2                |
-| 3           | John   | 1                |
-| 4           | Doe    | 2                |
-+-------------+--------+------------------+
-Output: 
-+-------------+---------------+
-| project_id  | average_years |
-+-------------+---------------+
-| 1           | 2.00          |
-| 2           | 2.50          |
-+-------------+---------------+
-Explanation: The average experience years for the first project is (3 + 2 + 1) / 3 = 2.00 and for the second project is (3 + 2) / 2 = 2.50
+Input: arr = [2,1,3,1,2,3,3]
+Output: [4,2,7,2,4,4,5]
+Explanation:
+- Index 0: Another 2 is found at index 4. |0 - 4| = 4
+- Index 1: Another 1 is found at index 3. |1 - 3| = 2
+- Index 2: Two more 3s are found at indices 5 and 6. |2 - 5| + |2 - 6| = 7
+- Index 3: Another 1 is found at index 1. |3 - 1| = 2
+- Index 4: Another 2 is found at index 0. |4 - 0| = 4
+- Index 5: Two more 3s are found at indices 2 and 6. |5 - 2| + |5 - 6| = 4
+- Index 6: Two more 3s are found at indices 2 and 5. |6 - 2| + |6 - 5| = 5
+Example 2:
+Input: arr = [10,5,10,10]
+Output: [5,0,3,4]
+Explanation:
+- Index 0: Two more 10s are found at indices 2 and 3. |0 - 2| + |0 - 3| = 5
+- Index 1: There is only one 5 in the array, so its sum of intervals to identical elements is 0.
+- Index 2: Two more 10s are found at indices 0 and 3. |2 - 0| + |2 - 3| = 3
+- Index 3: Two more 10s are found at indices 0 and 2. |3 - 0| + |3 - 2| = 4
+  Constraints:
+n == arr.length
+1 <= n <= 105
+1 <= arr[i] <= 105

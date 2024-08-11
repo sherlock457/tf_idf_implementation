@@ -1,17 +1,16 @@
-You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.
-Return the intersection of these two interval lists.
-A closed interval [a, b] (with a <= b) denotes the set of real numbers x with a <= x <= b.
-The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of [1, 3] and [2, 4] is [2, 3].
+You are given a non-negative floating point number rounded to two decimal places celsius, that denotes the temperature in Celsius.
+You should convert Celsius into Kelvin and Fahrenheit and return it as an array ans = [kelvin, fahrenheit].
+Return the array ans. Answers within 10-5 of the actual answer will be accepted.
+Note that:
+Kelvin = Celsius + 273.15
+Fahrenheit = Celsius * 1.80 + 32.00
   Example 1:
-Input: firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,24],[25,26]]
-Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
+Input: celsius = 36.50
+Output: [309.65000,97.70000]
+Explanation: Temperature at 36.50 Celsius converted in Kelvin is 309.65 and converted in Fahrenheit is 97.70.
 Example 2:
-Input: firstList = [[1,3],[5,9]], secondList = []
-Output: []
+Input: celsius = 122.11
+Output: [395.26000,251.79800]
+Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
   Constraints:
-0 <= firstList.length, secondList.length <= 1000
-firstList.length + secondList.length >= 1
-0 <= starti < endi <= 109
-endi < starti+1
-0 <= startj < endj <= 109 
-endj < startj+1
+0 <= celsius <= 1000

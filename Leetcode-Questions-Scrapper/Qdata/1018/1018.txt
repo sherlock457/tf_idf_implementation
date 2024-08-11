@@ -1,24 +1,24 @@
-Given the root of a binary tree, replace the value of each node in the tree with the sum of all its cousins' values.
-Two nodes of a binary tree are cousins if they have the same depth with different parents.
-Return the root of the modified tree.
-Note that the depth of a node is the number of edges in the path from the root node to it.
+You are given an integer mass, which represents the original mass of a planet. You are further given an integer array asteroids, where asteroids[i] is the mass of the ith asteroid.
+You can arrange for the planet to collide with the asteroids in any arbitrary order. If the mass of the planet is greater than or equal to the mass of the asteroid, the asteroid is destroyed and the planet gains the mass of the asteroid. Otherwise, the planet is destroyed.
+Return true if all asteroids can be destroyed. Otherwise, return false.
   Example 1:
-Input: root = [5,4,9,1,10,null,7]
-Output: [0,0,0,7,7,null,11]
-Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
-- Node with value 5 does not have any cousins so its sum is 0.
-- Node with value 4 does not have any cousins so its sum is 0.
-- Node with value 9 does not have any cousins so its sum is 0.
-- Node with value 1 has a cousin with value 7 so its sum is 7.
-- Node with value 10 has a cousin with value 7 so its sum is 7.
-- Node with value 7 has cousins with values 1 and 10 so its sum is 11.
+Input: mass = 10, asteroids = [3,9,19,5,21]
+Output: true
+Explanation: One way to order the asteroids is [9,19,5,3,21]:
+- The planet collides with the asteroid with a mass of 9. New planet mass: 10 + 9 = 19
+- The planet collides with the asteroid with a mass of 19. New planet mass: 19 + 19 = 38
+- The planet collides with the asteroid with a mass of 5. New planet mass: 38 + 5 = 43
+- The planet collides with the asteroid with a mass of 3. New planet mass: 43 + 3 = 46
+- The planet collides with the asteroid with a mass of 21. New planet mass: 46 + 21 = 67
+All asteroids are destroyed.
 Example 2:
-Input: root = [3,1,2]
-Output: [0,0,0]
-Explanation: The diagram above shows the initial binary tree and the binary tree after changing the value of each node.
-- Node with value 3 does not have any cousins so its sum is 0.
-- Node with value 1 does not have any cousins so its sum is 0.
-- Node with value 2 does not have any cousins so its sum is 0.
+Input: mass = 5, asteroids = [4,9,23,4]
+Output: false
+Explanation: 
+The planet cannot ever gain enough mass to destroy the asteroid with a mass of 23.
+After the planet destroys the other asteroids, it will have a mass of 5 + 4 + 9 + 4 = 22.
+This is less than 23, so a collision would not destroy the last asteroid.
   Constraints:
-The number of nodes in the tree is in the range [1, 105].
-1 <= Node.val <= 104
+1 <= mass <= 105
+1 <= asteroids.length <= 105
+1 <= asteroids[i] <= 105

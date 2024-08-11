@@ -1,29 +1,20 @@
-You are given an array nums of positive integers. In one operation, you can choose any number from nums and reduce it to exactly half the number. (Note that you may choose this reduced number in future operations.)
-Return the minimum number of operations to reduce the sum of nums by at least half.
+You have a convex n-sided polygon where each vertex has an integer value. You are given an integer array values where values[i] is the value of the ith vertex (i.e., clockwise order).
+You will triangulate the polygon into n - 2 triangles. For each triangle, the value of that triangle is the product of the values of its vertices, and the total score of the triangulation is the sum of these values over all n - 2 triangles in the triangulation.
+Return the smallest possible total score that you can achieve with some triangulation of the polygon.
   Example 1:
-Input: nums = [5,19,8,1]
-Output: 3
-Explanation: The initial sum of nums is equal to 5 + 19 + 8 + 1 = 33.
-The following is one of the ways to reduce the sum by at least half:
-Pick the number 19 and reduce it to 9.5.
-Pick the number 9.5 and reduce it to 4.75.
-Pick the number 8 and reduce it to 4.
-The final array is [5, 4.75, 4, 1] with a total sum of 5 + 4.75 + 4 + 1 = 14.75. 
-The sum of nums has been reduced by 33 - 14.75 = 18.25, which is at least half of the initial sum, 18.25 >= 33/2 = 16.5.
-Overall, 3 operations were used so we return 3.
-It can be shown that we cannot reduce the sum by at least half in less than 3 operations.
+Input: values = [1,2,3]
+Output: 6
+Explanation: The polygon is already triangulated, and the score of the only triangle is 6.
 Example 2:
-Input: nums = [3,8,20]
-Output: 3
-Explanation: The initial sum of nums is equal to 3 + 8 + 20 = 31.
-The following is one of the ways to reduce the sum by at least half:
-Pick the number 20 and reduce it to 10.
-Pick the number 10 and reduce it to 5.
-Pick the number 3 and reduce it to 1.5.
-The final array is [1.5, 8, 5] with a total sum of 1.5 + 8 + 5 = 14.5. 
-The sum of nums has been reduced by 31 - 14.5 = 16.5, which is at least half of the initial sum, 16.5 >= 31/2 = 15.5.
-Overall, 3 operations were used so we return 3.
-It can be shown that we cannot reduce the sum by at least half in less than 3 operations.
+Input: values = [3,7,4,5]
+Output: 144
+Explanation: There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.
+The minimum score is 144.
+Example 3:
+Input: values = [1,3,1,4,1,5]
+Output: 13
+Explanation: The minimum score triangulation has score 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.
   Constraints:
-1 <= nums.length <= 105
-1 <= nums[i] <= 107
+n == values.length
+3 <= n <= 50
+1 <= values[i] <= 100

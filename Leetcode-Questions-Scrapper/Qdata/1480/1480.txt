@@ -1,15 +1,19 @@
-Alice and Bob continue their games with piles of stones.  There are a number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].  The objective of the game is to end with the most stones. 
-Alice and Bob take turns, with Alice starting first.  Initially, M = 1.
-On each player's turn, that player can take all the stones in the first X remaining piles, where 1 <= X <= 2M.  Then, we set M = max(M, X).
-The game continues until all the stones have been taken.
-Assuming Alice and Bob play optimally, return the maximum number of stones Alice can get.
+You are given two strings s1 and s2 of equal length consisting of letters "x" and "y" only. Your task is to make these two strings equal to each other. You can swap any two characters that belong to different strings, which means: swap s1[i] and s2[j].
+Return the minimum number of swaps required to make s1 and s2 equal, or return -1 if it is impossible to do so.
   Example 1:
-Input: piles = [2,7,9,4,4]
-Output: 10
-Explanation:  If Alice takes one pile at the beginning, Bob takes two piles, then Alice takes 2 piles again. Alice can get 2 + 4 + 4 = 10 piles in total. If Alice takes two piles at the beginning, then Bob can take all three piles left. In this case, Alice get 2 + 7 = 9 piles in total. So we return 10 since it's larger. 
+Input: s1 = "xx", s2 = "yy"
+Output: 1
+Explanation: Swap s1[0] and s2[1], s1 = "yx", s2 = "yx".
 Example 2:
-Input: piles = [1,2,3,4,5,100]
-Output: 104
+Input: s1 = "xy", s2 = "yx"
+Output: 2
+Explanation: Swap s1[0] and s2[0], s1 = "yy", s2 = "xx".
+Swap s1[0] and s2[1], s1 = "xy", s2 = "xy".
+Note that you cannot swap s1[0] and s1[1] to make s1 equal to "yx", cause we can only swap chars in different strings.
+Example 3:
+Input: s1 = "xx", s2 = "xy"
+Output: -1
   Constraints:
-1 <= piles.length <= 100
-1 <= piles[i] <= 104
+1 <= s1.length, s2.length <= 1000
+s1.length == s2.length
+s1, s2 only contain 'x' or 'y'.

@@ -1,34 +1,31 @@
-There is a family tree rooted at 0 consisting of n nodes numbered 0 to n - 1. You are given a 0-indexed integer array parents, where parents[i] is the parent for node i. Since node 0 is the root, parents[0] == -1.
-There are 105 genetic values, each represented by an integer in the inclusive range [1, 105]. You are given a 0-indexed integer array nums, where nums[i] is a distinct genetic value for node i.
-Return an array ans of length n where ans[i] is the smallest genetic value that is missing from the subtree rooted at node i.
-The subtree rooted at a node x contains node x and all of its descendant nodes.
+There are n rooms you need to visit, labeled from 0 to n - 1. Each day is labeled, starting from 0. You will go in and visit one room a day.
+Initially on day 0, you visit room 0. The order you visit the rooms for the coming days is determined by the following rules and a given 0-indexed array nextVisit of length n:
+Assuming that on a day, you visit room i,
+if you have been in room i an odd number of times (including the current visit), on the next day you will visit a room with a lower or equal room number specified by nextVisit[i] where 0 <= nextVisit[i] <= i;
+if you have been in room i an even number of times (including the current visit), on the next day you will visit room (i + 1) mod n.
+Return the label of the first day where you have been in all the rooms. It can be shown that such a day exists. Since the answer may be very large, return it modulo 109 + 7.
   Example 1:
-Input: parents = [-1,0,0,2], nums = [1,2,3,4]
-Output: [5,1,1,1]
-Explanation: The answer for each subtree is calculated as follows:
-- 0: The subtree contains nodes [0,1,2,3] with values [1,2,3,4]. 5 is the smallest missing value.
-- 1: The subtree contains only node 1 with value 2. 1 is the smallest missing value.
-- 2: The subtree contains nodes [2,3] with values [3,4]. 1 is the smallest missing value.
-- 3: The subtree contains only node 3 with value 4. 1 is the smallest missing value.
+Input: nextVisit = [0,0]
+Output: 2
+Explanation:
+- On day 0, you visit room 0. The total times you have been in room 0 is 1, which is odd.
+  On the next day you will visit room nextVisit[0] = 0
+- On day 1, you visit room 0, The total times you have been in room 0 is 2, which is even.
+  On the next day you will visit room (0 + 1) mod 2 = 1
+- On day 2, you visit room 1. This is the first day where you have been in all the rooms.
 Example 2:
-Input: parents = [-1,0,1,0,3,3], nums = [5,4,6,2,1,3]
-Output: [7,1,1,4,2,1]
-Explanation: The answer for each subtree is calculated as follows:
-- 0: The subtree contains nodes [0,1,2,3,4,5] with values [5,4,6,2,1,3]. 7 is the smallest missing value.
-- 1: The subtree contains nodes [1,2] with values [4,6]. 1 is the smallest missing value.
-- 2: The subtree contains only node 2 with value 6. 1 is the smallest missing value.
-- 3: The subtree contains nodes [3,4,5] with values [2,1,3]. 4 is the smallest missing value.
-- 4: The subtree contains only node 4 with value 1. 2 is the smallest missing value.
-- 5: The subtree contains only node 5 with value 3. 1 is the smallest missing value.
+Input: nextVisit = [0,0,2]
+Output: 6
+Explanation:
+Your room visiting order for each day is: [0,0,1,0,0,1,2,...].
+Day 6 is the first day where you have been in all the rooms.
 Example 3:
-Input: parents = [-1,2,3,0,2,4,1], nums = [2,3,4,5,6,7,8]
-Output: [1,1,1,1,1,1,1]
-Explanation: The value 1 is missing from all the subtrees.
+Input: nextVisit = [0,1,2,0]
+Output: 6
+Explanation:
+Your room visiting order for each day is: [0,0,1,1,2,2,3,...].
+Day 6 is the first day where you have been in all the rooms.
   Constraints:
-n == parents.length == nums.length
+n == nextVisit.length
 2 <= n <= 105
-0 <= parents[i] <= n - 1 for i != 0
-parents[0] == -1
-parents represents a valid tree.
-1 <= nums[i] <= 105
-Each nums[i] is distinct.
+0 <= nextVisit[i] <= i

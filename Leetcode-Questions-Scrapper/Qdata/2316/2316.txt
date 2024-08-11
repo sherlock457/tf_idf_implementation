@@ -1,16 +1,31 @@
-There is a school that has classes of students and each class will be having a final exam. You are given a 2D integer array classes, where classes[i] = [passi, totali]. You know beforehand that in the ith class, there are totali total students, but only passi number of students will pass the exam.
-You are also given an integer extraStudents. There are another extraStudents brilliant students that are guaranteed to pass the exam of any class they are assigned to. You want to assign each of the extraStudents students to a class in a way that maximizes the average pass ratio across all the classes.
-The pass ratio of a class is equal to the number of students of the class that will pass the exam divided by the total number of students of the class. The average pass ratio is the sum of pass ratios of all the classes divided by the number of the classes.
-Return the maximum possible average pass ratio after assigning the extraStudents students. Answers within 10-5 of the actual answer will be accepted.
+You are given an array words of size n consisting of non-empty strings.
+We define the score of a string word as the number of strings words[i] such that word is a prefix of words[i].
+For example, if words = ["a", "ab", "abc", "cab"], then the score of "ab" is 2, since "ab" is a prefix of both "ab" and "abc".
+Return an array answer of size n where answer[i] is the sum of scores of every non-empty prefix of words[i].
+Note that a string is considered as a prefix of itself.
   Example 1:
-Input: classes = [[1,2],[3,5],[2,2]], extraStudents = 2
-Output: 0.78333
-Explanation: You can assign the two extra students to the first class. The average pass ratio will be equal to (3/4 + 3/5 + 2/2) / 3 = 0.78333.
+Input: words = ["abc","ab","bc","b"]
+Output: [5,4,3,2]
+Explanation: The answer for each string is the following:
+- "abc" has 3 prefixes: "a", "ab", and "abc".
+- There are 2 strings with the prefix "a", 2 strings with the prefix "ab", and 1 string with the prefix "abc".
+The total is answer[0] = 2 + 2 + 1 = 5.
+- "ab" has 2 prefixes: "a" and "ab".
+- There are 2 strings with the prefix "a", and 2 strings with the prefix "ab".
+The total is answer[1] = 2 + 2 = 4.
+- "bc" has 2 prefixes: "b" and "bc".
+- There are 2 strings with the prefix "b", and 1 string with the prefix "bc".
+The total is answer[2] = 2 + 1 = 3.
+- "b" has 1 prefix: "b".
+- There are 2 strings with the prefix "b".
+The total is answer[3] = 2.
 Example 2:
-Input: classes = [[2,4],[3,9],[4,5],[2,10]], extraStudents = 4
-Output: 0.53485
+Input: words = ["abcd"]
+Output: [4]
+Explanation:
+"abcd" has 4 prefixes: "a", "ab", "abc", and "abcd".
+Each prefix has a score of one, so the total is answer[0] = 1 + 1 + 1 + 1 = 4.
   Constraints:
-1 <= classes.length <= 105
-classes[i].length == 2
-1 <= passi <= totali <= 105
-1 <= extraStudents <= 105
+1 <= words.length <= 1000
+1 <= words[i].length <= 1000
+words[i] consists of lowercase English letters.

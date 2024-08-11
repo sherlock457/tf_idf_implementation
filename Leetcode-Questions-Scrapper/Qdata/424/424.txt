@@ -1,21 +1,26 @@
-The bitwise AND of an array nums is the bitwise AND of all integers in nums.
-For example, for nums = [1, 5, 3], the bitwise AND is equal to 1 & 5 & 3 = 1.
-Also, for nums = [7], the bitwise AND is 7.
-You are given an array of positive integers candidates. Evaluate the bitwise AND of every combination of numbers of candidates. Each number in candidates may only be used once in each combination.
-Return the size of the largest combination of candidates with a bitwise AND greater than 0.
+You are given an integer array nums. In one operation, you can replace any element in nums with any integer.
+nums is considered continuous if both of the following conditions are fulfilled:
+All elements in nums are unique.
+The difference between the maximum element and the minimum element in nums equals nums.length - 1.
+For example, nums = [4, 2, 5, 3] is continuous, but nums = [1, 2, 3, 5, 6] is not continuous.
+Return the minimum number of operations to make nums continuous.
   Example 1:
-Input: candidates = [16,17,71,62,12,24,14]
-Output: 4
-Explanation: The combination [16,17,62,24] has a bitwise AND of 16 & 17 & 62 & 24 = 16 > 0.
-The size of the combination is 4.
-It can be shown that no combination with a size greater than 4 has a bitwise AND greater than 0.
-Note that more than one combination may have the largest size.
-For example, the combination [62,12,24,14] has a bitwise AND of 62 & 12 & 24 & 14 = 8 > 0.
+Input: nums = [4,2,5,3]
+Output: 0
+Explanation: nums is already continuous.
 Example 2:
-Input: candidates = [8,8]
-Output: 2
-Explanation: The largest combination [8,8] has a bitwise AND of 8 & 8 = 8 > 0.
-The size of the combination is 2, so we return 2.
+Input: nums = [1,2,3,5,6]
+Output: 1
+Explanation: One possible solution is to change the last element to 4.
+The resulting array is [1,2,3,5,4], which is continuous.
+Example 3:
+Input: nums = [1,10,100,1000]
+Output: 3
+Explanation: One possible solution is to:
+- Change the second element to 2.
+- Change the third element to 3.
+- Change the fourth element to 4.
+The resulting array is [1,2,3,4], which is continuous.
   Constraints:
-1 <= candidates.length <= 105
-1 <= candidates[i] <= 107
+1 <= nums.length <= 105
+1 <= nums[i] <= 109

@@ -1,14 +1,29 @@
-Given a m x n matrix mat and an integer threshold, return the maximum side-length of a square with a sum less than or equal to threshold or return 0 if there is no such square.
+Suppose you are given the following code:
+class FooBar {
+  public void foo() {
+    for (int i = 0; i < n; i++) {
+      print("foo");
+    }
+  }
+
+  public void bar() {
+    for (int i = 0; i < n; i++) {
+      print("bar");
+    }
+  }
+}
+The same instance of FooBar will be passed to two different threads:
+thread A will call foo(), while
+thread B will call bar().
+Modify the given program to output "foobar" n times.
   Example 1:
-Input: mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]], threshold = 4
-Output: 2
-Explanation: The maximum side length of square with sum less than 4 is 2 as shown.
+Input: n = 1
+Output: "foobar"
+Explanation: There are two threads being fired asynchronously. One of them calls foo(), while the other calls bar().
+"foobar" is being output 1 time.
 Example 2:
-Input: mat = [[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2]], threshold = 1
-Output: 0
+Input: n = 2
+Output: "foobarfoobar"
+Explanation: "foobar" is being output 2 times.
   Constraints:
-m == mat.length
-n == mat[i].length
-1 <= m, n <= 300
-0 <= mat[i][j] <= 104
-0 <= threshold <= 105
+1 <= n <= 1000

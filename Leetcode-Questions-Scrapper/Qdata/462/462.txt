@@ -1,14 +1,10 @@
-Given two integers a and b, return any string s such that:
-s has length a + b and contains exactly a 'a' letters, and exactly b 'b' letters,
-The substring 'aaa' does not occur in s, and
-The substring 'bbb' does not occur in s.
+Given two integers n and k, return the kth lexicographically smallest integer in the range [1, n].
   Example 1:
-Input: a = 1, b = 2
-Output: "abb"
-Explanation: "abb", "bab" and "bba" are all correct answers.
+Input: n = 13, k = 2
+Output: 10
+Explanation: The lexicographical order is [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9], so the second smallest number is 10.
 Example 2:
-Input: a = 4, b = 1
-Output: "aabaa"
+Input: n = 1, k = 1
+Output: 1
   Constraints:
-0 <= a, b <= 100
-It is guaranteed such an s exists for the given a and b.
+1 <= k <= n <= 109

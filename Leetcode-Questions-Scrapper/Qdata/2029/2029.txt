@@ -1,28 +1,14 @@
-Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
-However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
-Return the least number of units of times that the CPU will take to finish all the given tasks.
+A sentence is a string of single-space separated words where each word consists only of lowercase letters.
+A word is uncommon if it appears exactly once in one of the sentences, and does not appear in the other sentence.
+Given two sentences s1 and s2, return a list of all the uncommon words. You may return the answer in any order.
   Example 1:
-Input: tasks = ["A","A","A","B","B","B"], n = 2
-Output: 8
-Explanation: 
-A -> B -> idle -> A -> B -> idle -> A -> B
-There is at least 2 units of time between any two same tasks.
+Input: s1 = "this apple is sweet", s2 = "this apple is sour"
+Output: ["sweet","sour"]
 Example 2:
-Input: tasks = ["A","A","A","B","B","B"], n = 0
-Output: 6
-Explanation: On this case any permutation of size 6 would work since n = 0.
-["A","A","A","B","B","B"]
-["A","B","A","B","A","B"]
-["B","B","B","A","A","A"]
-...
-And so on.
-Example 3:
-Input: tasks = ["A","A","A","A","A","A","B","C","D","E","F","G"], n = 2
-Output: 16
-Explanation: 
-One possible solution is
-A -> B -> C -> A -> D -> E -> A -> F -> G -> A -> idle -> idle -> A -> idle -> idle -> A
+Input: s1 = "apple apple", s2 = "banana"
+Output: ["banana"]
   Constraints:
-1 <= task.length <= 104
-tasks[i] is upper-case English letter.
-The integer n is in the range [0, 100].
+1 <= s1.length, s2.length <= 200
+s1 and s2 consist of lowercase English letters and spaces.
+s1 and s2 do not have leading or trailing spaces.
+All the words in s1 and s2 are separated by a single space.

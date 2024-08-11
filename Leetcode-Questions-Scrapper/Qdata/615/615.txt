@@ -1,29 +1,18 @@
-You are given a 0-indexed circular string array words and a string target. A circular array means that the array's end connects to the array's beginning.
-Formally, the next element of words[i] is words[(i + 1) % n] and the previous element of words[i] is words[(i - 1 + n) % n], where n is the length of words.
-Starting from startIndex, you can move to either the next word or the previous word with 1 step at a time.
-Return the shortest distance needed to reach the string target. If the string target does not exist in words, return -1.
+You are given a string s consisting of the characters 'a', 'b', and 'c' and a non-negative integer k. Each minute, you may take either the leftmost character of s, or the rightmost character of s.
+Return the minimum number of minutes needed for you to take at least k of each character, or return -1 if it is not possible to take k of each character.
   Example 1:
-Input: words = ["hello","i","am","leetcode","hello"], target = "hello", startIndex = 1
-Output: 1
-Explanation: We start from index 1 and can reach "hello" by
-- moving 3 units to the right to reach index 4.
-- moving 2 units to the left to reach index 4.
-- moving 4 units to the right to reach index 0.
-- moving 1 unit to the left to reach index 0.
-The shortest distance to reach "hello" is 1.
+Input: s = "aabaaaacaabc", k = 2
+Output: 8
+Explanation: 
+Take three characters from the left of s. You now have two 'a' characters, and one 'b' character.
+Take five characters from the right of s. You now have four 'a' characters, two 'b' characters, and two 'c' characters.
+A total of 3 + 5 = 8 minutes is needed.
+It can be proven that 8 is the minimum number of minutes needed.
 Example 2:
-Input: words = ["a","b","leetcode"], target = "leetcode", startIndex = 0
-Output: 1
-Explanation: We start from index 0 and can reach "leetcode" by
-- moving 2 units to the right to reach index 3.
-- moving 1 unit to the left to reach index 3.
-The shortest distance to reach "leetcode" is 1.
-Example 3:
-Input: words = ["i","eat","leetcode"], target = "ate", startIndex = 0
+Input: s = "a", k = 1
 Output: -1
-Explanation: Since "ate" does not exist in words, we return -1.
+Explanation: It is not possible to take one 'b' or 'c' so return -1.
   Constraints:
-1 <= words.length <= 100
-1 <= words[i].length <= 100
-words[i] and target consist of only lowercase English letters.
-0 <= startIndex < words.length
+1 <= s.length <= 105
+s consists of only the letters 'a', 'b', and 'c'.
+0 <= k <= s.length

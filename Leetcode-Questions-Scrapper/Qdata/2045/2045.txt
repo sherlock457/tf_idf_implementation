@@ -1,17 +1,11 @@
-We have two special characters:
-The first character can be represented by one bit 0.
-The second character can be represented by two bits (10 or 11).
-Given a binary array bits that ends with 0, return true if the last character must be a one-bit character.
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
   Example 1:
-Input: bits = [1,0,0]
+Input: root = [1,2,2,3,4,4,3]
 Output: true
-Explanation: The only way to decode it is two-bit character and one-bit character.
-So the last character is one-bit character.
 Example 2:
-Input: bits = [1,1,1,0]
+Input: root = [1,2,2,null,3,null,3]
 Output: false
-Explanation: The only way to decode it is two-bit character and two-bit character.
-So the last character is not one-bit character.
   Constraints:
-1 <= bits.length <= 1000
-bits[i] is either 0 or 1.
+The number of nodes in the tree is in the range [1, 1000].
+-100 <= Node.val <= 100
+  Follow up: Could you solve it both recursively and iteratively?

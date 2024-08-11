@@ -1,35 +1,20 @@
-SQL Schema
-Table: Weather
-+---------------+---------+
-| Column Name   | Type    |
-+---------------+---------+
-| id            | int     |
-| recordDate    | date    |
-| temperature   | int     |
-+---------------+---------+
-id is the primary key for this table.
-This table contains information about the temperature on a certain day.
-  Write an SQL query to find all dates' Id with higher temperatures compared to its previous dates (yesterday).
-Return the result table in any order.
-The query result format is in the following example.
+Given two positive integers num1 and num2, find the positive integer x such that:
+x has the same number of set bits as num2, and
+The value x XOR num1 is minimal.
+Note that XOR is the bitwise XOR operation.
+Return the integer x. The test cases are generated such that x is uniquely determined.
+The number of set bits of an integer is the number of 1's in its binary representation.
   Example 1:
-Input: 
-Weather table:
-+----+------------+-------------+
-| id | recordDate | temperature |
-+----+------------+-------------+
-| 1  | 2015-01-01 | 10          |
-| 2  | 2015-01-02 | 25          |
-| 3  | 2015-01-03 | 20          |
-| 4  | 2015-01-04 | 30          |
-+----+------------+-------------+
-Output: 
-+----+
-| id |
-+----+
-| 2  |
-| 4  |
-+----+
-Explanation: 
-In 2015-01-02, the temperature was higher than the previous day (10 -> 25).
-In 2015-01-04, the temperature was higher than the previous day (20 -> 30).
+Input: num1 = 3, num2 = 5
+Output: 3
+Explanation:
+The binary representations of num1 and num2 are 0011 and 0101, respectively.
+The integer 3 has the same number of set bits as num2, and the value 3 XOR 3 = 0 is minimal.
+Example 2:
+Input: num1 = 1, num2 = 12
+Output: 3
+Explanation:
+The binary representations of num1 and num2 are 0001 and 1100, respectively.
+The integer 3 has the same number of set bits as num2, and the value 3 XOR 1 = 2 is minimal.
+  Constraints:
+1 <= num1, num2 <= 109

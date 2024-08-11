@@ -1,21 +1,12 @@
-Given two arrays nums1 and nums2.
-Return the maximum dot product between non-empty subsequences of nums1 and nums2 with the same length.
-A subsequence of a array is a new array which is formed from the original array by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, [2,3,5] is a subsequence of [1,2,3,4,5] while [1,5,3] is not).
+Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+You should preserve the original relative order of the nodes in each of the two partitions.
   Example 1:
-Input: nums1 = [2,1,-2,5], nums2 = [3,0,-6]
-Output: 18
-Explanation: Take subsequence [2,-2] from nums1 and subsequence [3,-6] from nums2.
-Their dot product is (2*3 + (-2)*(-6)) = 18.
+Input: head = [1,4,3,2,5,2], x = 3
+Output: [1,2,2,4,3,5]
 Example 2:
-Input: nums1 = [3,-2], nums2 = [2,-6,7]
-Output: 21
-Explanation: Take subsequence [3] from nums1 and subsequence [7] from nums2.
-Their dot product is (3*7) = 21.
-Example 3:
-Input: nums1 = [-1,-1], nums2 = [1,1]
-Output: -1
-Explanation: Take subsequence [-1] from nums1 and subsequence [1] from nums2.
-Their dot product is -1.
+Input: head = [2,1], x = 2
+Output: [1,2]
   Constraints:
-1 <= nums1.length, nums2.length <= 500
--1000 <= nums1[i], nums2[i] <= 1000
+The number of nodes in the list is in the range [0, 200].
+-100 <= Node.val <= 100
+-200 <= x <= 200

@@ -1,20 +1,17 @@
-Given a string s of '(' , ')' and lowercase English characters.
-Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
-Formally, a parentheses string is valid if and only if:
-It is the empty string, contains only lowercase characters, or
-It can be written as AB (A concatenated with B), where A and B are valid strings, or
-It can be written as (A), where A is a valid string.
+Given a string word to which you can insert letters "a", "b" or "c" anywhere and any number of times, return the minimum number of letters that must be inserted so that word becomes valid.
+A string is called valid if it can be formed by concatenating the string "abc" several times.
   Example 1:
-Input: s = "lee(t(c)o)de)"
-Output: "lee(t(c)o)de"
-Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+Input: word = "b"
+Output: 2
+Explanation: Insert the letter "a" right before "b", and the letter "c" right next to "a" to obtain the valid string "abc".
 Example 2:
-Input: s = "a)b(c)d"
-Output: "ab(c)d"
+Input: word = "aaa"
+Output: 6
+Explanation: Insert letters "b" and "c" next to each "a" to obtain the valid string "abcabcabc".
 Example 3:
-Input: s = "))(("
-Output: ""
-Explanation: An empty string is also valid.
+Input: word = "abc"
+Output: 0
+Explanation: word is already valid. No modifications are needed. 
   Constraints:
-1 <= s.length <= 105
-s[i] is either'(' , ')', or lowercase English letter.
+1 <= word.length <= 50
+word consists of letters "a", "b" and "c" only. 

@@ -1,23 +1,21 @@
-A fancy string is a string where no three consecutive characters are equal.
-Given a string s, delete the minimum possible number of characters from s to make it fancy.
-Return the final string after the deletion. It can be shown that the answer will always be unique.
+Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+Given a balanced string s, split it into some number of substrings such that:
+Each substring is balanced.
+Return the maximum number of balanced strings you can obtain.
   Example 1:
-Input: s = "leeetcode"
-Output: "leetcode"
-Explanation:
-Remove an 'e' from the first group of 'e's to create "leetcode".
-No three consecutive characters are equal, so return "leetcode".
+Input: s = "RLRRLLRLRL"
+Output: 4
+Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
 Example 2:
-Input: s = "aaabaaaa"
-Output: "aabaa"
-Explanation:
-Remove an 'a' from the first group of 'a's to create "aabaaaa".
-Remove two 'a's from the second group of 'a's to create "aabaa".
-No three consecutive characters are equal, so return "aabaa".
+Input: s = "RLRRRLLRLL"
+Output: 2
+Explanation: s can be split into "RL", "RRRLLRLL", each substring contains same number of 'L' and 'R'.
+Note that s cannot be split into "RL", "RR", "RL", "LR", "LL", because the 2nd and 5th substrings are not balanced.
 Example 3:
-Input: s = "aab"
-Output: "aab"
-Explanation: No three consecutive characters are equal, so return "aab".
+Input: s = "LLLLRRRR"
+Output: 1
+Explanation: s can be split into "LLLLRRRR".
   Constraints:
-1 <= s.length <= 105
-s consists only of lowercase English letters.
+2 <= s.length <= 1000
+s[i] is either 'L' or 'R'.
+s is a balanced string.

@@ -1,19 +1,15 @@
-Write a function createHelloWorld. It should return a new function that always returns "Hello World".
+Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
   Example 1:
-Input: args = []
-Output: "Hello World"
-Explanation:
-const f = createHelloWorld();
-f(); // "Hello World"
-
-The function returned by createHelloWorld should always return "Hello World".
+Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+Output: [3,9,20,null,null,15,7]
 Example 2:
-Input: args = [{},null,42]
-Output: "Hello World"
-Explanation:
-const f = createHelloWorld();
-f({}, null, 42); // "Hello World"
-
-Any arguments could be passed to the function but it should still always return "Hello World".
+Input: preorder = [-1], inorder = [-1]
+Output: [-1]
   Constraints:
-0 <= args.length <= 10
+1 <= preorder.length <= 3000
+inorder.length == preorder.length
+-3000 <= preorder[i], inorder[i] <= 3000
+preorder and inorder consist of unique values.
+Each value of inorder also appears in preorder.
+preorder is guaranteed to be the preorder traversal of the tree.
+inorder is guaranteed to be the inorder traversal of the tree.

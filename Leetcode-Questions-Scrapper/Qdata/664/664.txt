@@ -1,16 +1,18 @@
-Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
-Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
+Given a pattern and a string s, find if s follows the same pattern.
+Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.
   Example 1:
-Input: root = [1,7,0,7,-8,null,null]
-Output: 2
-Explanation: 
-Level 1 sum = 1.
-Level 2 sum = 7 + 0 = 7.
-Level 3 sum = 7 + -8 = -1.
-So we return the level with the maximum sum which is level 2.
+Input: pattern = "abba", s = "dog cat cat dog"
+Output: true
 Example 2:
-Input: root = [989,null,10250,98693,-89388,null,null,null,-32127]
-Output: 2
+Input: pattern = "abba", s = "dog cat cat fish"
+Output: false
+Example 3:
+Input: pattern = "aaaa", s = "dog cat cat dog"
+Output: false
   Constraints:
-The number of nodes in the tree is in the range [1, 104].
--105 <= Node.val <= 105
+1 <= pattern.length <= 300
+pattern contains only lower-case English letters.
+1 <= s.length <= 3000
+s contains only lowercase English letters and spaces ' '.
+s does not contain any leading or trailing spaces.
+All the words in s are separated by a single space.

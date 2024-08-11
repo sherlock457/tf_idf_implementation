@@ -1,16 +1,15 @@
-You are given an integer array deck where deck[i] represents the number written on the ith card.
-Partition the cards into one or more groups such that:
-Each group has exactly x cards where x > 1, and
-All the cards in one group have the same integer written on them.
-Return true if such partition is possible, or false otherwise.
+Given a binary tree, determine if it is
+height-balanced
+.
   Example 1:
-Input: deck = [1,2,3,4,4,3,2,1]
+Input: root = [3,9,20,null,null,15,7]
 Output: true
-Explanation: Possible partition [1,1],[2,2],[3,3],[4,4].
 Example 2:
-Input: deck = [1,1,1,2,2,2,3,3]
+Input: root = [1,2,2,3,3,null,null,4,4]
 Output: false
-Explanation: No possible partition.
+Example 3:
+Input: root = []
+Output: true
   Constraints:
-1 <= deck.length <= 104
-0 <= deck[i] < 104
+The number of nodes in the tree is in the range [0, 5000].
+-104 <= Node.val <= 104

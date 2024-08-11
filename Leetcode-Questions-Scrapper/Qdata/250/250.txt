@@ -1,12 +1,13 @@
-Given two integer arrays nums1 and nums2, return the maximum length of a subarray that appears in both arrays.
+Your friend is typing his name into a keyboard. Sometimes, when typing a character c, the key might get long pressed, and the character will be typed 1 or more times.
+You examine the typed characters of the keyboard. Return True if it is possible that it was your friends name, with some characters (possibly none) being long pressed.
   Example 1:
-Input: nums1 = [1,2,3,2,1], nums2 = [3,2,1,4,7]
-Output: 3
-Explanation: The repeated subarray with maximum length is [3,2,1].
+Input: name = "alex", typed = "aaleex"
+Output: true
+Explanation: 'a' and 'e' in 'alex' were long pressed.
 Example 2:
-Input: nums1 = [0,0,0,0,0], nums2 = [0,0,0,0,0]
-Output: 5
-Explanation: The repeated subarray with maximum length is [0,0,0,0,0].
+Input: name = "saeed", typed = "ssaaedd"
+Output: false
+Explanation: 'e' must have been pressed twice, but it was not in the typed output.
   Constraints:
-1 <= nums1.length, nums2.length <= 1000
-0 <= nums1[i], nums2[i] <= 100
+1 <= name.length, typed.length <= 1000
+name and typed consist of only lowercase English letters.

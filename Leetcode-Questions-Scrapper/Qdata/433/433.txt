@@ -1,28 +1,22 @@
-Given two strings s and t, each of which represents a non-negative rational number, return true if and only if they represent the same number. The strings may use parentheses to denote the repeating part of the rational number.
-A rational number can be represented using up to three parts: <IntegerPart>, <NonRepeatingPart>, and a <RepeatingPart>. The number will be represented in one of the following three ways:
-<IntegerPart>
-For example, 12, 0, and 123.
-<IntegerPart><.><NonRepeatingPart>
-For example, 0.5, 1., 2.12, and 123.0001.
-<IntegerPart><.><NonRepeatingPart><(><RepeatingPart><)>
-For example, 0.1(6), 1.(9), 123.00(1212).
-The repeating portion of a decimal expansion is conventionally denoted within a pair of round brackets. For example:
-1/6 = 0.16666666... = 0.1(6) = 0.1666(6) = 0.166(66).
+You are given an n x n binary grid board. In each move, you can swap any two rows with each other, or any two columns with each other.
+Return the minimum number of moves to transform the board into a chessboard board. If the task is impossible, return -1.
+A chessboard board is a board where no 0's and no 1's are 4-directionally adjacent.
   Example 1:
-Input: s = "0.(52)", t = "0.5(25)"
-Output: true
-Explanation: Because "0.(52)" represents 0.52525252..., and "0.5(25)" represents 0.52525252525..... , the strings represent the same number.
+Input: board = [[0,1,1,0],[0,1,1,0],[1,0,0,1],[1,0,0,1]]
+Output: 2
+Explanation: One potential sequence of moves is shown.
+The first move swaps the first and second column.
+The second move swaps the second and third row.
 Example 2:
-Input: s = "0.1666(6)", t = "0.166(66)"
-Output: true
+Input: board = [[0,1],[1,0]]
+Output: 0
+Explanation: Also note that the board with 0 in the top left corner, is also a valid chessboard.
 Example 3:
-Input: s = "0.9(9)", t = "1."
-Output: true
-Explanation: "0.9(9)" represents 0.999999999... repeated forever, which equals 1.  [See this link for an explanation.]
-"1." represents the number 1, which is formed correctly: (IntegerPart) = "1" and (NonRepeatingPart) = "".
+Input: board = [[1,0],[1,0]]
+Output: -1
+Explanation: No matter what sequence of moves you make, you cannot end with a valid chessboard.
   Constraints:
-Each part consists only of digits.
-The <IntegerPart> does not have leading zeros (except for the zero itself).
-1 <= <IntegerPart>.length <= 4
-0 <= <NonRepeatingPart>.length <= 4
-1 <= <RepeatingPart>.length <= 4
+n == board.length
+n == board[i].length
+2 <= n <= 30
+board[i][j] is either 0 or 1.

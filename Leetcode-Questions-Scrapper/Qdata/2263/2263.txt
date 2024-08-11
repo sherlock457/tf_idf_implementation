@@ -1,32 +1,26 @@
-You have been tasked with writing a program for a popular bank that will automate all its incoming transactions (transfer, deposit, and withdraw). The bank has n accounts numbered from 1 to n. The initial balance of each account is stored in a 0-indexed integer array balance, with the (i + 1)th account having an initial balance of balance[i].
-Execute all the valid transactions. A transaction is valid if:
-The given account number(s) are between 1 and n, and
-The amount of money withdrawn or transferred from is less than or equal to the balance of the account.
-Implement the Bank class:
-Bank(long[] balance) Initializes the object with the 0-indexed integer array balance.
-boolean transfer(int account1, int account2, long money) Transfers money dollars from the account numbered account1 to the account numbered account2. Return true if the transaction was successful, false otherwise.
-boolean deposit(int account, long money) Deposit money dollars into the account numbered account. Return true if the transaction was successful, false otherwise.
-boolean withdraw(int account, long money) Withdraw money dollars from the account numbered account. Return true if the transaction was successful, false otherwise.
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
   Example 1:
-Input
-["Bank", "withdraw", "transfer", "deposit", "transfer", "withdraw"]
-[[[10, 100, 20, 50, 30]], [3, 10], [5, 1, 20], [5, 20], [3, 4, 15], [10, 50]]
-Output
-[null, true, true, true, false, false]
-
-Explanation
-Bank bank = new Bank([10, 100, 20, 50, 30]);
-bank.withdraw(3, 10);    // return true, account 3 has a balance of $20, so it is valid to withdraw $10.
-                         // Account 3 has $20 - $10 = $10.
-bank.transfer(5, 1, 20); // return true, account 5 has a balance of $30, so it is valid to transfer $20.
-                         // Account 5 has $30 - $20 = $10, and account 1 has $10 + $20 = $30.
-bank.deposit(5, 20);     // return true, it is valid to deposit $20 to account 5.
-                         // Account 5 has $10 + $20 = $30.
-bank.transfer(3, 4, 15); // return false, the current balance of account 3 is $10,
-                         // so it is invalid to transfer $15 from it.
-bank.withdraw(10, 50);   // return false, it is invalid because account 10 does not exist.
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+Example 2:
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
+Example 3:
+Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+Explanation: The arrays we are merging are [] and [1].
+The result of the merge is [1].
+Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
   Constraints:
-n == balance.length
-1 <= n, account, account1, account2 <= 105
-0 <= balance[i], money <= 1012
-At most 104 calls will be made to each function transfer, deposit, withdraw.
+nums1.length == m + n
+nums2.length == n
+0 <= m, n <= 200
+1 <= m + n <= 200
+-109 <= nums1[i], nums2[j] <= 109
+  Follow up: Can you come up with an algorithm that runs in O(m + n) time?

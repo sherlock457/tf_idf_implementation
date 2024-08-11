@@ -1,18 +1,19 @@
-We define the string base to be the infinite wraparound string of "abcdefghijklmnopqrstuvwxyz", so base will look like this:
-"...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....".
-Given a string s, return the number of unique non-empty substrings of s are present in base.
+You are given three positive integers: n, index, and maxSum. You want to construct an array nums (0-indexed) that satisfies the following conditions:
+nums.length == n
+nums[i] is a positive integer where 0 <= i < n.
+abs(nums[i] - nums[i+1]) <= 1 where 0 <= i < n-1.
+The sum of all the elements of nums does not exceed maxSum.
+nums[index] is maximized.
+Return nums[index] of the constructed array.
+Note that abs(x) equals x if x >= 0, and -x otherwise.
   Example 1:
-Input: s = "a"
-Output: 1
-Explanation: Only the substring "a" of s is in base.
-Example 2:
-Input: s = "cac"
+Input: n = 4, index = 2,  maxSum = 6
 Output: 2
-Explanation: There are two substrings ("a", "c") of s in base.
-Example 3:
-Input: s = "zab"
-Output: 6
-Explanation: There are six substrings ("z", "a", "b", "za", "ab", and "zab") of s in base.
+Explanation: nums = [1,2,2,1] is one array that satisfies all the conditions.
+There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 is the maximum nums[2].
+Example 2:
+Input: n = 6, index = 1,  maxSum = 10
+Output: 3
   Constraints:
-1 <= s.length <= 105
-s consists of lowercase English letters.
+1 <= n <= maxSum <= 109
+0 <= index < n

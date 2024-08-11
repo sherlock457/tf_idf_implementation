@@ -1,14 +1,19 @@
-Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.
+Given a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.
+Your task is to find the smallest possible length of a (contiguous) subarray of nums, that has the same degree as nums.
   Example 1:
-Input: nums = [10,5,2,6], k = 100
-Output: 8
-Explanation: The 8 subarrays that have product less than 100 are:
-[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
-Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
+Input: nums = [1,2,2,3,1]
+Output: 2
+Explanation: 
+The input array has a degree of 2 because both elements 1 and 2 appear twice.
+Of the subarrays that have the same degree:
+[1, 2, 2, 3, 1], [1, 2, 2, 3], [2, 2, 3, 1], [1, 2, 2], [2, 2, 3], [2, 2]
+The shortest length is 2. So return 2.
 Example 2:
-Input: nums = [1,2,3], k = 0
-Output: 0
+Input: nums = [1,2,2,3,1,4,2]
+Output: 6
+Explanation: 
+The degree is 3 because the element 2 is repeated 3 times.
+So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
   Constraints:
-1 <= nums.length <= 3 * 104
-1 <= nums[i] <= 1000
-0 <= k <= 106
+nums.length will be between 1 and 50,000.
+nums[i] will be an integer between 0 and 49,999.

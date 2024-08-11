@@ -1,25 +1,18 @@
-You are given an integer matrix isWater of size m x n that represents a map of land and water cells.
-If isWater[i][j] == 0, cell (i, j) is a land cell.
-If isWater[i][j] == 1, cell (i, j) is a water cell.
-You must assign each cell a height in a way that follows these rules:
-The height of each cell must be non-negative.
-If the cell is a water cell, its height must be 0.
-Any two adjacent cells must have an absolute height difference of at most 1. A cell is adjacent to another cell if the former is directly north, east, south, or west of the latter (i.e., their sides are touching).
-Find an assignment of heights such that the maximum height in the matrix is maximized.
-Return an integer matrix height of size m x n where height[i][j] is cell (i, j)'s height. If there are multiple solutions, return any of them.
+You are given an integer array, nums, and an integer k. nums comprises of only 0's and 1's. In one move, you can choose two adjacent indices and swap their values.
+Return the minimum number of moves required so that nums has k consecutive 1's.
   Example 1:
-Input: isWater = [[0,1],[0,0]]
-Output: [[1,0],[2,1]]
-Explanation: The image shows the assigned heights of each cell.
-The blue cell is the water cell, and the green cells are the land cells.
+Input: nums = [1,0,0,1,0,1], k = 2
+Output: 1
+Explanation: In 1 move, nums could be [1,0,0,0,1,1] and have 2 consecutive 1's.
 Example 2:
-Input: isWater = [[0,0,1],[1,0,0],[0,0,0]]
-Output: [[1,1,0],[0,1,1],[1,2,2]]
-Explanation: A height of 2 is the maximum possible height of any assignment.
-Any height assignment that has a maximum height of 2 while still meeting the rules will also be accepted.
+Input: nums = [1,0,0,0,0,0,1,1], k = 3
+Output: 5
+Explanation: In 5 moves, the leftmost 1 can be shifted right until nums = [0,0,0,0,0,1,1,1].
+Example 3:
+Input: nums = [1,1,0,1], k = 2
+Output: 0
+Explanation: nums already has 2 consecutive 1's.
   Constraints:
-m == isWater.length
-n == isWater[i].length
-1 <= m, n <= 1000
-isWater[i][j] is 0 or 1.
-There is at least one water cell.
+1 <= nums.length <= 105
+nums[i] is 0 or 1.
+1 <= k <= sum(nums)

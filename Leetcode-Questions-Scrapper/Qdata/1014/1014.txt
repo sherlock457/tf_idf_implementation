@@ -1,18 +1,16 @@
-You are given an array of strings equations that represent relationships between variables where each string equations[i] is of length 4 and takes one of two different forms: "xi==yi" or "xi!=yi".Here, xi and yi are lowercase letters (not necessarily different) that represent one-letter variable names.
-Return true if it is possible to assign integers to variable names so as to satisfy all the given equations, or false otherwise.
+We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
+Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
+A subsequence of array is a sequence that can be derived from the array by deleting some or no elements without changing the order of the remaining elements.
   Example 1:
-Input: equations = ["a==b","b!=a"]
-Output: false
-Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not the second.
-There is no way to assign the variables to satisfy both equations.
+Input: nums = [1,3,2,2,5,2,3,7]
+Output: 5
+Explanation: The longest harmonious subsequence is [3,2,2,2,3].
 Example 2:
-Input: equations = ["b==a","a==b"]
-Output: true
-Explanation: We could assign a = 1 and b = 1 to satisfy both equations.
+Input: nums = [1,2,3,4]
+Output: 2
+Example 3:
+Input: nums = [1,1,1,1]
+Output: 0
   Constraints:
-1 <= equations.length <= 500
-equations[i].length == 4
-equations[i][0] is a lowercase letter.
-equations[i][1] is either '=' or '!'.
-equations[i][2] is '='.
-equations[i][3] is a lowercase letter.
+1 <= nums.length <= 2 * 104
+-109 <= nums[i] <= 109

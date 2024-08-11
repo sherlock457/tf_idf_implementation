@@ -1,24 +1,14 @@
-You are given a string s consisting only of lowercase English letters.
-In one move, you can select any two adjacent characters of s and swap them.
-Return the minimum number of moves needed to make s a palindrome.
-Note that the input will be generated such that s can always be converted to a palindrome.
+Given an integer num, find the closest two integers in absolute difference whose product equals num + 1 or num + 2.
+Return the two integers in any order.
   Example 1:
-Input: s = "aabb"
-Output: 2
-Explanation:
-We can obtain two palindromes from s, "abba" and "baab". 
-- We can obtain "abba" from s in 2 moves: "aabb" -> "abab" -> "abba".
-- We can obtain "baab" from s in 2 moves: "aabb" -> "abab" -> "baab".
-Thus, the minimum number of moves needed to make s a palindrome is 2.
+Input: num = 8
+Output: [3,3]
+Explanation: For num + 1 = 9, the closest divisors are 3 & 3, for num + 2 = 10, the closest divisors are 2 & 5, hence 3 & 3 is chosen.
 Example 2:
-Input: s = "letelt"
-Output: 2
-Explanation:
-One of the palindromes we can obtain from s in 2 moves is "lettel".
-One of the ways we can obtain it is "letelt" -> "letetl" -> "lettel".
-Other palindromes such as "tleelt" can also be obtained in 2 moves.
-It can be shown that it is not possible to obtain a palindrome in less than 2 moves.
+Input: num = 123
+Output: [5,25]
+Example 3:
+Input: num = 999
+Output: [40,25]
   Constraints:
-1 <= s.length <= 2000
-s consists only of lowercase English letters.
-s can be converted to a palindrome using a finite number of moves.
+1 <= num <= 10^9

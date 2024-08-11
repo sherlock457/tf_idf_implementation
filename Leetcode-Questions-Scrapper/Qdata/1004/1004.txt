@@ -1,33 +1,22 @@
-Design your implementation of the circular double-ended queue (deque).
-Implement the MyCircularDeque class:
-MyCircularDeque(int k) Initializes the deque with a maximum size of k.
-boolean insertFront() Adds an item at the front of Deque. Returns true if the operation is successful, or false otherwise.
-boolean insertLast() Adds an item at the rear of Deque. Returns true if the operation is successful, or false otherwise.
-boolean deleteFront() Deletes an item from the front of Deque. Returns true if the operation is successful, or false otherwise.
-boolean deleteLast() Deletes an item from the rear of Deque. Returns true if the operation is successful, or false otherwise.
-int getFront() Returns the front item from the Deque. Returns -1 if the deque is empty.
-int getRear() Returns the last item from Deque. Returns -1 if the deque is empty.
-boolean isEmpty() Returns true if the deque is empty, or false otherwise.
-boolean isFull() Returns true if the deque is full, or false otherwise.
+You are given an integer array nums of length n which represents a permutation of all the integers in the range [0, n - 1].
+The number of global inversions is the number of the different pairs (i, j) where:
+0 <= i < j < n
+nums[i] > nums[j]
+The number of local inversions is the number of indices i where:
+0 <= i < n - 1
+nums[i] > nums[i + 1]
+Return true if the number of global inversions is equal to the number of local inversions.
   Example 1:
-Input
-["MyCircularDeque", "insertLast", "insertLast", "insertFront", "insertFront", "getRear", "isFull", "deleteLast", "insertFront", "getFront"]
-[[3], [1], [2], [3], [4], [], [], [], [4], []]
-Output
-[null, true, true, true, false, 2, true, true, true, 4]
-
-Explanation
-MyCircularDeque myCircularDeque = new MyCircularDeque(3);
-myCircularDeque.insertLast(1);  // return True
-myCircularDeque.insertLast(2);  // return True
-myCircularDeque.insertFront(3); // return True
-myCircularDeque.insertFront(4); // return False, the queue is full.
-myCircularDeque.getRear();      // return 2
-myCircularDeque.isFull();       // return True
-myCircularDeque.deleteLast();   // return True
-myCircularDeque.insertFront(4); // return True
-myCircularDeque.getFront();     // return 4
+Input: nums = [1,0,2]
+Output: true
+Explanation: There is 1 global inversion and 1 local inversion.
+Example 2:
+Input: nums = [1,2,0]
+Output: false
+Explanation: There are 2 global inversions and 1 local inversion.
   Constraints:
-1 <= k <= 1000
-0 <= value <= 1000
-At most 2000 calls will be made to insertFront, insertLast, deleteFront, deleteLast, getFront, getRear, isEmpty, isFull.
+n == nums.length
+1 <= n <= 105
+0 <= nums[i] < n
+All the integers of nums are unique.
+nums is a permutation of all the numbers in the range [0, n - 1].

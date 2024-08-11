@@ -1,16 +1,15 @@
-Given 3 positives numbers a, b and c. Return the minimum flips required in some bits of a and b to make ( a OR b == c ). (bitwise OR operation).
-Flip operation consists of change any single bit 1 to 0 or change the bit 0 to 1 in their binary representation.
+You are given a 0-indexed string s and are tasked with finding two non-intersecting palindromic substrings of odd length such that the product of their lengths is maximized.
+More formally, you want to choose four integers i, j, k, l such that 0 <= i <= j < k <= l < s.length and both the substrings s[i...j] and s[k...l] are palindromes and have odd lengths. s[i...j] denotes a substring from index i to index j inclusive.
+Return the maximum possible product of the lengths of the two non-intersecting palindromic substrings.
+A palindrome is a string that is the same forward and backward. A substring is a contiguous sequence of characters in a string.
   Example 1:
-Input: a = 2, b = 6, c = 5
-Output: 3
-Explanation: After flips a = 1 , b = 4 , c = 5 such that (a OR b == c)
+Input: s = "ababbb"
+Output: 9
+Explanation: Substrings "aba" and "bbb" are palindromes with odd length. product = 3 * 3 = 9.
 Example 2:
-Input: a = 4, b = 2, c = 7
-Output: 1
-Example 3:
-Input: a = 1, b = 2, c = 3
-Output: 0
+Input: s = "zaaaxbbby"
+Output: 9
+Explanation: Substrings "aaa" and "bbb" are palindromes with odd length. product = 3 * 3 = 9.
   Constraints:
-1 <= a <= 10^9
-1 <= b <= 10^9
-1 <= c <= 10^9
+2 <= s.length <= 105
+s consists of lowercase English letters.

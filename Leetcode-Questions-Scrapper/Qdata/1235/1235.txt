@@ -1,32 +1,17 @@
-You are given a string num, representing a large integer, and an integer k.
-We call some integer wonderful if it is a permutation of the digits in num and is greater in value than num. There can be many wonderful integers. However, we only care about the smallest-valued ones.
-For example, when num = "5489355142":
-The 1st smallest wonderful integer is "5489355214".
-The 2nd smallest wonderful integer is "5489355241".
-The 3rd smallest wonderful integer is "5489355412".
-The 4th smallest wonderful integer is "5489355421".
-Return the minimum number of adjacent digit swaps that needs to be applied to num to reach the kth smallest wonderful integer.
-The tests are generated in such a way that kth smallest wonderful integer exists.
+You are given a string text. You can swap two of the characters in the text.
+Return the length of the longest substring with repeated characters.
   Example 1:
-Input: num = "5489355142", k = 4
-Output: 2
-Explanation: The 4th smallest wonderful number is "5489355421". To get this number:
-- Swap index 7 with index 8: "5489355142" -> "5489355412"
-- Swap index 8 with index 9: "5489355412" -> "5489355421"
+Input: text = "ababa"
+Output: 3
+Explanation: We can swap the first 'b' with the last 'a', or the last 'b' with the first 'a'. Then, the longest repeated character substring is "aaa" with length 3.
 Example 2:
-Input: num = "11112", k = 4
-Output: 4
-Explanation: The 4th smallest wonderful number is "21111". To get this number:
-- Swap index 3 with index 4: "11112" -> "11121"
-- Swap index 2 with index 3: "11121" -> "11211"
-- Swap index 1 with index 2: "11211" -> "12111"
-- Swap index 0 with index 1: "12111" -> "21111"
+Input: text = "aaabaaa"
+Output: 6
+Explanation: Swap 'b' with the last 'a' (or the first 'a'), and we get longest repeated character substring "aaaaaa" with length 6.
 Example 3:
-Input: num = "00123", k = 1
-Output: 1
-Explanation: The 1st smallest wonderful number is "00132". To get this number:
-- Swap index 3 with index 4: "00123" -> "00132"
+Input: text = "aaaaa"
+Output: 5
+Explanation: No need to swap, longest repeated character substring is "aaaaa" with length is 5.
   Constraints:
-2 <= num.length <= 1000
-1 <= k <= 1000
-num only consists of digits.
+1 <= text.length <= 2 * 104
+text consist of lowercase English characters only.

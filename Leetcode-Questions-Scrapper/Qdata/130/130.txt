@@ -1,18 +1,23 @@
-You are given an integer array, nums, and an integer k. nums comprises of only 0's and 1's. In one move, you can choose two adjacent indices and swap their values.
-Return the minimum number of moves required so that nums has k consecutive 1's.
+You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
+The right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.
+Return an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.
   Example 1:
-Input: nums = [1,0,0,1,0,1], k = 2
-Output: 1
-Explanation: In 1 move, nums could be [1,0,0,0,1,1] and have 2 consecutive 1's.
+Input: intervals = [[1,2]]
+Output: [-1]
+Explanation: There is only one interval in the collection, so it outputs -1.
 Example 2:
-Input: nums = [1,0,0,0,0,0,1,1], k = 3
-Output: 5
-Explanation: In 5 moves, the leftmost 1 can be shifted right until nums = [0,0,0,0,0,1,1,1].
+Input: intervals = [[3,4],[2,3],[1,2]]
+Output: [-1,0,1]
+Explanation: There is no right interval for [3,4].
+The right interval for [2,3] is [3,4] since start0 = 3 is the smallest start that is >= end1 = 3.
+The right interval for [1,2] is [2,3] since start1 = 2 is the smallest start that is >= end2 = 2.
 Example 3:
-Input: nums = [1,1,0,1], k = 2
-Output: 0
-Explanation: nums already has 2 consecutive 1's.
+Input: intervals = [[1,4],[2,3],[3,4]]
+Output: [-1,2,-1]
+Explanation: There is no right interval for [1,4] and [3,4].
+The right interval for [2,3] is [3,4] since start2 = 3 is the smallest start that is >= end1 = 3.
   Constraints:
-1 <= nums.length <= 105
-nums[i] is 0 or 1.
-1 <= k <= sum(nums)
+1 <= intervals.length <= 2 * 104
+intervals[i].length == 2
+-106 <= starti <= endi <= 106
+The start point of each interval is unique.

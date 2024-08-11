@@ -1,16 +1,18 @@
-You are given a string time in the form of  hh:mm, where some of the digits in the string are hidden (represented by ?).
-The valid times are those inclusively between 00:00 and 23:59.
-Return the latest valid time you can get from time by replacing the hidden digits.
+Given an array of integers arr, return true if and only if it is a valid mountain array.
+Recall that arr is a mountain array if and only if:
+arr.length >= 3
+There exists some i with 0 < i < arr.length - 1 such that:
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i] 
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
   Example 1:
-Input: time = "2?:?0"
-Output: "23:50"
-Explanation: The latest hour beginning with the digit '2' is 23 and the latest minute ending with the digit '0' is 50.
+Input: arr = [2,1]
+Output: false
 Example 2:
-Input: time = "0?:3?"
-Output: "09:39"
+Input: arr = [3,5,5]
+Output: false
 Example 3:
-Input: time = "1?:22"
-Output: "19:22"
+Input: arr = [0,3,2,1]
+Output: true
   Constraints:
-time is in the format hh:mm.
-It is guaranteed that you can produce a valid time from the given string.
+1 <= arr.length <= 104
+0 <= arr[i] <= 104

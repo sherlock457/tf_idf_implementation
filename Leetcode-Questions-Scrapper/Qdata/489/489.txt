@@ -1,26 +1,19 @@
-Given a 0-indexed integer array nums, return the smallest index i of nums such that i mod 10 == nums[i], or -1 if such index does not exist.
-x mod y denotes the remainder when x is divided by y.
+You are given two integers m and n, which represent the dimensions of a matrix.
+You are also given the head of a linked list of integers.
+Generate an m x n matrix that contains the integers in the linked list presented in spiral order (clockwise), starting from the top-left of the matrix. If there are remaining empty spaces, fill them with -1.
+Return the generated matrix.
   Example 1:
-Input: nums = [0,1,2]
-Output: 0
-Explanation: 
-i=0: 0 mod 10 = 0 == nums[0].
-i=1: 1 mod 10 = 1 == nums[1].
-i=2: 2 mod 10 = 2 == nums[2].
-All indices have i mod 10 == nums[i], so we return the smallest index 0.
+Input: m = 3, n = 5, head = [3,0,2,6,8,1,7,9,4,2,5,5,0]
+Output: [[3,0,2,6,8],[5,0,-1,-1,1],[5,2,4,9,7]]
+Explanation: The diagram above shows how the values are printed in the matrix.
+Note that the remaining spaces in the matrix are filled with -1.
 Example 2:
-Input: nums = [4,3,2,1]
-Output: 2
-Explanation: 
-i=0: 0 mod 10 = 0 != nums[0].
-i=1: 1 mod 10 = 1 != nums[1].
-i=2: 2 mod 10 = 2 == nums[2].
-i=3: 3 mod 10 = 3 != nums[3].
-2 is the only index which has i mod 10 == nums[i].
-Example 3:
-Input: nums = [1,2,3,4,5,6,7,8,9,0]
-Output: -1
-Explanation: No index satisfies i mod 10 == nums[i].
+Input: m = 1, n = 4, head = [0,1,2]
+Output: [[0,1,2,-1]]
+Explanation: The diagram above shows how the values are printed from left to right in the matrix.
+The last space in the matrix is set to -1.
   Constraints:
-1 <= nums.length <= 100
-0 <= nums[i] <= 9
+1 <= m, n <= 105
+1 <= m * n <= 105
+The number of nodes in the list is in the range [1, m * n].
+0 <= Node.val <= 1000

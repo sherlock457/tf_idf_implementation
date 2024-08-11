@@ -1,26 +1,18 @@
-You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
-Return the merged string.
+You are given a string s that consists of lower case English letters and brackets.
+Reverse the strings in each pair of matching parentheses, starting from the innermost one.
+Your result should not contain any brackets.
   Example 1:
-Input: word1 = "abc", word2 = "pqr"
-Output: "apbqcr"
-Explanation: The merged string will be merged as so:
-word1:  a   b   c
-word2:    p   q   r
-merged: a p b q c r
+Input: s = "(abcd)"
+Output: "dcba"
 Example 2:
-Input: word1 = "ab", word2 = "pqrs"
-Output: "apbqrs"
-Explanation: Notice that as word2 is longer, "rs" is appended to the end.
-word1:  a   b 
-word2:    p   q   r   s
-merged: a p b q   r   s
+Input: s = "(u(love)i)"
+Output: "iloveu"
+Explanation: The substring "love" is reversed first, then the whole string is reversed.
 Example 3:
-Input: word1 = "abcd", word2 = "pq"
-Output: "apbqcd"
-Explanation: Notice that as word1 is longer, "cd" is appended to the end.
-word1:  a   b   c   d
-word2:    p   q 
-merged: a p b q c   d
+Input: s = "(ed(et(oc))el)"
+Output: "leetcode"
+Explanation: First, we reverse the substring "oc", then "etco", and finally, the whole string.
   Constraints:
-1 <= word1.length, word2.length <= 100
-word1 and word2 consist of lowercase English letters.
+1 <= s.length <= 2000
+s only contains lower case English characters and parentheses.
+It is guaranteed that all parentheses are balanced.

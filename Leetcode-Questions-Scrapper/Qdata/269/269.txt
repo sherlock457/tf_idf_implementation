@@ -1,15 +1,25 @@
-Two strings, X and Y, are considered similar if either they are identical or we can make them equivalent by swapping at most two letters (in distinct positions) within the string X.
-For example, "tars" and "rats" are similar (swapping at positions 0 and 2), and "rats" and "arts" are similar, but "star" is not similar to "tars", "rats", or "arts".
-Together, these form two connected groups by similarity: {"tars", "rats", "arts"} and {"star"}.  Notice that "tars" and "arts" are in the same group even though they are not similar.  Formally, each group is such that a word is in the group if and only if it is similar to at least one other word in the group.
-We are given a list strs of strings where every string in strs is an anagram of every other string in strs. How many groups are there?
+Given two integers num and k, consider a set of positive integers with the following properties:
+The units digit of each integer is k.
+The sum of the integers is num.
+Return the minimum possible size of such a set, or -1 if no such set exists.
+Note:
+The set can contain multiple instances of the same integer, and the sum of an empty set is considered 0.
+The units digit of a number is the rightmost digit of the number.
   Example 1:
-Input: strs = ["tars","rats","arts","star"]
+Input: num = 58, k = 9
 Output: 2
+Explanation:
+One valid set is [9,49], as the sum is 58 and each integer has a units digit of 9.
+Another valid set is [19,39].
+It can be shown that 2 is the minimum possible size of a valid set.
 Example 2:
-Input: strs = ["omv","ovm"]
-Output: 1
+Input: num = 37, k = 2
+Output: -1
+Explanation: It is not possible to obtain a sum of 37 using only integers that have a units digit of 2.
+Example 3:
+Input: num = 0, k = 7
+Output: 0
+Explanation: The sum of an empty set is considered 0.
   Constraints:
-1 <= strs.length <= 300
-1 <= strs[i].length <= 300
-strs[i] consists of lowercase letters only.
-All words in strs have the same length and are anagrams of each other.
+0 <= num <= 3000
+0 <= k <= 9

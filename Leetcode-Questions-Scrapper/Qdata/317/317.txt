@@ -1,23 +1,16 @@
-In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
-If the town judge exists, then:
-The town judge trusts nobody.
-Everybody (except for the town judge) trusts the town judge.
-There is exactly one person that satisfies properties 1 and 2.
-You are given an array trust where trust[i] = [ai, bi] representing that the person labeled ai trusts the person labeled bi. If a trust relationship does not exist in trust array, then such a trust relationship does not exist.
-Return the label of the town judge if the town judge exists and can be identified, or return -1 otherwise.
+There are n people standing in a line labeled from 1 to n. The first person in the line is holding a pillow initially. Every second, the person holding the pillow passes it to the next person standing in the line. Once the pillow reaches the end of the line, the direction changes, and people continue passing the pillow in the opposite direction.
+For example, once the pillow reaches the nth person they pass it to the n - 1th person, then to the n - 2th person and so on.
+Given the two positive integers n and time, return the index of the person holding the pillow after time seconds.
   Example 1:
-Input: n = 2, trust = [[1,2]]
+Input: n = 4, time = 5
 Output: 2
+Explanation: People pass the pillow in the following way: 1 -> 2 -> 3 -> 4 -> 3 -> 2.
+Afer five seconds, the pillow is given to the 2nd person.
 Example 2:
-Input: n = 3, trust = [[1,3],[2,3]]
+Input: n = 3, time = 2
 Output: 3
-Example 3:
-Input: n = 3, trust = [[1,3],[2,3],[3,1]]
-Output: -1
+Explanation: People pass the pillow in the following way: 1 -> 2 -> 3.
+Afer two seconds, the pillow is given to the 3rd person.
   Constraints:
-1 <= n <= 1000
-0 <= trust.length <= 104
-trust[i].length == 2
-All the pairs of trust are unique.
-ai != bi
-1 <= ai, bi <= n
+2 <= n <= 1000
+1 <= time <= 1000
